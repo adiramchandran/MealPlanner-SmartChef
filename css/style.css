@@ -1,4 +1,3 @@
-font-family: 'Tangerine', cursive;
 body {
   overflow: hidden;
 }
@@ -11,7 +10,8 @@ a {
 	height: 100%;
 	top: 0;
 	left: 0;
-	font-family: 'Josefin Slab', 'Myriad Pro', Arial, sans-serif;
+  font-family: 'Tangerine', cursive;
+  /* font-family: 'Josefin Slab', 'Myriad Pro', Arial, sans-serif; */
 }
 
 .st-container > input,
@@ -72,7 +72,7 @@ a {
 
 .st-container > input:checked + a,
 .st-container > input:checked:hover + a{
-	background: #821134;
+	background: #00CC99;
 }
 
 .st-container > input:checked + a:after,
@@ -91,11 +91,11 @@ a {
 }
 
 .st-container > input:hover + a{
-	background: #AD244F;
+	background: #00CC99;
 }
 
 .st-container > input:hover + a:after {
-	border-bottom-color: #AD244F;
+	border-bottom-color: #00CC99;
 }
 
 .st-scroll,
