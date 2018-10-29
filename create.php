@@ -7,9 +7,9 @@ $age = $_POST['age'];
 $conn = new mysqli('localhost', 'teamsaauuwwce_teamsauce', 'Teamsauce', 'teamsaauuwwce_tempdatabase');
     if(mysqli_connect_errno()) {
         exit('Connect failed: '. mysqli_connect_error());
-    }
+
 //generate the query (doesn't add id because id is autoincremented)
-$query = "INSERT INTO Users VALUES (NULL, " . $height . ", " . $weight . ", " . $age .")";
+$query = "INSERT INTO Users (" + id + ", " + height + ", " + weight + ", " + age + ");";
 //insert and close.
 mysqli_query($conn, $query);
 mysqli_close($conn);
