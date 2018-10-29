@@ -9,9 +9,7 @@ $conn = new mysqli('localhost', 'teamsaauuwwce_teamsauce', 'Teamsauce', 'teamsaa
         exit('Connect failed: '. mysqli_connect_error());
     }
 //generate the query (doesn't add id because id is autoincremented)
-$query = "INSERT INTO Users (height, weight, age)
-VALUES (height, weight, age);";
-
+$query = "INSERT INTO Users VALUES (NULL, " . $height . ", " . $weight . ", " . $age .")";
 //insert and close.
 mysqli_query($conn, $query);
 mysqli_close($conn);
