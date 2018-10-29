@@ -13,3 +13,5 @@ $query = "insert into Users VALUES( 4, 5, 6)";
 //insert and close.
 mysqli_query($conn, $query);
 mysqli_close($conn);
+
+?>
