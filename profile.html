@@ -105,22 +105,12 @@ VERSION : 1.1
               </div>
           </div>
           <div class="row">
-            <form name = "form1" action="create.php" method = "post" enctype = "multipart/form-data" >
-              <div class = "container">
-                  <div class = "form_group">
-                      <label>Height:</label>
-                      <input type = "text" name = "fname" value = "" required/>
-                  </div>
-                  <div class = "form_group">
-                      <label>Weight:</label>
-                      <input type = "text" name = "mname" value = "" required />
-                  </div>
-                  <div class = "form_group">
-                      <label>Age:</label>
-                      <input type = "text" name = "lname" value = "" required/>
-                  </div>     
-              </div>
-          </form>
+            <form method="post" action="process.php" id="myForm" name="myForm" >
+              <label for="height">ID</label>:  <input type="text" name="height" /><br />
+              <label for="weight">NM:</label> <input type="text" name="weight"><br />
+              <label for="age">Company:</label> <input type="text" name="age"><br />
+              <input type="submit" name="submit"
+  </form>
 
           </div>
       </div>
