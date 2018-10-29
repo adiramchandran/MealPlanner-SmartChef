@@ -9,7 +9,7 @@ $conn = new mysqli('127.0.0.1', 'teamsaauuwwce_teamsauce', 'Teamsauce', 'teamsaa
         exit('Connect failed: '. mysqli_connect_error());
 
 //generate the query (doesn't add id because id is autoincremented)
-$query = "insert into Users VALUES( 4, 5, 6)";
+$query = "insert into Users VALUES(3, 2, 1)";
 //insert and close.
 mysqli_query($conn, $query);
 mysqli_close($conn);
