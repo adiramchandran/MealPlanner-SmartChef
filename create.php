@@ -9,9 +9,13 @@ $conn = new mysqli('127.0.0.1', 'teamsaauuwwce_teamsauce', 'Teamsauce', 'teamsaa
         exit('Connect failed: '. mysqli_connect_error());
 
 //generate the query (doesn't add id because id is autoincremented)
-$query = "insert into Users VALUES(3, 2, 1)";
+$query = "INSERT INTO Users (height, weight, age) VALUES ('".$height."', '".$weight."', '".$age."')";
+
 //insert and close.
-mysqli_query($conn, $query);
+$result = mysqli_query($conn, $query);
+if($result) {
+    echo "Database Updated With: <br />Height: " .$height. " <br />Weight: ".$weight." <br />Age: ".$age."";
+
 mysqli_close($conn);
 
 ?>
