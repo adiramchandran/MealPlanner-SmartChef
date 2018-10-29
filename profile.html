@@ -105,12 +105,22 @@ VERSION : 1.1
               </div>
           </div>
           <div class="row">
-            <form>
-              <div><label>Weight: <input name="m" size="5"></label></div>
-              <div><label>Height: <input name="n" size="5"></label></div>
-              <div><label>Age: <input name="n" size="5"></label></div>
-              <div><input type="submit" value="Multiply!"></div>
-            </form>
+            <form name = "form1" action="create.php" method = "post" enctype = "multipart/form-data" >
+              <div class = "container">
+                  <div class = "form_group">
+                      <label>Height:</label>
+                      <input type = "text" name = "fname" value = "" required/>
+                  </div>
+                  <div class = "form_group">
+                      <label>Weight:</label>
+                      <input type = "text" name = "mname" value = "" required />
+                  </div>
+                  <div class = "form_group">
+                      <label>Age:</label>
+                      <input type = "text" name = "lname" value = "" required/>
+                  </div>     
+              </div>
+          </form>
 
           </div>
       </div>
