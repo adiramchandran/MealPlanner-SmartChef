@@ -9,9 +9,9 @@ session_start();
 $_SESSION['message'] = '';
 $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-$height = (int)$_POST['height'];
-$weight = (int)$_POST['weight'];
-$age = (int)$_POST['age'];
+// $height = (int)$_POST['height'];
+// $weight = (int)$_POST['weight'];
+// $age = (int)$_POST['age'];
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -26,7 +26,7 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 mysqli_close($link);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $sql = "INSERT INTO User (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
+  // $sql = "INSERT INTO User (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
 
   if(($mysqli->query($sql) === true) {
   		header("Inserted!");
