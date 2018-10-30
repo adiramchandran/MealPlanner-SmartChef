@@ -22,7 +22,7 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 mysqli_close($link);
 
-$height = $_POST['height']);
+// $height = $_POST['height']);
 // $weight = $_POST['weight']);
 // $age = $_POST['age']);
 // $sql = "INSERT INTO User (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
