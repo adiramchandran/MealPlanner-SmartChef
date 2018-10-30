@@ -27,7 +27,7 @@ $weight = $_POST['weight']);
 $age = $_POST['age']);
 $sql = "INSERT INTO User (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
 
-if(($mysqli->query($sql) === true)){
+if(mysqli_query($mysqli, $sql) === true) {
 		header("Inserted!");
 		exit();
 }
