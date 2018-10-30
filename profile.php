@@ -7,6 +7,10 @@ VERSION : 1.1
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 -->
 <html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<title></title>
+<link rel="stylesheet" href="w3.css">
+</head>
 <?php
 session_start();
 $_SESSION['message'] = '';
@@ -41,8 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 $mysqli->close();
 ?>
-<head>
-</head>
+
 <body>
   <form method="post" action="profile.php" id="myForm" name="myForm" >
     <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
