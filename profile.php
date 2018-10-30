@@ -24,7 +24,7 @@ if (!$mysqli) {
 // echo "Success: A proper connection top MySQL was made! The my_db database is great." . PHP_EOL;
 // echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 //
-mysqli_close($link);
+// mysqli_close($link);
 // if($_SERVER['REQUEST_METHOD'] == 'POST'){
 //         $height = $_POST['height'];
 //         $weight = $_POST['weight'];
