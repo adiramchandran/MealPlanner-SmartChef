@@ -38,9 +38,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 //         if(($mysqli->query($sql) === true)){
 //          $_SESSION['message'] = "User was created";
 //         }
-        else{
-            $_SESSION['message'] = "Account was not created:(";
-        }
+//         else{
+//             $_SESSION['message'] = "Account was not created:(";
+//         }
 }
 $mysqli->close();
 ?>
