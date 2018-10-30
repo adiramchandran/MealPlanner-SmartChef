@@ -41,8 +41,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         else{
             $_SESSION['message'] = "Account was not created:(";
         }
-
-    }
 }
 $mysqli->close();
 ?>
