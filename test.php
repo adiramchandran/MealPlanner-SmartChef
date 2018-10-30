@@ -22,7 +22,7 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 mysqli_close($link);
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $height = $_POST['height']);
   $weight = $_POST['weight']);
   $age = $_POST['age']);
@@ -32,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   		header("Inserted!");
   		exit();
   }
-  else{
+  else {
       $_SESSION['message'] = "Account was not created:(";
   }
 }
