@@ -8,9 +8,9 @@
 session_start();
 $_SESSION['message'] = '';
 $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-if (!$mysqli) {
-    echo "Error";
-}
+// if (!$mysqli) {
+//     echo "Error";
+// }
 
 // $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //
