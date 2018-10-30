@@ -23,9 +23,9 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 mysqli_close($link);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $height = $mysqli->real_escape_string($_POST['height']));
-  $weight = $mysqli->real_escape_string($_POST['weight']));
-  $age = $mysqli->real_escape_string($_POST['age']));
+  // $height = $mysqli->real_escape_string($_POST['height']));
+  // $weight = $mysqli->real_escape_string($_POST['weight']));
+  // $age = $mysqli->real_escape_string($_POST['age']));
   // $sql = "INSERT INTO User (height, weight, age)  VALUES ('4', '4', '4');";
 
   if(mysqli_query($mysqli, $sql) === true) {
@@ -44,10 +44,6 @@ $mysqli->close();
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Create Profile</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by gettemplates.co" />
-	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="gettemplates.co" />
 	</head>
 
 	<body>
