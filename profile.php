@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $height = $_POST['height'];
         $weight = $_POST['weight'];
         $age = $_POST['age'];
-//         $sql = "INSERT INTO Users (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
+        $sql = "INSERT INTO Users (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
 
         if(($mysqli->query($sql) === true)){
          $_SESSION['message'] = "User was created";
@@ -46,7 +46,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 $mysqli->close();
 ?>
-
+<html>
+<head>
+<head>
 <body>
   <form method="post" action="profile.php" id="myForm" name="myForm" >
     <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
