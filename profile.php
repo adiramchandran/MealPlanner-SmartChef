@@ -16,7 +16,7 @@ VERSION : 1.1
 session_start();
 $_SESSION['message'] = '';
 $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-// $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+$link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 // 
 // if (!$link) {
 //     echo "Error: Unable to connect to MySQL." . PHP_EOL;
