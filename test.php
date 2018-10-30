@@ -21,20 +21,20 @@ echo "Success: A proper connection to MySQL was made! The my_db database is grea
 echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 mysqli_close($link);
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-      $height = $_POST['height']);
-      $weight = $_POST['weight']);
-      $age = $_POST['age']);
-      $sql = "INSERT INTO User (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
 
-      if(($mysqli->query($sql) === true)){
-					header("Inserted!");
-					exit();
-      }
-      else{
-          $_SESSION['message'] = "Account was not created:(";
-      }
+$height = $_POST['height']);
+$weight = $_POST['weight']);
+$age = $_POST['age']);
+$sql = "INSERT INTO User (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
+
+if(($mysqli->query($sql) === true)){
+		header("Inserted!");
+		exit();
 }
+else{
+    $_SESSION['message'] = "Account was not created:(";
+}
+
 $mysqli->close();
 ?>
 
