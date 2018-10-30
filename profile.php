@@ -33,11 +33,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $height = $_POST['height'];
         $weight = $_POST['weight'];
         $age = $_POST['age'];
-        $sql = "INSERT INTO Users (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
-
-        if(($mysqli->query($sql) === true)){
-         $_SESSION['message'] = "User was created";
-        }
+//         $sql = "INSERT INTO Users (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
+//
+//         if(($mysqli->query($sql) === true)){
+//          $_SESSION['message'] = "User was created";
+//         }
         else{
             $_SESSION['message'] = "Account was not created:(";
         }
