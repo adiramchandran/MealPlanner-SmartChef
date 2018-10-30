@@ -52,11 +52,11 @@ $mysqli->close();
 
 	<body>
 
-    <form class="form" action="signup.php" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form class="form" action="test.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
       <input type="text" placeholder="Height" name="height" required />
       <input type="text" placeholder="Weight" name="weight" required />
-      <input type="password" placeholder="Age" name="age" required />
+      <input type="text" placeholder="Age" name="age" required />
       <input type="submit" value="verify" name="Create Account" class="btn btn-block btn-primary" />
 
       <div class="module">
