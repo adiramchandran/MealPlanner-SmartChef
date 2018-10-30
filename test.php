@@ -26,6 +26,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $height = $mysqli->real_escape_string($_POST['height']));
   $weight = $mysqli->real_escape_string($_POST['weight']));
   $age = $mysqli->real_escape_string($_POST['age']));
+  $_SESSION['height'] = $height;
+  $_SESSION['weight'] = $weight;
   $sql = "INSERT INTO User (height, weight, age)  VALUES ('$height', '$weight', '$age');";
 
   if(mysqli_query($mysqli, $sql) === true) {
