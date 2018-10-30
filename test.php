@@ -26,7 +26,7 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 mysqli_close($link);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $sql = "INSERT INTO User (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
+  $sql = "INSERT INTO User (height, weight, age) " . "VALUES ('5', '5', '5')";
 
   if(($mysqli->query($sql) === true) {
   		header("Inserted!");
