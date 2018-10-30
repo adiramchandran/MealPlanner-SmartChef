@@ -26,9 +26,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // $height = $_POST['height']);
   // $weight = $_POST['weight']);
   // $age = $_POST['age']);
-  $sql = "INSERT INTO User (height, weight, age)  VALUES ('4', '4', '4');";
+  $number = 4;
+  $sql = "INSERT INTO User (height, weight, age) " . "VALUES ('$number', '$numbe', '$number')";
 
-  if($mysqli->exec($sql) === true) {
+  if(($mysqli->query($sql) === true) {
   		header("Inserted!");
   }
   else {
