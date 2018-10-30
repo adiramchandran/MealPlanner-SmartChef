@@ -42,7 +42,7 @@ $mysqli->close();
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Thullu Polls &mdash; Share Your Opinions</title>
+	<title>Create Profile</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by gettemplates.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -50,12 +50,16 @@ $mysqli->close();
 	</head>
 
 	<body>
-    <form method="post" action="profile.php" id="myForm" enctype="multipart/form-data" name="myForm" >
+
+    <form class="form" action="test.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
-      <label for="height">Height:</label>  <input type="text" name="height" /><br />
-      <label for="weight">Weight:</label> <input type="text" name="weight"><br />
-      <label for="age">Age:</label> <input type="text" name="age"><br />
-      <input type="submit" name="submit"/>
+      <label for="height">Height:</label><input type="text" placeholder="Height" name="height" required />
+      <label for="weight">Weight:</label><input type="text" placeholder="Weight" name="weight" required />
+      <label for="age">Age:</label><input type="text" placeholder="Age" name="age" required />
+      <input type="submit" name="submit" class="btn btn-block btn-primary" />
+      <div class="module">
     </form>
+
+
 	</body>
 </html>
