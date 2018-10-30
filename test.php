@@ -23,12 +23,10 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 mysqli_close($link);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $height = $mysqli->real_escape_string($_POST['height']));
-  $weight = $mysqli->real_escape_string($_POST['weight']));
-  $age = $mysqli->real_escape_string($_POST['age']));
-  $_SESSION['height'] = $height;
-  $_SESSION['weight'] = $weight;
-  $sql = "INSERT INTO User (height, weight, age)  VALUES ('$height', '$weight', '$age');";
+  $height = $_POST['height'];
+  $weight = $_POST['weight'];
+  $age = $_POST['age'];
+  $sql = "INSERT INTO User (height, weight, age)  VALUES ($height, $weight, $age);";
 
   if(mysqli_query($mysqli, $sql) === true) {
   		header("Inserted!");
