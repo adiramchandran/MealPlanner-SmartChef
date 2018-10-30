@@ -30,10 +30,10 @@ $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teams
 
 // mysqli_close($link);
 // if($_SERVER['REQUEST_METHOD'] == 'POST'){
-//         $height = $_POST['height'];
-//         $weight = $_POST['weight'];
-//         $age = $_POST['age'];
-//         $sql = "INSERT INTO Users (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
+        $height = $_POST['height'];
+        $weight = $_POST['weight'];
+        $age = $_POST['age'];
+        $sql = "INSERT INTO Users (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
 //
 //         if(($mysqli->query($sql) === true)){
 //          $_SESSION['message'] = "User was created";
