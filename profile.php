@@ -29,10 +29,10 @@ $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teams
 // echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 // mysqli_close($link);
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $height = $_POST['height'];
-        $weight = $_POST['weight'];
-        $age = $_POST['age'];
+// if($_SERVER['REQUEST_METHOD'] == 'POST'){
+//         $height = $_POST['height'];
+//         $weight = $_POST['weight'];
+//         $age = $_POST['age'];
 //         $sql = "INSERT INTO Users (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
 //
 //         if(($mysqli->query($sql) === true)){
@@ -41,7 +41,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 //         else{
 //             $_SESSION['message'] = "Account was not created:(";
 //         }
-}
+// }
 $mysqli->close();
 ?>
 <html>
