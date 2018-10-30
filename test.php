@@ -56,7 +56,6 @@ $mysqli->close();
       <label for="weight">Weight:</label> <input type="text" name="weight"><br />
       <label for="age">Age:</label> <input type="text" name="age"><br />
       <input type="submit" name="submit"/>
-    </div>
     </form>
 	</body>
 </html>
