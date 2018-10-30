@@ -22,17 +22,19 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 mysqli_close($link);
 
-$height = $_POST['height']);
-$weight = $_POST['weight']);
-$age = $_POST['age']);
-$sql = "INSERT INTO User (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+  $height = $_POST['height']);
+  $weight = $_POST['weight']);
+  $age = $_POST['age']);
+  $sql = "INSERT INTO User (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
 
-if(mysqli_query($mysqli, $sql) === true) {
-		header("Inserted!");
-		exit();
-}
-else{
-    $_SESSION['message'] = "Account was not created:(";
+  if(mysqli_query($mysqli, $sql) === true) {
+  		header("Inserted!");
+  		exit();
+  }
+  else{
+      $_SESSION['message'] = "Account was not created:(";
+  }
 }
 
 $mysqli->close();
