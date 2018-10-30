@@ -8,28 +8,12 @@
 session_start();
 $_SESSION['message'] = '';
 $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-// if($_SERVER['REQUEST_METHOD'] == 'POST'){
-//     if($_POST['password'] == $_POST['confirmpassword']){
-//         $name = $mysqli->real_escape_string($_POST['name']);
-//         $id = $mysqli->real_escape_string($_POST['id']);
-//         $password = $mysqli->real_escape_string($_POST['password']);
-//         $_SESSION['name'] = $name;
-//         $_SESSION['id'] = $id;
-//         $sql = "INSERT INTO User (id, name, password) " . "VALUES ('$id', '$name', '$password')";
-//
-//         if(($mysqli->query($sql) === true)){
-// 						header("Location: http://thullupolls.web.illinois.edu/signin.php");
-// 						exit();
-//         }
-//         else{
-//             $_SESSION['message'] = "Account was not created:(";
-//         }
-//
-//     }
-//     else{
-//         $_SESSION['message'] = "Two passwords do not match! Please type a valid password.";
-//     }
-// }
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      $height = $mysqli->real_escape_string($_POST['height']);
+      $weight = $mysqli->real_escape_string($_POST['weight']);
+      $age = $mysqli->real_escape_string($_POST['age']);
+      $sql = "INSERT INTO User (height, weight, age) " . "VALUES ('$height', '$weight', '$age')";
+}
 $mysqli->close();
 ?>
 
