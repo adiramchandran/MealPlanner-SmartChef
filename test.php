@@ -54,9 +54,9 @@ $mysqli->close();
 
     <form class="form" action="test.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
-      <input type="text" placeholder="Height" name="height" required />
-      <input type="text" placeholder="Weight" name="weight" required />
-      <input type="text" placeholder="Age" name="age" required />
+      <input type="number" placeholder="Height" name="height" required />
+      <input type="number" placeholder="Weight" name="weight" required />
+      <input type="number" placeholder="Age" name="age" required />
       <input type="submit" value="verify" name="Create Account" class="btn btn-block btn-primary" />
 
       <div class="module">
