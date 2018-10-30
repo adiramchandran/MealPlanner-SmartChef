@@ -9,9 +9,9 @@ session_start();
 $_SESSION['message'] = '';
 $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-$height = $_POST['height']);
-$weight = $_POST['weight']);
-$age = $_POST['age']);
+// $height = $_POST['height']);
+// $weight = $_POST['weight']);
+// $age = $_POST['age']);
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
