@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 }
 
-echo "Last inserted record has id %d\n" . mysql_insert_id();
+echo "Last inserted record has id %d" . mysql_insert_id();
 
 $mysqli->close();
 ?>
