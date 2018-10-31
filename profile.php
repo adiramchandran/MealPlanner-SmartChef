@@ -27,10 +27,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $weight = $_POST['weight'];
   $age = $_POST['age'];
   $sql = "INSERT INTO User (ID, Height, Weight, Age) " . " VALUES (NULL, $height, $weight, $age)";
-  printf("Last inserted record has id %d" . mysql_insert_id());
+  // printf("Last inserted record has id %d" . mysql_insert_id());
 
   if(mysqli_query($mysqli, $sql) === true) {
-  		header("Inserted!");
+    $last_id = $mysqli->insert_id;
+    echo "New record created successfully. Last inserted ID is: " . $last_id;
   }
   else {
       $_SESSION['message'] = "Account was not created:(";
@@ -47,7 +48,7 @@ $mysqli->close();
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<title>Create a Profile</title>
 
-  
+
 	</head>
 
 	<body>
