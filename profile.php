@@ -41,9 +41,31 @@ $mysqli->close();
 
 <html>
 	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Create Profile</title>
+    <meta charset="utf-8">
+  	<meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<title>Create a Profile</title>
+
+  	<!-- [ FONT-AWESOME ICON ]
+          =========================================================================================================================-->
+  	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
+
+  	<!-- [ PLUGIN STYLESHEET ]
+          =========================================================================================================================-->
+  	<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+  	<link rel="stylesheet" type="text/css" href="css/animate.css">
+  	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+          <link rel ="stylesheet" type="text/css" href="library/vegas/vegas.min.css">
+  	<!-- [ Boot STYLESHEET ]
+          =========================================================================================================================-->
+  	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap-theme.min.css">
+  	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap.css">
+
+          <!-- [ DEFAULT STYLESHEET ]
+          =========================================================================================================================-->
+  	<link rel="stylesheet" type="text/css" href="css/style.css">
+          <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  	<link rel="stylesheet" type="text/css" href="css/color/green.css">
 	</head>
 
 	<body>
