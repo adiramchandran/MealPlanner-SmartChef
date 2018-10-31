@@ -48,7 +48,12 @@ $mysqli->close();
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<title>Create a Profile</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
-
+    
+    <!-- [ PLUGIN STYLESHEET ]
+          =========================================================================================================================-->
+  	<link rel="stylesheet" type="text/css" href="css/animate.css">
+  	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+    <link rel ="stylesheet" type="text/css" href="library/vegas/vegas.min.css">
     <!-- [ FONT-AWESOME ICON ]
           =========================================================================================================================-->
   	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
@@ -79,19 +84,12 @@ $mysqli->close();
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#home" class="page-scroll">Home</a></li>
-            <li><a href="#feature" class="page-scroll">Features</a></li>
-            <li><a href="#howwork" class="page-scroll">How works</a></li>
-            <li><a href="#whylove" class="page-scroll">Why love?</a></li>
-            <li><a href="#stats" class="page-scroll">Status</a></li>
-            <li><a href="#screenshot" class="page-scroll">Screenshots</a></li>
-            <li><a href="#testimonial-s" class="page-scroll">Testimonials</a></li>
-            <li><a href="#contact" class="page-scroll" id="contacts"><i class="fa fa-send"></i></a></li>
+            <li><a href="index.html" class="page-scroll">Home</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    
+
     <div class="form-style-5">
       <form class="form-style-5" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
         <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
