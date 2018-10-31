@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $height = $_POST['height'];
   $weight = $_POST['weight'];
   $age = $_POST['age'];
-  $sql = "INSERT INTO User (height, weight, age) " . " VALUES ($height, $weight, $age)";
+  $sql = "INSERT INTO User (ID, Height, Weight, Age) " . " VALUES (NULL, $height, $weight, $age)";
 
   if(mysqli_query($mysqli, $sql) === true) {
   		header("Inserted!");
