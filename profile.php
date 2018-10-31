@@ -85,6 +85,7 @@ $mysqli->close();
  ============================================================================================================================-->
    <!-- Navigation
     ==========================================-->
+    <section>
     <nav  class="amd-menu navbar navbar-default navbar-fixed-top theme_background_color fadeInDown">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -106,6 +107,7 @@ $mysqli->close();
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+  </section>
 
 
    <!-- [/NAV]
@@ -117,7 +119,7 @@ $mysqli->close();
 
   <!-- [MAIN GALLERY ]
 =============================================================================================================================-->
-  <section>
+  <section class="main-gallery">
     <form class="form-style-5" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
       <input type="text" placeholder="Height" name="height" required />
