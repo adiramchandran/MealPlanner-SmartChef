@@ -48,7 +48,7 @@ $mysqli->close();
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<title>Create a Profile</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
-    
+
     <!-- [ PLUGIN STYLESHEET ]
           =========================================================================================================================-->
   	<link rel="stylesheet" type="text/css" href="css/animate.css">
@@ -68,6 +68,7 @@ $mysqli->close();
 	</head>
 
 	<body>
+    <div class="wrapper">
     <nav  class="amd-menu navbar navbar-default navbar-fixed-top theme_background_color fadeInDown">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -90,7 +91,6 @@ $mysqli->close();
       </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="form-style-5">
       <form class="form-style-5" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
         <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
         <input type="text" placeholder="Height" name="height" required />
@@ -101,7 +101,6 @@ $mysqli->close();
         <div class="module">
       </form>
     </div>
-
 
 	</body>
 </html>
