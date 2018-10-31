@@ -62,7 +62,7 @@ $mysqli->close();
 
 	<body>
 
-    <form class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form class="form-style-5" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
       <input type="text" placeholder="Height" name="height" required />
       <input type="text" placeholder="Weight" name="weight" required />
