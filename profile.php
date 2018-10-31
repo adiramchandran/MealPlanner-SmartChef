@@ -86,7 +86,7 @@ $mysqli->close();
    <!-- Navigation
     ==========================================-->
     <section>
-    <nav  class="amd-menu navbar navbar-default theme_background_color">
+    <nav  class="amd-menu navbar navbar-default navbar-fixed-top theme_background_color fadeInDown">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -117,15 +117,15 @@ $mysqli->close();
 
 
 
-  <!-- [MAIN GALLERY ]
+  <!-- [METRICS ]
 =============================================================================================================================-->
   <section class="metrics">
-    <form class="form-style-5" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form style="margin-top:20px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
       <input type="text" placeholder="Height" name="height" required />
       <input type="text" placeholder="Weight" name="weight" required />
       <input type="text" placeholder="Age" name="age" required />
-      <input type="submit" value="Submit" name="Create Account" class="btn btn-block btn-primary" />
+      <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
 
       <div class="module">
     </form>
