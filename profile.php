@@ -68,7 +68,15 @@ $mysqli->close();
 	</head>
 
 	<body>
-    <div class="wrapper">
+    <div class="preloader">
+      <div class="loader">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+    </div>
+        <div class="wrapper">
     <nav  class="amd-menu navbar navbar-default navbar-fixed-top theme_background_color fadeInDown">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -100,6 +108,46 @@ $mysqli->close();
 
         <div class="module">
       </form>
+
+      <!-- [FOOTER]
+     =============================================================================================================================-->
+      <footer class="footer">
+
+               <div class="container">
+                 <div class="footer-info col-md-12 text-center">
+                   <ul>
+                     <li><a href="#">Manchester,ny 14608</a></li>
+                     <li><a href="#">+580-698-5024</a></li>
+                     <li><a href="#">yourplugins@gmail.com</a></li>
+                   </ul>
+                 </div>
+                 <div class="footer-social-icons col-md-12 text-center">
+                   <ul>
+                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                     <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                   </ul>
+                 </div>
+               </div>
+
+
+
+      </footer>
+
+      <section class="sub-footer">
+               <div class="container">
+                 <div class="copyright-text col-md-6 col-sm-6 col-xs-12">
+                   <p>© 2014 AM-D. All rights reserved.</p>
+                 </div>
+                 <div class="designed-by col-md-6 col-sm-6 col-xs-12">
+                   <p>Designed by: <a href="#">YOUR PLUGIN</a></p>
+                 </div>
+               </div>
+             </section>
+
+      <!-- [/FOOTER]
     </div>
 
     <!-- [ DEFAULT SCRIPT ] -->
