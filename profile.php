@@ -1,7 +1,6 @@
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
 	<title></title>
-	<link rel="stylesheet" href="w3.css">
 </head>
 
 <?php
@@ -28,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $weight = $_POST['weight'];
   $age = $_POST['age'];
   $sql = "INSERT INTO User (ID, Height, Weight, Age) " . " VALUES (NULL, $height, $weight, $age)";
-  echo "Last inserted record has id %d" . mysql_insert_id();
+  printf("Last inserted record has id %d" . mysql_insert_id());
 
   if(mysqli_query($mysqli, $sql) === true) {
   		header("Inserted!");
