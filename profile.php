@@ -1,10 +1,3 @@
-<html>
-<head>
-  <meta charset="utf-8">
-	<meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-</head>
-
 <?php
 session_start();
 $_SESSION['message'] = '';
@@ -42,40 +35,56 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $mysqli->close();
 ?>
-
 <html>
-	<head>
-  	<title>Create a Profile</title>
-    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Saucy Chef</title>
 
-    <!-- [ PLUGIN STYLESHEET ]
-          =========================================================================================================================-->
-  	<link rel="stylesheet" type="text/css" href="css/animate.css">
-  	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
-    <link rel ="stylesheet" type="text/css" href="library/vegas/vegas.min.css">
-    <!-- [ FONT-AWESOME ICON ]
-          =========================================================================================================================-->
-  	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
-    <!-- [ DEFAULT STYLESHEET ]
+	<!-- [ FONT-AWESOME ICON ]
         =========================================================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
+
+	<!-- [ PLUGIN STYLESHEET ]
+        =========================================================================================================================-->
+	<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+  <link rel ="stylesheet" type="text/css" href="library/vegas/vegas.min.css">
+	<!-- [ Boot STYLESHEET ]
+        =========================================================================================================================-->
+	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap.css">
+
+        <!-- [ DEFAULT STYLESHEET ]
+        =========================================================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="css/color/green.css">
+	<link rel="stylesheet" type="text/css" href="css/color/green.css">
 
-
-
-	</head>
-
-	<body>
+</head>
+<body >
+<!-- [ LOADERs ]
+================================================================================================================================-->
     <div class="preloader">
-      <div class="loader">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-      </div>
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-        <div class="wrapper">
+</div>
+<!-- [ /PRELOADER ]
+=============================================================================================================================-->
+<!-- [WRAPPER ]
+=============================================================================================================================-->
+<div class="wrapper">
+
+ <!-- [NAV]
+ ============================================================================================================================-->
+   <!-- Navigation
+    ==========================================-->
     <nav  class="amd-menu navbar navbar-default navbar-fixed-top theme_background_color fadeInDown">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -98,71 +107,100 @@ $mysqli->close();
       </div><!-- /.container-fluid -->
     </nav>
 
-      <form class="form-style-5" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-        <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
-        <input type="text" placeholder="Height" name="height" required />
-        <input type="text" placeholder="Weight" name="weight" required />
-        <input type="text" placeholder="Age" name="age" required />
-        <input type="submit" value="Submit" name="Create Account" class="btn btn-block btn-primary" />
 
-        <div class="module">
-      </form>
-
-      <!-- [FOOTER]
-     =============================================================================================================================-->
-      <footer class="footer">
-
-               <div class="container">
-                 <div class="footer-info col-md-12 text-center">
-                   <ul>
-                     <li><a href="#">Manchester,ny 14608</a></li>
-                     <li><a href="#">+580-698-5024</a></li>
-                     <li><a href="#">yourplugins@gmail.com</a></li>
-                   </ul>
-                 </div>
-                 <div class="footer-social-icons col-md-12 text-center">
-                   <ul>
-                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                     <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                   </ul>
-                 </div>
-               </div>
+   <!-- [/NAV]
+ ============================================================================================================================-->
 
 
 
-      </footer>
 
-      <section class="sub-footer">
-               <div class="container">
-                 <div class="copyright-text col-md-6 col-sm-6 col-xs-12">
-                   <p>© 2014 AM-D. All rights reserved.</p>
-                 </div>
-                 <div class="designed-by col-md-6 col-sm-6 col-xs-12">
-                   <p>Designed by: <a href="#">YOUR PLUGIN</a></p>
-                 </div>
-               </div>
-             </section>
 
-      <!-- [/FOOTER]
-    </div>
+  <!-- [MAIN GALLERY ]
+=============================================================================================================================-->
+  <section>
+    <form class="form-style-5" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+      <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
+      <input type="text" placeholder="Height" name="height" required />
+      <input type="text" placeholder="Weight" name="weight" required />
+      <input type="text" placeholder="Age" name="age" required />
+      <input type="submit" value="Submit" name="Create Account" class="btn btn-block btn-primary" />
 
-    <!-- [ DEFAULT SCRIPT ] -->
-    <script src="library/modernizr.custom.97074.js"></script>
-    <script src="library/jquery-1.11.3.min.js"></script>
-          <script src="library/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-          <script src="library/vegas/vegas.min.js"></script>
-    <!-- [ PLUGIN SCRIPT ] -->
+      <div class="module">
+    </form>
+  </section>
 
-    <script src="js/plugins.js"></script>
-          <script src="js/fappear.js"></script>
-         <script src="js/jquery.countTo.js"></script>
-    <script src="js/scrollreveal.js"></script>
-           <!-- [ COMMON SCRIPT ] -->
-    <script src="js/common.js"></script>
 
-	</body>
+ <!-- [FOOTER]
+=============================================================================================================================-->
+ <footer class="footer">
+
+					<div class="container">
+						<div class="footer-info col-md-12 text-center">
+							<ul>
+								<li><a href="#">Manchester,ny 14608</a></li>
+								<li><a href="#">+580-698-5024</a></li>
+								<li><a href="#">yourplugins@gmail.com</a></li>
+							</ul>
+						</div>
+						<div class="footer-social-icons col-md-12 text-center">
+							<ul>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="#"><i class="fa fa-rss"></i></a></li>
+							</ul>
+						</div>
+					</div>
+
+
+
+ </footer>
+
+ <section class="sub-footer">
+					<div class="container">
+						<div class="copyright-text col-md-6 col-sm-6 col-xs-12">
+							<p>© 2014 AM-D. All rights reserved.</p>
+						</div>
+						<div class="designed-by col-md-6 col-sm-6 col-xs-12">
+							<p>Designed by: <a href="#">YOUR PLUGIN</a></p>
+						</div>
+					</div>
+				</section>
+
+ <!-- [/FOOTER]
+=============================================================================================================================-->
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<!-- [ /WRAPPER ]
+=============================================================================================================================-->
+
+	<!-- [ DEFAULT SCRIPT ] -->
+	<script src="library/modernizr.custom.97074.js"></script>
+	<script src="library/jquery-1.11.3.min.js"></script>
+        <script src="library/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script src="library/vegas/vegas.min.js"></script>
+	<!-- [ PLUGIN SCRIPT ] -->
+
+	<script src="js/plugins.js"></script>
+        <script src="js/fappear.js"></script>
+       <script src="js/jquery.countTo.js"></script>
+	<script src="js/scrollreveal.js"></script>
+       	 <!-- [ COMMON SCRIPT ] -->
+	<script src="js/common.js"></script>
+
+</body>
+
+
 </html>
