@@ -20,6 +20,7 @@ $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teams
 // echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
 // echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
+
 mysqli_close($link);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -35,6 +36,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['message'] = "Account was not created:(";
   }
 }
+
+echo "Last inserted record has id %d\n" . mysql_insert_id();
 
 $mysqli->close();
 ?>
