@@ -120,7 +120,7 @@ $mysqli->close();
   <!-- [METRICS ]
 =============================================================================================================================-->
   <section class="metrics">
-    <form style="margin-top:100px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
       <input type="text" placeholder="Height" name="height" required />
       <input type="text" placeholder="Weight" name="weight" required />
