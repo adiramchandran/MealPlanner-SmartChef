@@ -119,7 +119,7 @@ $mysqli->close();
 
   <!-- [MAIN GALLERY ]
 =============================================================================================================================-->
-  <section class="theme_background_color">
+  <section class="survey">
     <form class="form-style-5" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
       <input type="text" placeholder="Height" name="height" required />
