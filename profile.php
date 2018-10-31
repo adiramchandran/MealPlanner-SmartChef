@@ -86,7 +86,7 @@ $mysqli->close();
    <!-- Navigation
     ==========================================-->
     <section>
-    <nav  class="amd-menu navbar navbar-default navbar-fixed-top theme_background_color">
+    <nav  class="amd-menu navbar navbar-default theme_background_color">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
