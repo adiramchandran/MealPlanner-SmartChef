@@ -1,6 +1,8 @@
 <html>
-<head><meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-	<title></title>
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 
 <?php
@@ -43,9 +45,6 @@ $mysqli->close();
 
 <html>
 	<head>
-    <meta charset="utf-8">
-  	<meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<title>Create a Profile</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
 
