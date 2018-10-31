@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if(mysqli_query($mysqli, $sql) === true) {
     $last_id = $mysqli->insert_id;
-    echo "New record created successfully. Last inserted ID is: " . $last_id;
+    echo "New record created successfully. Your ID is: " . $last_id;
   }
   else {
       $_SESSION['message'] = "Account was not created:(";
@@ -47,6 +47,15 @@ $mysqli->close();
   	<meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<title>Create a Profile</title>
+    <!-- [ FONT-AWESOME ICON ]
+          =========================================================================================================================-->
+  	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
+    <!-- [ DEFAULT STYLESHEET ]
+        =========================================================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="css/color/green.css">
+
 
 
 	</head>
