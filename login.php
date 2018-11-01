@@ -1,3 +1,30 @@
+<?php
+session_start();
+$_SESSION['message'] = '';
+$mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if($_POST['password'] == $_POST['confirm-password']){
+    $email = $mysqli->real_escape_string($_POST['email']);
+    $username = $mysqli->real_escape_string($_POST['username']);
+    $password = $mysqli->real_escape_string($_POST['password']);
+    $sql = "INSERT INTO User (ID, Username, Password, Email) " . " VALUES (NULL, $username, $password, $email)";
+    // printf("Last inserted record has id %d" . mysql_insert_id());
+
+    if(mysqli_query($mysqli, $sql) === true) {
+      echo "New record created successfully. Your ID is: " . $last_id;
+    }
+    else {
+        $_SESSION['message'] = "Account was not created:(";
+    }
+  }
+  else {
+    $_SESSION['message'] = "Passwords do not match! Please try again.";
+  }
+}
+
+$mysqli->close();
+?>
 <html>
 <head>
   <title> Login </title>
@@ -112,17 +139,19 @@
 <body>
   <div class="login-page">
     <div class="form">
-      <form class="register-form">
-        <input type="text" placeholder="name"/>
-        <input type="password" placeholder="password"/>
-        <input type="text" placeholder="email address"/>
+      <form class="register-form" action="login.php" method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="name" name="username"/>
+        <input type="password" placeholder="password" name="password"/>
+        <input type="text" placeholder="email address" name="email"/>
         <button>create</button>
         <p class="message">Already registered? <a href="#">Sign In</a></p>
       </form>
       <form class="login-form">
-        <input type="text" placeholder="username"/>
-        <input type="password" placeholder="password"/>
-        <button>login</button>
+        <input type="text" placeholder="email address" name="email"/>
+        <input type="text" placeholder="username" name="username"/>
+        <input type="password" placeholder="password" name="password"/>
+        <input type="password" placeholder="confirm password" name="confirm-password"/>
+        <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
         <p class="message">Not registered? <a href="#">Create an account</a></p>
       </form>
     </div>
