@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if(mysqli_query($mysqli, $sql) === true) {
       echo "Account created successfully!";
-      header("Location: index.php");
+      header("Location: index.html");
       exit();
     }
     else {
