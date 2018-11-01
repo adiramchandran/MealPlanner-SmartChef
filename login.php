@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // printf("Last inserted record has id %d" . mysql_insert_id());
 
     if(mysqli_query($mysqli, $sql) === true) {
-      echo "New record created successfully. Your ID is: " . $last_id;
+      echo "Account created successfully!";
     }
     else {
       echo "Account could not be created";
