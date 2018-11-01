@@ -160,12 +160,12 @@ $mysqli->close();
         <button>create</button>
         <p class="message">Already registered? <a href="#">Sign In</a></p>
       </form>
-      <form class="login-form">
+      <form class="login-form" action="login.php" method="post" enctype="multipart/form-data">
         <input type="text" placeholder="email address" name="email"/>
         <input type="text" placeholder="username" name="username"/>
         <input type="password" placeholder="password" name="password"/>
         <input type="password" placeholder="confirm password" name="confirm-password"/>
-        <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
+        <input type="submit" value="Create Account" class="btn btn-block" />
         <p class="message">Not registered? <a href="#">Create an account</a></p>
       </form>
     </div>
