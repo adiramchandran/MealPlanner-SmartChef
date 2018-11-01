@@ -103,6 +103,11 @@
       -moz-osx-font-smoothing: grayscale;
     }
   </style>
+  <script>
+    $('.message a').click(function(){
+      $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+    });
+  </script>
 </head>
 <body>
   <div class="login-page">
