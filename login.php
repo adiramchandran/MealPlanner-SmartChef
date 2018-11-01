@@ -160,7 +160,8 @@ $mysqli->close();
         <button>create</button>
         <p class="message">Already registered? <a href="#">Sign In</a></p>
       </form>
-      <form class="login-form" action="login.php" method="post" enctype="multipart/form-data">
+      <form class="form" action="login.php" method="post" enctype="multipart/form-data">
+        <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
         <input type="text" placeholder="email address" name="email" required/>
         <input type="text" placeholder="username" name="username" required/>
         <input type="password" placeholder="password" name="password" required/>
