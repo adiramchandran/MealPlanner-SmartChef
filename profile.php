@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if(mysqli_query($mysqli, $sql) === true) {
     $last_id = $mysqli->insert_id;
-    echo "New record created successfully. Your ID is: " . $last_id;
+    $_SESSION['user'] = "New record created successfully. Your ID is: " . $last_id;
   }
   else {
       $_SESSION['message'] = "Account was not created:(";
@@ -181,7 +181,7 @@ $mysqli->close();
 =============================================================================================================================-->
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
+      <div class="alert alert-error"><?= $_SESSION['user'] ?></div>
       <input type="text" placeholder="Height" name="height" required />
       <input type="text" placeholder="Weight" name="weight" required />
       <input type="text" placeholder="Age" name="age" required />
