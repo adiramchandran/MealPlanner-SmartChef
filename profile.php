@@ -69,6 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 $mysqli->close();
 
 // Search
+$link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $id = $_POST['id'];
   $currHeight = $_POST['currHeight'];
@@ -76,8 +77,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sql = "SELECT * FROM User WHERE Height > $currHeight - 2 AND Height < $currHeight + 2
   AND  Weight > $currWeight - 5 AND Weight < $currWeight + 5 AND ID != $id;
 
-  $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  $result = mysqli_query($mysqli, $sql);
+
+  $result = mysqli_query($link, $sql);
   if($result === true) {
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
@@ -91,8 +92,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else {
       $_SESSION['message'] = "Search error";
   }
-  mysqli_close($link);
-}
+}  mysqli_close($link);
+
 
 
 
