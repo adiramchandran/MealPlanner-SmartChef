@@ -87,8 +87,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sql = "SELECT Height, Weight, Age FROM User WHERE ID = $searchId";
 
 
-  $result = mysqli_query($mysqli, $sql);
-  if($result == true) {
+  $results = mysqli_query($mysqli, $sql);
+  if($results == true) {
     while($row = mysqli_fetch_assoc($results)) {
             // $_SESSION['results'] = "id: " . $row["ID"]. " - Height: " . $row["Height"] . " - Weight: " . $row["Weight"] . "<br>";
             // echo "id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"]. "br>";
