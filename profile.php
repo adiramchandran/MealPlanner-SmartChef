@@ -70,34 +70,31 @@ $mysqli->close();
 
 
 // Search
-$link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-
-if (!$link) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-}
-
- echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
-echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+// $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+//
+// if (!$link) {
+//     echo "Error: Unable to connect to MySQL." . PHP_EOL;
+//     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+//     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+//     exit;
+// }
+//
+// echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
+// echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $id = $_POST['id'];
-  $currHeight = $_POST['currHeight'];
-  $currWeight = $_POST['currWeight'];
-  $sql = "SELECT ID, Height, Weight FROM User WHERE (Height > $currHeight - 2 AND Height < $currHeight + 2)
-  AND  (Weight > $currWeight - 5 AND Weight < $currWeight + 5) AND (ID != $id)";
+  $sql = "SELECT Height, Weight, Age FROM User WHERE ID = $id";
 
 
-  $result = mysqli_query($link, $sql);
-  if($result === true) {
-    if (mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
-            $_SESSION['results'] = "id: " . $row["ID"]. " - Height: " . $row["Height"] . " - Weight: " . $row["Weight"] . "<br>";
+  $result = mysqli_query($mysqli, $sql);
+  if($result == true) {
+    while($row = mysqli_fetch_assoc($result)) {
+            // $_SESSION['results'] = "id: " . $row["ID"]. " - Height: " . $row["Height"] . " - Weight: " . $row["Weight"] . "<br>";
             // echo "id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"]. "br>";
-
-        }
+            echo $row['Height'];
+            echo $row['Weight'];
+            echo $row['Age'];
     }
     else {
         echo "0 results";
