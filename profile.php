@@ -80,7 +80,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   if($result === true) {
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-            echo "id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"]. "<br>";
+            echo '<span style="color:#000;">"id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"].<br>"</span>';
+            
         }
     }
     else {
