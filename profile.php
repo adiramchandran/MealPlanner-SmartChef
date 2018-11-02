@@ -35,6 +35,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
+// UPDATE 
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $id = $_POST['updateID'];
+  $height = $_POST['updateHeight'];
+  $weight = $_POST['updateWeight'];
+  $age = $_POST['updateAge'];
+  $sql = "UPDATE User SET Height = $updateHeight AND Weight = $updateWeight AND Age = $updateAge WHERE ID = $updateID";
+  // printf("Last inserted record has id %d" . mysql_insert_id());
+
+  if(mysqli_query($mysqli, $sql) === true) {
+    $last_id = $mysqli->insert_id;
+    echo "Your entry has been updated";
+  }
+  else {
+      $_SESSION['message'] = "Account was not created:(";
+  }
+}
+
 
 
 $mysqli->close();
@@ -135,7 +153,7 @@ $mysqli->close();
     </form>
   </section>
 
-  <!-- <section class="metrics">
+  <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
       <input type="text" placeholder="ID" name="updateID" required />
@@ -146,7 +164,7 @@ $mysqli->close();
 
       <div class="module">
     </form>
-  </section>-->
+  </section>
 </div> 
 
 
