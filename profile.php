@@ -36,12 +36,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-// UPDATE 
+// UPDATE
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $id = $_POST['updateID'];
-  $height = $_POST['updateHeight'];
-  $weight = $_POST['updateWeight'];
-  $age = $_POST['updateAge'];
+  $updateID = $_POST['updateID'];
+  $updateHeight = $_POST['updateHeight'];
+  $updateWeight = $_POST['updateWeight'];
+  $updateAge = $_POST['updateAge'];
   $sql = "UPDATE User SET Height = $updateHeight, Weight = $updateWeight, Age = $updateAge WHERE ID = $updateID";
 
 
@@ -173,7 +173,7 @@ $mysqli->close();
       <div class="module">
     </form>
   </section>
-</div> 
+</div>
 
 
 <!-- [ /WRAPPER ]
