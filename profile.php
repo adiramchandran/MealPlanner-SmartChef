@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['message'] = "Account not deleted";
   }
 }
-$mysqli->close();
+
 
 
 // Search
@@ -105,7 +105,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 }
 // mysqli_close($link);
-
+$mysqli->close();
 
 
 
