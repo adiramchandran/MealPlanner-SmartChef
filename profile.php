@@ -78,10 +78,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $results = mysqli_query($mysqli, $sql);
   if($results == true) {
     while($row = mysqli_fetch_assoc($results)) {
-            if (!$row){
-                $_SESSION['message'] = "Invalid ID";
-                break;
-            }
             $_SESSION['results'] = "Height: " . $row['Height']. " - Weight: " . $row['Weight'] . " - Age: " . $row['Age'] . "<br>";
             // echo "id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"]. "br>";
             echo $row['Height'];
