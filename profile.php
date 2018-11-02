@@ -146,8 +146,8 @@ $mysqli->close();
 
       <div class="module">
     </form>
-  </section>
-</div> -->
+  </section>-->
+</div> 
 
 
 <!-- [ /WRAPPER ]
