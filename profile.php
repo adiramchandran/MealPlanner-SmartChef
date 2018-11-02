@@ -76,7 +76,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   AND  Weight > $currWeight - 5 AND Weight < $currWeight + 5 AND ID != $id";
 
 
-  $result = mysqli_query($mysqli, $sql);
+  $result = mysqli_query($sql);
   if($result === true) {
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
