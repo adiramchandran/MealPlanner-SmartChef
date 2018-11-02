@@ -83,13 +83,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 // echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $id = $_POST['id'];
-  $sql = "SELECT Height, Weight, Age FROM User WHERE ID = $id";
+  $searchId = $_POST['searchId'];
+  $sql = "SELECT Height, Weight, Age FROM User WHERE ID = $searchId";
 
 
   $result = mysqli_query($mysqli, $sql);
   if($result == true) {
-    while($row = mysqli_fetch_assoc($result)) {
+    while($row = mysqli_fetch_assoc($results)) {
             // $_SESSION['results'] = "id: " . $row["ID"]. " - Height: " . $row["Height"] . " - Weight: " . $row["Weight"] . "<br>";
             // echo "id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"]. "br>";
             echo $row['Height'];
@@ -229,9 +229,7 @@ $mysqli->close();
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['results'] ?></div>
-      <input type="text" placeholder="ID" name="id" required />
-      <input type="text" placeholder="Height" name="currHeight" required />
-      <input type="text" placeholder="Weight" name="currWeight" required />
+      <input type="text" placeholder="ID" name="searchId" required />
       <input type="submit" value="Search Similar Entries" name="searchAccounts" class="btn btn-block" />
 
       <div class="module">
