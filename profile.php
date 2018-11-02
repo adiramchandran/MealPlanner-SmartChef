@@ -53,6 +53,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 }
 
+// DELETE
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $deleteID = $_POST['deleteID'];
+  $sql = "DELETE FROM User WHERE ID = $deleteID";
+
+
+  if(mysqli_query($mysqli, $sql) === true) {
+    echo "Your entry has been deleted";
+  }
+  else {
+      $_SESSION['message'] = "Account not deleted";
+  }
+}
 
 
 $mysqli->close();
@@ -121,14 +134,6 @@ $mysqli->close();
             <a class="navbar-brand" href="index.html">SAUCY CHEF<span class="black"></span></a>
         </div>
 
-
-        <div class="navbar-header">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
@@ -169,6 +174,16 @@ $mysqli->close();
       <input type="text" placeholder="Weight" name="updateWeight" required />
       <input type="text" placeholder="Age" name="updateAge" required />
       <input type="submit" value="Update Entry" name="updateAccount" class="btn btn-block" />
+
+      <div class="module">
+    </form>
+  </section>
+
+  <section class="metrics">
+    <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+      <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
+      <input type="text" placeholder="ID" name="deleteID" required />
+      <input type="submit" value="Delete Account" name="deleteAccount" class="btn btn-block" />
 
       <div class="module">
     </form>
