@@ -182,9 +182,9 @@ $mysqli->close();
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['user'] ?></font>/div>
-      <input type="text" placeholder="Height" name="height" required />
-      <input type="text" placeholder="Weight" name="weight" required />
-      <input type="text" placeholder="Age" name="age" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="height" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="weight" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="age" required />
       <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
 
       <div class="module">
@@ -194,10 +194,10 @@ $mysqli->close();
   <section class="metrics">
     <form style="margin-top:80px; color:black}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
-      <input type="text" placeholder="ID" name="updateID" required />
-      <input type="text" placeholder="Height" name="updateHeight" required />
-      <input type="text" placeholder="Weight" name="updateWeight" required />
-      <input type="text" placeholder="Age" name="updateAge" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="ID" name="updateID" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="updateHeight" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="updateWeight" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="updateAge" required />
       <input type="submit" value="Update Entry" name="updateAccount" class="btn btn-block" />
 
       <div class="module">
@@ -217,7 +217,7 @@ $mysqli->close();
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['results'] ?></font>/div>
-      <input type="text" placeholder="ID" name="searchId" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="ID" name="searchId" required />
       <input type="submit" value="Search User Metrics" name="searchAccounts" class="btn btn-block" />
 
       <div class="module">
