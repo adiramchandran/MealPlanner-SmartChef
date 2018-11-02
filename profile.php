@@ -15,7 +15,7 @@ $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teams
 // echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 
-mysqli_close($link);
+//mysqli_close($link);
 
 // INSERT DONE
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
