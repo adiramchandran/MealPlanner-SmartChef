@@ -218,7 +218,7 @@ $mysqli->close();
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['results'] ?></div>
       <input type="text" placeholder="ID" name="searchId" required />
-      <input type="submit" value="Search Similar Entries" name="searchAccounts" class="btn btn-block" />
+      <input type="submit" value="Search User Metrics" name="searchAccounts" class="btn btn-block" />
 
       <div class="module">
     </form>
