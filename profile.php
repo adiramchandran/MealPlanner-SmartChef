@@ -66,9 +66,36 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['message'] = "Account not deleted";
   }
 }
-
-
 $mysqli->close();
+
+// Search
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $id = $_POST['id'];
+  $currHeight = $_POST['currHeight'];
+  $currWeight = $_POST['currWeight'];
+  $sql = "SELECT * FROM User WHERE Height > $currHeight - 2 AND Height < $currHeight + 2
+  AND  Weight > $currWeight - 5 AND Weight < $currWeight + 5 AND ID != $id;
+
+  $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $result = mysqli_query($mysqli, $sql);
+  if($result === true) {
+    if (mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)) {
+            echo "id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"]. "<br>"";
+        }
+    }
+    else {
+        echo "0 results";
+    }
+  }
+  else {
+      $_SESSION['message'] = "Search error";
+  }
+  mysqli_close($link);
+}
+
+
+
 ?>
 <html>
 <head>
@@ -188,6 +215,19 @@ $mysqli->close();
       <div class="module">
     </form>
   </section>
+
+  <section class="metrics">
+    <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+      <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
+      <input type="text" placeholder="ID" name="id" required />
+      <input type="text" placeholder="Height" name="currHeight" required />
+      <input type="text" placeholder="Weight" name="currWeight" required />
+      <input type="submit" value="Search Similar Entries" name="searchAccounts" class="btn btn-block" />
+
+      <div class="module">
+    </form>
+  </section>
+
 </div>
 
 
