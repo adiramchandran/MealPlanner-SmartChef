@@ -96,9 +96,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo $row['Weight'];
             echo $row['Age'];
     }
-    else {
-        echo "0 results";
-    }
   }
   else {
       $_SESSION['message'] = "Search error";
