@@ -181,7 +181,7 @@ $mysqli->close();
 =============================================================================================================================-->
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><?= $_SESSION['user'] ?></div>
+      <div class="alert alert-error"><font color="black"><?= $_SESSION['user'] ?><</font>/div>
       <input type="text" placeholder="Height" name="height" required />
       <input type="text" placeholder="Weight" name="weight" required />
       <input type="text" placeholder="Age" name="age" required />
