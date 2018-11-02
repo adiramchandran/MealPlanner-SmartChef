@@ -72,22 +72,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Search
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $currHeight = $_POST['currHeight'];
-  $currWeight = $_POST['$currWeight'];
   $searchId = $_POST['searchId'];
-  $sql = "SELECT * FROM User WHERE Height > $currHeight - 2 AND Height < $currHeight + 2
-  AND  Weight > $currWeight - 5 AND Weight < $currWeight + 5 AND ID != $searchId";
-  //$sql = "SELECT Height, Weight, Age FROM User WHERE ID = $searchId";
-
+  $sql = "SELECT Height, Weight, Age FROM User WHERE ID = $searchId";
 
   $results = mysqli_query($mysqli, $sql);
   if($results == true) {
     while($row = mysqli_fetch_assoc($results)) {
-            $_SESSION['results'] = "\nID: " . $row['ID']. " - Height: " . $row['Height'] . " - Age: " . $row['Weight'] . "<br>";
+            $_SESSION['results'] = "Height: " . $row['Height']. " - Weight: " . $row['Weight'] . " - Age: " . $row['Age'] . "<br>";
             // echo "id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"]. "br>";
-            // echo $row['Height'];
-            // echo $row['Weight'];
-            // echo $row['Age'];
+            echo $row['Height'];
+            echo $row['Weight'];
+            echo $row['Age'];
     }
   }
   else {
@@ -222,8 +217,6 @@ $mysqli->close();
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['results'] ?></div>
-      <input type="text" placeholder="Height" name="currHeight" required />
-      <input type="text" placeholder="Weight" name="currWeight" required />
       <input type="text" placeholder="ID" name="searchId" required />
       <input type="submit" value="Search Similar Entries" name="searchAccounts" class="btn btn-block" />
 
