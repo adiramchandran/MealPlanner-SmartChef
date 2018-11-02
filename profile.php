@@ -66,10 +66,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['message'] = "Account not deleted";
   }
 }
-$mysqli->close();
-
 // Search
-$link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+//$link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $id = $_POST['id'];
   $currHeight = $_POST['currHeight'];
@@ -78,7 +76,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   AND  Weight > $currWeight - 5 AND Weight < $currWeight + 5 AND ID != $id;
 
 
-  $result = mysqli_query($link, $sql);
+  $result = mysqli_query($mysqli, $sql);
   if($result === true) {
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
@@ -92,8 +90,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else {
       $_SESSION['message'] = "Search error";
   }
-}  mysqli_close($link);
-
+}
+// mysqli_close($link);
+$mysqli->close();
 
 
 
