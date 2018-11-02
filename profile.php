@@ -211,6 +211,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+      echo "<body style='background-color:black'>";
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
       <input type="text" placeholder="ID" name="updateID" required />
       <input type="text" placeholder="Height" name="updateHeight" required />
