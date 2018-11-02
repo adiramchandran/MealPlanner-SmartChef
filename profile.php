@@ -34,6 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 }
 
+
 // UPDATE 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $id = $_POST['updateID'];
@@ -152,7 +153,7 @@ $mysqli->close();
     </form>
   </section>
 
-  <section class="metrics">
+  <!-- <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
       <input type="text" placeholder="ID" name="updateID" required />
@@ -164,7 +165,7 @@ $mysqli->close();
       <div class="module">
     </form>
   </section>
-</div>
+</div> -->
 
 
 <!-- [ /WRAPPER ]
