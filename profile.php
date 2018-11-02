@@ -17,6 +17,7 @@ $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teams
 
 mysqli_close($link);
 
+// INSERT DONE
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $height = $_POST['height'];
   $weight = $_POST['weight'];
@@ -32,6 +33,26 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['message'] = "Account was not created:(";
   }
 }
+
+// UPDATE 
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $id = $_POST['updateID'];
+  $height = $_POST['updateHeight'];
+  $weight = $_POST['updateWeight'];
+  $age = $_POST['updateAge'];
+  $sql = "UPDATE User SET Height = $updateHeight AND Weight = $updateWeight AND Age = $updateAge WHERE ID = $updateID";
+  // printf("Last inserted record has id %d" . mysql_insert_id());
+
+  if(mysqli_query($mysqli, $sql) === true) {
+    $last_id = $mysqli->insert_id;
+    echo "Your entry has been updated";
+  }
+  else {
+      $_SESSION['message'] = "Account was not created:(";
+  }
+}
+
+
 
 $mysqli->close();
 ?>
@@ -126,6 +147,19 @@ $mysqli->close();
       <input type="text" placeholder="Weight" name="weight" required />
       <input type="text" placeholder="Age" name="age" required />
       <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
+
+      <div class="module">
+    </form>
+  </section>
+
+  <section class="metrics">
+    <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+      <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
+      <input type="text" placeholder="ID" name="updateID" required />
+      <input type="text" placeholder="Height" name="updateHeight" required />
+      <input type="text" placeholder="Weight" name="updateWeight" required />
+      <input type="text" placeholder="Age" name="updateAge" required />
+      <input type="submit" value="Update Entry" name="updateAccountt" class="btn btn-block" />
 
       <div class="module">
     </form>
