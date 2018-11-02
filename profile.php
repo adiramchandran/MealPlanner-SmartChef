@@ -207,7 +207,7 @@ $mysqli->close();
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
-      <input style="color:#000000;" type="text" placeholder="ID" name="deleteID" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="ID" name="deleteID" required />
       <input type="submit" value="Delete Account" name="deleteAccount" class="btn btn-block" />
 
       <div class="module">
