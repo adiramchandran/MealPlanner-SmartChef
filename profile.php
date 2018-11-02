@@ -80,8 +80,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   if($result === true) {
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-            echo '<span style="color:#000;">"id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"].<br>"</span>';
-            
+            $_SESSION['results'] = "id: " . $row["ID"]. " - Height: " . $row["Height"] . " - Weight: " . $row["Weight"] . "<br>";
+            // echo "id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"]. "br>";
+
         }
     }
     else {
@@ -219,7 +220,7 @@ $mysqli->close();
 
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
+      <div class="alert alert-error"><?= $_SESSION['results'] ?></div>
       <input type="text" placeholder="ID" name="id" required />
       <input type="text" placeholder="Height" name="currHeight" required />
       <input type="text" placeholder="Weight" name="currWeight" required />
