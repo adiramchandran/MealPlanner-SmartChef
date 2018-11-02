@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $height = $_POST['updateHeight'];
   $weight = $_POST['updateWeight'];
   $age = $_POST['updateAge'];
-  $sql = "UPDATE User SET Height = '$updateHeight', Weight = '$updateWeight', Age = '$updateAge' WHERE ID = '$updateID'";
+  $sql = "UPDATE User SET Height = 90, Weight = 90, Age = 90 WHERE ID = 17";
   // printf("Last inserted record has id %d" . mysql_insert_id());
 
   if(mysqli_query($mysqli, $sql) === true) {
