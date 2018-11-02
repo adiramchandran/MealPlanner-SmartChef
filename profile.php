@@ -72,7 +72,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $id = $_POST['id'];
   $currHeight = $_POST['currHeight'];
   $currWeight = $_POST['currWeight'];
-  $sql = "SELECT * FROM User WHERE Height > $currHeight - 2 AND Height < $currHeight + 2
+  $sql = "SELECT ID,Height,Weight FROM User WHERE Height > $currHeight - 2 AND Height < $currHeight + 2
   AND  Weight > $currWeight - 5 AND Weight < $currWeight + 5 AND ID != $id";
 
 
