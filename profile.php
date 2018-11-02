@@ -121,6 +121,18 @@ $mysqli->close();
             <a class="navbar-brand" href="index.html">SAUCY CHEF<span class="black"></span></a>
         </div>
 
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="index.html">SAUCY CHEF<span class="black"></span></a>
+        </div>
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
@@ -160,7 +172,7 @@ $mysqli->close();
       <input type="text" placeholder="Height" name="updateHeight" required />
       <input type="text" placeholder="Weight" name="updateWeight" required />
       <input type="text" placeholder="Age" name="updateAge" required />
-      <input type="submit" value="Update Entry" name="updateAccountt" class="btn btn-block" />
+      <input type="submit" value="Update Entry" name="updateAccount" class="btn btn-block" />
 
       <div class="module">
     </form>
