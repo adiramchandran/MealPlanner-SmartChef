@@ -50,8 +50,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender) " . " VALUES (NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender)";
   // printf("Last inserted record has id %d" . mysql_insert_id());
-  $result = mysqli_query($mysqli, $sql);
-  if($result) {
+
+  if(mysqli_query($mysqli, $sql) === true) {
     $last_id = $mysqli->insert_id;
     $_SESSION['user'] = "New record created successfully. Your ID is: " . $last_id;
   }
@@ -68,8 +68,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $updateAge = $_POST['updateAge'];
   $sql = "UPDATE User SET Height = $updateHeight, Weight = $updateWeight, Age = $updateAge WHERE ID = $updateID";
 
-  $result = mysqli_query($mysqli, $sql);
-  if($result) {
+  if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['message'] = "Your entry has been updated";
   }
   else {
@@ -82,8 +81,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $deleteID = $_POST['deleteID'];
   $sql = "DELETE FROM User WHERE ID = $deleteID";
 
-  $result = mysqli_query($mysqli, $sql);
-  if(mysqli_query($result) {
+  if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['message'] = "Your entry has been deleted";
   }
   else {
