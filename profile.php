@@ -61,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // UPDATE
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+else if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $updateID = $_POST['updateID'];
   $updateHeight = $_POST['updateHeight'];
   $updateWeight = $_POST['updateWeight'];
@@ -77,7 +77,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // DELETE
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+else if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $deleteID = $_POST['deleteID'];
   $sql = "DELETE FROM User WHERE ID = $deleteID";
 
@@ -93,7 +93,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Search
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+else if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $searchId = $_POST['searchId'];
   $sql = "SELECT Height, Weight, Age FROM User WHERE ID = $searchId";
 
