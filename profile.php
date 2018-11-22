@@ -17,6 +17,22 @@ $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teams
 
 //mysqli_close($link);
 
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $height = $_POST['height'];
+  $weight = $_POST['weight'];
+  $age = $_POST['age'];
+  $sql = "INSERT INTO User (ID, Height, Weight, Age) " . " VALUES (NULL, $height, $weight, $age)";
+  // printf("Last inserted record has id %d" . mysql_insert_id());
+  if(mysqli_query($mysqli, $sql) === true) {
+    $last_id = $mysqli->insert_id;
+    $_SESSION['user'] = "New record created successfully. Your ID is: " . $last_id;
+  }
+  else {
+      $_SESSION['message'] = "Account was not created:(";
+  }
+}
+
+/*
 // INSERT DONE
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $height = $_POST['height'];
@@ -59,7 +75,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['message'] = "Account was not created:(";
   }
 }
-
+*/
 
 
 // UPDATE
@@ -211,11 +227,12 @@ $mysqli->close();
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="height" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="weight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="age" required />
+<!--
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week" name="weight_per_wk" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle" name="lifestyle" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender" name="gender" required />
+-->
       <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
-
       <div class="module">
     </form>
   </section>
