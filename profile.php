@@ -17,22 +17,7 @@ $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teams
 
 //mysqli_close($link);
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $height = $_POST['height'];
-  $weight = $_POST['weight'];
-  $age = $_POST['age'];
-  $sql = "INSERT INTO User (ID, Height, Weight, Age) " . " VALUES (NULL, $height, $weight, $age)";
-  // printf("Last inserted record has id %d" . mysql_insert_id());
-  if(mysqli_query($mysqli, $sql) === true) {
-    $last_id = $mysqli->insert_id;
-    $_SESSION['user'] = "New record created successfully. Your ID is: " . $last_id;
-  }
-  else {
-      $_SESSION['message'] = "Account was not created:(";
-  }
-}
 
-/*
 // INSERT DONE
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $height = $_POST['height'];
@@ -41,9 +26,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $weight_per_wk = $_POST['weight_per_wk'];
   $lifestyle = $_POST['lifestyle'];
   $gender = $_POST['gender'];
-  //$bmr = 0.0;
-  //$cal = 0.0;
 
+/*
   $bmr = 0.0;
 
   if ($gender == "f"){ // calc female BMR expression
@@ -62,9 +46,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else { $bmr = 0.0; }
   // use BMR to calc target calories per day
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
+*/
 
-
-  $sql = "INSERT INTO User (ID, Email, Username, Password, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, NULL, NULL, NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender, NULL, NULL)";
+  $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender) " . " VALUES (NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender)";
   // printf("Last inserted record has id %d" . mysql_insert_id());
 
   if(mysqli_query($mysqli, $sql)) {
@@ -72,11 +56,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['user'] = "New record created successfully. Your ID is: " . $last_id;
   }
   else {
-      $_SESSION['message'] = "Account was not created:(";
+      $_SESSION['message'] = "Account was not created";
   }
 }
-*/
-
 
 // UPDATE
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -227,11 +209,9 @@ $mysqli->close();
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="height" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="weight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="age" required />
-<!--
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week" name="weight_per_wk" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle" name="lifestyle" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender" name="gender" required />
--->
       <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
       <div class="module">
     </form>
