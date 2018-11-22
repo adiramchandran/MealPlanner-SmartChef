@@ -25,7 +25,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $weight_per_wk = $_POST['weight_per_wk'];
   $lifestyle = $_POST['lifestyle'];
   $gender = $_POST['gender'];
-
+  $bmr = 0.0;
+  $cal = 0.0;
+  /*
   $bmr = 0.0;
   if ($gender == 'f'){ // calc female BMR expression
       $bmr += 655 + (4.35 * $weight) + (4.7 * $height) - (4.7 * $age);
@@ -48,6 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
   // use BMR to calc target calories per day
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
+  */
 
   $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_Wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender, $bmr, $cal)";
   // printf("Last inserted record has id %d" . mysql_insert_id());
