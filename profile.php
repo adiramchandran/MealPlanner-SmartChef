@@ -1,8 +1,9 @@
 <?php
 session_start();
-$_SESSION['message'] = '';
-$_SESSION['user'] = '';
-$_SESSION['results'] = '';
+$_SESSION['insert_out'] = '';
+$_SESSION['update_out'] = '';
+$_SESSION['delete_out'] = '';
+$_SESSION['search_out'] = '';
 $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 // $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //
@@ -55,10 +56,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if(mysqli_query($mysqli, $sql) === true) {
     $last_id = $mysqli->insert_id;
-    $_SESSION['user'] = "New record created successfully. Your ID is: " . $last_id;
+    $_SESSION['insert_out'] = "New record created successfully. Your ID is: " . $last_id;
   }
   else {
-    $_SESSION['message'] = "Account was not created";
+    $_SESSION['insert_out'] = "Account was not created";
   }
 }
 
@@ -71,10 +72,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sql = "UPDATE User SET Height = $updateHeight, Weight = $updateWeight, Age = $updateAge WHERE ID = $updateID";
 
   if(mysqli_query($mysqli, $sql) === true) {
-    $_SESSION['message'] = "Your entry has been updated";
+    $_SESSION['update_out'] = "Your entry has been updated";
   }
   else {
-    $_SESSION['message'] = "Account not updated";
+    $_SESSION['update_out'] = "Account not updated";
   }
 }
 
@@ -84,10 +85,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sql = "DELETE FROM User WHERE ID = $deleteID";
 
   if(mysqli_query($mysqli, $sql) === true) {
-    $_SESSION['message'] = "Your entry has been deleted";
+    $_SESSION['delete_out'] = "Your entry has been deleted";
   }
   else {
-    $_SESSION['message'] = "Account not deleted";
+    $_SESSION['delete_out'] = "Account not deleted";
   }
 }
 
@@ -102,7 +103,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $results = mysqli_query($mysqli, $sql);
   if($results) {
     while($row = mysqli_fetch_assoc($results)) {
-            $_SESSION['results'] = "Height: " . $row['Height']. " - Weight: " . $row['Weight'] . " - Age: " . $row['Age'] . "<br>";
+            $_SESSION['search_out'] = "Height: " . $row['Height']. " - Weight: " . $row['Weight'] . " - Age: " . $row['Age'] . "<br>";
             // echo "id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"]. "br>";
             echo $row['Height'];
             echo $row['Weight'];
@@ -110,8 +111,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
   }
   else {
-      //$_SESSION['message'] = "Search error";
-      echo "testing";
+      $_SESSION['search_out'] = "Search error";
   }
 }
 // mysqli_close($link);
@@ -206,7 +206,7 @@ $mysqli->close();
 =============================================================================================================================-->
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><font color="black"><?= $_SESSION['user'] ?></font></div>
+      <div class="alert alert-error"><font color="black"><?= $_SESSION['insert_out'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="height" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="weight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="age" required />
@@ -220,7 +220,7 @@ $mysqli->close();
 
   <section class="metrics">
     <form style="margin-top:80px}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><font color="black"><?= $_SESSION['message'] ?></font></div>
+      <div class="alert alert-error"><font color="black"><?= $_SESSION['update_out'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="ID" name="updateID" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="updateHeight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="updateWeight" required />
@@ -233,7 +233,7 @@ $mysqli->close();
 
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><font color="black"><?= $_SESSION['message'] ?></font></div>
+      <div class="alert alert-error"><font color="black"><?= $_SESSION['delete_out'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="ID" name="deleteID" required />
       <input type="submit" value="Delete Account" name="deleteAccount" class="btn btn-block" />
 
@@ -243,7 +243,7 @@ $mysqli->close();
 
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><font color="black"><?= $_SESSION['results'] ?></font></div>
+      <div class="alert alert-error"><font color="black"><?= $_SESSION['search_out'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="ID" name="searchId" required />
       <input type="submit" value="Search User Metrics" name="searchAccounts" class="btn btn-block" />
 
