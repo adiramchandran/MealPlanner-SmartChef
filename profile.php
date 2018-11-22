@@ -48,15 +48,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
 */
 
-  $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender) " . " VALUES (NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender)";
+  $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender)" . " VALUES (NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender)";
   // printf("Last inserted record has id %d" . mysql_insert_id());
-
-  if(mysqli_query($mysqli, $sql)) {
+  $result = mysqli_query($mysqli, $sql);
+  if($result) {
     $last_id = $mysqli->insert_id;
-    $_SESSION['user'] = "New record created successfully. Your ID is: " . $last_id;
+    $_SESSION['messsage'] = "New record created successfully. Your ID is: " . $last_id;
   }
   else {
-      $_SESSION['message'] = "Account was not created";
+    $_SESSION['message'] = "Account was not created";
   }
 }
 
@@ -68,12 +68,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $updateAge = $_POST['updateAge'];
   $sql = "UPDATE User SET Height = $updateHeight, Weight = $updateWeight, Age = $updateAge WHERE ID = $updateID";
 
-
-  if(mysqli_query($mysqli, $sql)) {
-    echo "Your entry has been updated";
+  $result = mysqli_query($mysqli, $sql);
+  if($result) {
+    $_SESSION['message'] = "Your entry has been updated";
   }
   else {
-      $_SESSION['message'] = "Account not updated";
+    $_SESSION['message'] = "Account not updated";
   }
 }
 
@@ -82,12 +82,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $deleteID = $_POST['deleteID'];
   $sql = "DELETE FROM User WHERE ID = $deleteID";
 
-
-  if(mysqli_query($mysqli, $sql)) {
-    echo "Your entry has been deleted";
+  $result = mysqli_query($mysqli, $sql);
+  if(mysqli_query($result) {
+    $_SESSION['message'] = "Your entry has been deleted";
   }
   else {
-      $_SESSION['message'] = "Account not deleted";
+    $_SESSION['message'] = "Account not deleted";
   }
 }
 
@@ -205,7 +205,7 @@ $mysqli->close();
 =============================================================================================================================-->
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><font color="black"><?= $_SESSION['user'] ?></font>/div>
+      <div class="alert alert-error"><font color="black"><?= $_SESSION['message'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="height" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="weight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="age" required />
@@ -219,7 +219,7 @@ $mysqli->close();
 
   <section class="metrics">
     <form style="margin-top:80px; color:black}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
+      <div class="alert alert-error"><font color="black"><?= $_SESSION['message'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="ID" name="updateID" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="updateHeight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="updateWeight" required />
@@ -232,7 +232,7 @@ $mysqli->close();
 
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
+      <div class="alert alert-error"><font color="black"><?= $_SESSION['message'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="ID" name="deleteID" required />
       <input type="submit" value="Delete Account" name="deleteAccount" class="btn btn-block" />
 
@@ -242,7 +242,7 @@ $mysqli->close();
 
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><font color="black"><?= $_SESSION['results'] ?></font>/div>
+      <div class="alert alert-error"><font color="black"><?= $_SESSION['results'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="ID" name="searchId" required />
       <input type="submit" value="Search User Metrics" name="searchAccounts" class="btn btn-block" />
 
