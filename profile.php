@@ -34,6 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else{                 // calc male BMR expression
       $bmr += 66 + (6.23 * $weight) + (12.7 * $height) - (6.8 * $age);
   }
+  $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
   /*
   // account for lifestyle (scale of 1 -> 5; sedentary to extremely active)
   switch ($lifestyle){
