@@ -48,12 +48,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
 */
 
-  $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender)" . " VALUES (NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender)";
+  $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender) " . " VALUES (NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender)";
   // printf("Last inserted record has id %d" . mysql_insert_id());
   $result = mysqli_query($mysqli, $sql);
   if($result) {
     $last_id = $mysqli->insert_id;
-    $_SESSION['messsage'] = "New record created successfully. Your ID is: " . $last_id;
+    $_SESSION['user'] = "New record created successfully. Your ID is: " . $last_id;
   }
   else {
     $_SESSION['message'] = "Account was not created";
@@ -205,7 +205,7 @@ $mysqli->close();
 =============================================================================================================================-->
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
-      <div class="alert alert-error"><font color="black"><?= $_SESSION['message'] ?></font></div>
+      <div class="alert alert-error"><font color="black"><?= $_SESSION['user'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="height" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="weight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="age" required />
@@ -218,7 +218,7 @@ $mysqli->close();
   </section>
 
   <section class="metrics">
-    <form style="margin-top:80px; color:black}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form style="margin-top:80px}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['message'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="ID" name="updateID" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="updateHeight" required />
