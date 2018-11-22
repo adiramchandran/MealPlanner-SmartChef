@@ -1,6 +1,8 @@
 <?php
 session_start();
 $_SESSION['message'] = '';
+$_SESSION['user'] = '';
+$_SESSION['results'] = '';
 $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 // $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //
@@ -61,7 +63,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // UPDATE
-else if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $updateID = $_POST['updateID'];
   $updateHeight = $_POST['updateHeight'];
   $updateWeight = $_POST['updateWeight'];
@@ -77,7 +79,7 @@ else if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // DELETE
-else if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $deleteID = $_POST['deleteID'];
   $sql = "DELETE FROM User WHERE ID = $deleteID";
 
@@ -93,7 +95,7 @@ else if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Search
 
-else if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $searchId = $_POST['searchId'];
   $sql = "SELECT Height, Weight, Age FROM User WHERE ID = $searchId";
 
@@ -108,7 +110,8 @@ else if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
   }
   else {
-      $_SESSION['message'] = "Search error";
+      //$_SESSION['message'] = "Search error";
+      echo "testing";
   }
 }
 // mysqli_close($link);
