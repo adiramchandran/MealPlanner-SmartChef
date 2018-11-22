@@ -22,7 +22,33 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $height = $_POST['height'];
   $weight = $_POST['weight'];
   $age = $_POST['age'];
-  $sql = "INSERT INTO User (ID, Height, Weight, Age) " . " VALUES (NULL, $height, $weight, $age)";
+  $weight_per_wk = $_POST['weight_per_wk'];
+  $lifestyle = $_POST['lifestyle'];
+  $gender = $_POST['gender'];
+  $bmr = 0.0
+  if ($gender == 'f'){ // calc female BMR expression
+      $bmr += 655 + (4.35 * $weight) + (4.7 * $height) - (4.7 * $age)
+  }
+  else{                 // calc male BMR expression
+      $bmr += 66 + (6.23 * $weight) + (12.7 * $height) - (6.8 * $age)
+  }
+  // account for lifestyle (scale of 1 -> 5; sedentary to extremely active)
+  switch ($lifestyle){
+      case 1:
+        $bmr *= 1.2
+      case 2:
+        $bmr *= 1.375
+      case 3:
+        $bmr *= 1.55
+      case 4:
+        $bmr *= 1.725
+      case 5:
+        $bmr *= 1.9
+  }
+  // use BMR to calc target calories per day
+  $cal = $bmr + ( ($weight_per_wk * 3500) / 7 )
+
+  $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_Wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender, $bmr, $cal)";
   // printf("Last inserted record has id %d" . mysql_insert_id());
 
   if(mysqli_query($mysqli, $sql) === true) {
@@ -185,6 +211,9 @@ $mysqli->close();
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="height" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="weight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="age" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week" name="weight_per_wk" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle" name="lifestyle" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender" name="gender" required />
       <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
 
       <div class="module">
