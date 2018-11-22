@@ -48,10 +48,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
   */
 
-  $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender, NULL, NULL)";
+  $sql = "INSERT INTO User (ID, Email, Username, Password, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, NULL, NULL, NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender, NULL, NULL)";
   // printf("Last inserted record has id %d" . mysql_insert_id());
 
-  if(mysqli_query($mysqli, $sql) === true) {
+  if(mysqli_query($mysqli, $sql)) {
     $last_id = $mysqli->insert_id;
     $_SESSION['user'] = "New record created successfully. Your ID is: " . $last_id;
   }
@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sql = "UPDATE User SET Height = $updateHeight, Weight = $updateWeight, Age = $updateAge WHERE ID = $updateID";
 
 
-  if(mysqli_query($mysqli, $sql) === true) {
+  if(mysqli_query($mysqli, $sql)) {
     echo "Your entry has been updated";
   }
   else {
@@ -85,7 +85,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sql = "DELETE FROM User WHERE ID = $deleteID";
 
 
-  if(mysqli_query($mysqli, $sql) === true) {
+  if(mysqli_query($mysqli, $sql)) {
     echo "Your entry has been deleted";
   }
   else {
@@ -102,7 +102,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sql = "SELECT Height, Weight, Age FROM User WHERE ID = $searchId";
 
   $results = mysqli_query($mysqli, $sql);
-  if($results == true) {
+  if($results) {
     while($row = mysqli_fetch_assoc($results)) {
             $_SESSION['results'] = "Height: " . $row['Height']. " - Weight: " . $row['Weight'] . " - Age: " . $row['Age'] . "<br>";
             // echo "id: " . $row["ID"]. " - Height: " . $row["Height"]. " - Weight: " . $row["Weight"]. "br>";
