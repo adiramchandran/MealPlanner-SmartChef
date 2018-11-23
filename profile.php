@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 */
 
   $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender) " . " VALUES (NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender)";
-  // printf("Last inserted record has id %d" . mysql_insert_id());
+  printf("Last inserted record has id %d" . mysql_insert_id());
 
   if(mysqli_query($mysqli, $sql) === true) {
     $last_id = mysql_insert_id($mysqli);
