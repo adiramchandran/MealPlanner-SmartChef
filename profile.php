@@ -62,9 +62,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $last_id = mysqli_insert_id($mysqli);
     $_SESSION['insert_out'] = "New record created successfully. Your ID is: " . $last_id;
   }
-  else {
-    $_SESSION['insert_out'] = "Account was not created";
-  }
+ // else {
+    //$_SESSION['insert_out'] = "Account was not created";
+ // }
 }
 
 // UPDATE
