@@ -4,7 +4,7 @@ $_SESSION['insert_out'] = "No error";
 $_SESSION['update_out'] = "No error";
 $_SESSION['delete_out'] = "No error";
 $_SESSION['search_out'] = "No error";
-$mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+$mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 // $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //
 // if (!$link) {
@@ -21,8 +21,8 @@ $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teams
 //mysqli_close($link);
 
 // check connection
-if ($mysqli->connect_errno){
-    printf("connection failed: %s\n", $mysqli->connect_error);
+if (mysqli_connect_errno()){
+    printf("connection failed: %s\n", mysqli_connect_error());
 }
 
 // INSERT DONE
@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender) " . " VALUES (NULL, $height, $weight, $age, $weight_per_wk, $lifestyle, $gender)";
   // printf("Last inserted record has id %d" . mysql_insert_id());
 
-  if($mysqli->query($sql) === true) {
+  if(mysqli_query($mysqli, $sql) === true) {
     $last_id = $mysqli->insert_id;
     $_SESSION['insert_out'] = "New record created successfully. Your ID is: " . $last_id;
   }
@@ -113,7 +113,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo $row['Weight'];
             echo $row['Age'];
     }
-    $results->close();
   }
   else {
       $_SESSION['search_out'] = "Search error";
