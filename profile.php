@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
 */
 
-  $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
+  $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
   // printf("Last inserted record has id %d" . mysqli_insert_id());
 
   if(mysqli_query($mysqli, $sql) === true) {
