@@ -1,9 +1,9 @@
 <?php
 session_start();
-$_SESSION['insert_out'] = "No error";
-$_SESSION['update_out'] = "No error";
-$_SESSION['delete_out'] = "No error";
-$_SESSION['search_out'] = "No error";
+$_SESSION['insert_out'] = "";
+$_SESSION['update_out'] = "";
+$_SESSION['delete_out'] = "";
+$_SESSION['search_out'] = "";
 $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 // $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //
@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // printf("Last inserted record has id %d" . mysql_insert_id());
 
   if(mysqli_query($mysqli, $sql) === true) {
-    $last_id = $mysqli->insert_id;
+    $last_id = mysql_insert_id($mysqli);
     $_SESSION['insert_out'] = "New record created successfully. Your ID is: " . $last_id;
   }
   else {
@@ -118,8 +118,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['search_out'] = "Search error";
   }
 }
-// mysqli_close($link);
-$mysqli->close();
+mysqli_close($mysqli);
 
 
 
