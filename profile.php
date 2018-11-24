@@ -1,38 +1,9 @@
 <?php
-
-function reset_outputs(){
-    $_SESSION['insert_out'] = "";
-    $_SESSION['update_out'] = "";
-    $_SESSION['delete_out'] = "";
-    $_SESSION['search_out'] = "";
-}
-
-function insert_reset(){
-    $_SESSION['update_out'] = "";
-    $_SESSION['delete_out'] = "";
-    $_SESSION['search_out'] = "";
-}
-
-function update_reset(){
-    $_SESSION['insert_out'] = "";
-    $_SESSION['delete_out'] = "";
-    $_SESSION['search_out'] = "";
-}
-
-function delete_reset(){
-    $_SESSION['insert_out'] = "";
-    $_SESSION['update_out'] = "";
-    $_SESSION['search_out'] = "";
-}
-
-function search_reset(){
-    $_SESSION['insert_out'] = "";
-    $_SESSION['update_out'] = "";
-    $_SESSION['delete_out'] = "";
-}
-
 session_start();
-reset_outputs();
+$_SESSION['insert_out'] = "";
+$_SESSION['update_out'] = "";
+$_SESSION['delete_out'] = "";
+$_SESSION['search_out'] = "";
 $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 // $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //
@@ -90,12 +61,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   if(mysqli_query($mysqli, $sql) === true) {
     $last_id = mysqli_insert_id($mysqli);
     $_SESSION['insert_out'] = "New record created successfully. Your ID is: " . $last_id;
-    insert_reset();
   }
   else {
     $_SESSION['insert_out'] = "Account was not created";
-    insert_reset();
   }
+  $_SESSION['insert_out'] = "";
 }
 
 // UPDATE
@@ -108,12 +78,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['update_out'] = "Your entry has been updated";
-    update_reset();
   }
   else {
     $_SESSION['update_out'] = "Account not updated";
-    update_reset();
   }
+  $_SESSION['update_out'] = "";
 }
 
 // DELETE
@@ -123,12 +92,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['delete_out'] = "Your entry has been deleted";
-    delete_reset();
   }
   else {
     $_SESSION['delete_out'] = "Account not deleted";
-    delete_reset();
   }
+  $_SESSION['delete_out'] = "";
 }
 
 
@@ -148,12 +116,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo $row['Weight'];
             echo $row['Age'];
     }
-    search_reset();
   }
   else {
       $_SESSION['search_out'] = "Search error";
-      search_reset();
   }
+  $_SESSION['search_out'] = "";
 }
 mysqli_close($mysqli);
 
