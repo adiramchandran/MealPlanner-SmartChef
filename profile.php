@@ -27,15 +27,15 @@ if (mysqli_connect_errno()){
 }
 */
 
-$round_finished = 0;
 // INSERT DONE
-if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $height = $_POST['height'];
   $weight = $_POST['weight'];
   $age = $_POST['age'];
   $weight_per_wk = $_POST['weight_per_wk'];
   $lifestyle = $_POST['lifestyle'];
   $gender = $_POST['gender'];
+
   $bmr = 0.0;
   if ($gender == "f"){ // calc female BMR expression
       $bmr += 655 + (4.35 * $weight) + (4.7 * $height) - (4.7 * $age);
@@ -43,6 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
   else{                 // calc male BMR expression
       $bmr += 66 + (6.23 * $weight) + (12.7 * $height) - (6.8 * $age);
   }
+
   // account for lifestyle (scale of 1 -> 5; sedentary to extremely active)
   if ($lifestyle == 1) { $bmr *= 1.2; }
   else if ($lifestyle == 2) { $bmr *= 1.375; }
@@ -50,10 +51,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
   else if ($lifestyle == 4) { $bmr *= 1.725; }
   else if ($lifestyle == 5) { $bmr *= 1.9; }
   else { $bmr = 0.0; }
+
   // use BMR to calc target calories per day
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
+
   $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
   // printf("Last inserted record has id %d" . mysqli_insert_id());
+
   if(mysqli_query($mysqli, $sql) === true) {
     $last_id = mysqli_insert_id($mysqli);
     $_SESSION['insert_out'] = "New record created successfully. Your ID is: " . $last_id;
@@ -61,39 +65,47 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
   else {
     $_SESSION['insert_out'] = "Account was not created";
   }
-  $round_finished = 1;
 }
+
 // UPDATE
-if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $updateID = $_POST['updateID'];
   $updateHeight = $_POST['updateHeight'];
   $updateWeight = $_POST['updateWeight'];
   $updateAge = $_POST['updateAge'];
   $sql = "UPDATE User SET Height = $updateHeight, Weight = $updateWeight, Age = $updateAge WHERE ID = $updateID";
+
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['update_out'] = "Your entry has been updated";
   }
   else {
     $_SESSION['update_out'] = "Account not updated";
   }
-  $round_finished = 1;
+  $_SESSION['update_out'] = "";
 }
+
 // DELETE
-if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $deleteID = $_POST['deleteID'];
   $sql = "DELETE FROM User WHERE ID = $deleteID";
+
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['delete_out'] = "Your entry has been deleted";
   }
   else {
     $_SESSION['delete_out'] = "Account not deleted";
   }
-  $round_finished = 1;
+  $_SESSION['delete_out'] = "";
 }
+
+
+
 // Search
-if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $searchId = $_POST['searchId'];
   $sql = "SELECT Height, Weight, Age FROM User WHERE ID = $searchId";
+
   $results = mysqli_query($mysqli, $sql);
   if($results) {
     while($row = mysqli_fetch_assoc($results)) {
@@ -107,9 +119,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
   else {
       $_SESSION['search_out'] = "Search error";
   }
-  $round_finished = 1;
+  $_SESSION['search_out'] = "";
 }
-
 mysqli_close($mysqli);
 
 
