@@ -27,6 +27,11 @@ if (mysqli_connect_errno()){
 }
 */
 
+$insert_used = 0;
+$update_used = 0;
+$delete_used = 0;
+$search_used = 0;
+
 // INSERT DONE
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $height = $_POST['height'];
@@ -65,6 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else {
     $_SESSION['insert_out'] = "Account was not created";
   }
+  $insert_used = 1;
 }
 
 // UPDATE
@@ -73,6 +79,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $updateHeight = $_POST['updateHeight'];
   $updateWeight = $_POST['updateWeight'];
   $updateAge = $_POST['updateAge'];
+  $updateGoal = $_POST['updateGoal'];
   $sql = "UPDATE User SET Height = $updateHeight, Weight = $updateWeight, Age = $updateAge WHERE ID = $updateID";
 
   if(mysqli_query($mysqli, $sql) === true) {
@@ -81,7 +88,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else {
     $_SESSION['update_out'] = "Account not updated";
   }
-  $_SESSION['update_out'] = "";
+  $update_used = 1;
 }
 
 // DELETE
@@ -95,10 +102,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else {
     $_SESSION['delete_out'] = "Account not deleted";
   }
-  $_SESSION['delete_out'] = "";
+  $delete_used = 1;
 }
-
-
 
 // Search
 
@@ -119,8 +124,30 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else {
       $_SESSION['search_out'] = "Search error";
   }
-  $_SESSION['search_out'] = "";
+  $search_used = 1;
 }
+
+if ($insert_used){
+    $_SESSION['update_out'] = "";
+    $_SESSION['delete_out'] = "";
+    $_SESSION['search_out'] = "";
+}
+else if ($update_used){
+    $_SESSION['insert_out'] = "";
+    $_SESSION['delete_out'] = "";
+    $_SESSION['search_out'] = "";
+}
+else if ($delete_used){
+    $_SESSION['insert_out'] = "";
+    $_SESSION['update_out'] = "";
+    $_SESSION['search_out'] = "";
+}
+else if ($search_used){
+    $_SESSION['insert_out'] = "";
+    $_SESSION['update_out'] = "";
+    $_SESSION['delete_out'] = "";
+}
+
 mysqli_close($mysqli);
 
 
