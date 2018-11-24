@@ -27,8 +27,10 @@ if (mysqli_connect_errno()){
 }
 */
 
+$round_finished = 0
+
 // INSERT DONE
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
   $height = $_POST['height'];
   $weight = $_POST['weight'];
   $age = $_POST['age'];
@@ -65,11 +67,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else {
     $_SESSION['insert_out'] = "Account was not created";
   }
-  $_SESSION['insert_out'] = "";
+  $round_finished = 1;
 }
 
 // UPDATE
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
   $updateID = $_POST['updateID'];
   $updateHeight = $_POST['updateHeight'];
   $updateWeight = $_POST['updateWeight'];
@@ -82,11 +84,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else {
     $_SESSION['update_out'] = "Account not updated";
   }
-  $_SESSION['update_out'] = "";
+  $round_finished = 1;
 }
 
 // DELETE
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
   $deleteID = $_POST['deleteID'];
   $sql = "DELETE FROM User WHERE ID = $deleteID";
 
@@ -96,14 +98,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else {
     $_SESSION['delete_out'] = "Account not deleted";
   }
-  $_SESSION['delete_out'] = "";
+  $round_finished = 1;
 }
 
 
 
 // Search
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST' && !$round_finished) {
   $searchId = $_POST['searchId'];
   $sql = "SELECT Height, Weight, Age FROM User WHERE ID = $searchId";
 
@@ -120,7 +122,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else {
       $_SESSION['search_out'] = "Search error";
   }
-  $_SESSION['search_out'] = "";
+  $round_finished = 1;
 }
 mysqli_close($mysqli);
 
