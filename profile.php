@@ -1,9 +1,38 @@
 <?php
+
+function reset_outputs(){
+    $_SESSION['insert_out'] = "";
+    $_SESSION['update_out'] = "";
+    $_SESSION['delete_out'] = "";
+    $_SESSION['search_out'] = "";
+}
+
+function insert_reset(){
+    $_SESSION['update_out'] = "";
+    $_SESSION['delete_out'] = "";
+    $_SESSION['search_out'] = "";
+}
+
+function update_reset(){
+    $_SESSION['insert_out'] = "";
+    $_SESSION['delete_out'] = "";
+    $_SESSION['search_out'] = "";
+}
+
+function delete_reset(){
+    $_SESSION['insert_out'] = "";
+    $_SESSION['update_out'] = "";
+    $_SESSION['search_out'] = "";
+}
+
+function search_reset(){
+    $_SESSION['insert_out'] = "";
+    $_SESSION['update_out'] = "";
+    $_SESSION['delete_out'] = "";
+}
+
 session_start();
-$_SESSION['insert_out'] = "";
-$_SESSION['update_out'] = "";
-$_SESSION['delete_out'] = "";
-$_SESSION['search_out'] = "";
+reset_outputs();
 $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 // $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //
@@ -20,10 +49,12 @@ $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "t
 
 //mysqli_close($link);
 
+/*
 // check connection
 if (mysqli_connect_errno()){
     printf("connection failed: %s\n", mysqli_connect_error());
 }
+*/
 
 // INSERT DONE
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -49,6 +80,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   else if ($lifestyle == 4) { $bmr *= 1.725; }
   else if ($lifestyle == 5) { $bmr *= 1.9; }
   else { $bmr = 0.0; }
+
   // use BMR to calc target calories per day
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
 
@@ -58,9 +90,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   if(mysqli_query($mysqli, $sql) === true) {
     $last_id = mysqli_insert_id($mysqli);
     $_SESSION['insert_out'] = "New record created successfully. Your ID is: " . $last_id;
+    insert_reset();
   }
   else {
     $_SESSION['insert_out'] = "Account was not created";
+    insert_reset();
   }
 }
 
@@ -74,9 +108,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['update_out'] = "Your entry has been updated";
+    update_reset();
   }
   else {
     $_SESSION['update_out'] = "Account not updated";
+    update_reset();
   }
 }
 
@@ -87,9 +123,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['delete_out'] = "Your entry has been deleted";
+    delete_reset();
   }
   else {
     $_SESSION['delete_out'] = "Account not deleted";
+    delete_reset();
   }
 }
 
@@ -110,9 +148,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo $row['Weight'];
             echo $row['Age'];
     }
+    search_reset();
   }
   else {
       $_SESSION['search_out'] = "Search error";
+      search_reset();
   }
 }
 mysqli_close($mysqli);
