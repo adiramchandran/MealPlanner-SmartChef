@@ -72,8 +72,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $updateID = $_POST['updateID'];
   $updateHeight = $_POST['updateHeight'];
   $updateWeight = $_POST['updateWeight'];
-  $updateAge = $_POST['updateAge'];
-  $updateGoal = $_POST['updateGoal'];
   $sql = "UPDATE User SET Height = $updateHeight, Weight = $updateWeight, Age = $updateAge WHERE ID = $updateID";
 
   if(mysqli_query($mysqli, $sql) === true) {
