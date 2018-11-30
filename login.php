@@ -1,43 +1,66 @@
 <?php
 session_start();
-$_SESSION['message'] = '';
-$mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 
-$link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+if ( ! empty( $_POST ) ) {
+    if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
+        // Getting submitted user data from database
+        $con = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+        $username = $mysqli->real_escape_string($_POST['username']);
+        $stmt = $con->prepare("SELECT * FROM User WHERE username = ?");
+        $stmt->bind_param('s', $_POST['username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    	  $user = $result->fetch_object();
 
-if (!$link) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
+    	// Verify user password and set $_SESSION
+    	if ( password_verify( $_POST['password'], $user->password ) ) {
+    		$_SESSION['user_id'] = $user->ID;
+        echo "verified";
+    	}
+    }
 }
 
-echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
-echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
-
-
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if($_POST['password'] == $_POST['confirm-password']){
-    $email = $mysqli->real_escape_string($_POST['email']);
-    $username = $mysqli->real_escape_string($_POST['username']);
-    $password = $mysqli->real_escape_string($_POST['password']);
-    $sql = "INSERT INTO User (ID, Username, Password, Email) " . " VALUES (NULL, '$username', '$password', '$email')";
-    // printf("Last inserted record has id %d" . mysql_insert_id());
-
-    if(mysqli_query($mysqli, $sql) === true) {
-      echo "Account created successfully!";
-      header("Location: http://www.teamsaauuwwce.web.illinois.edu");
-      exit;
-    }
-    else {
-      echo "Account could not be created";
-      $_SESSION['message'] = "Account was not created:(";
-    }
-  }
-  else {
-    $_SESSION['message'] = "Passwords do not match! Please try again.";
-  }
-}
+// 
+//
+// session_start();
+// $_SESSION['message'] = '';
+// $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+//
+// $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+//
+// if (!$link) {
+//     echo "Error: Unable to connect to MySQL." . PHP_EOL;
+//     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+//     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+//     exit;
+// }
+//
+// echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
+// echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+//
+//
+// if($_SERVER['REQUEST_METHOD'] == 'POST') {
+//   if($_POST['password'] == $_POST['confirm-password']){
+//     $email = $mysqli->real_escape_string($_POST['email']);
+//     $username = $mysqli->real_escape_string($_POST['username']);
+//     $password = $mysqli->real_escape_string($_POST['password']);
+//     $sql = "INSERT INTO User (ID, Username, Password, Email) " . " VALUES (NULL, '$username', '$password', '$email')";
+//     // printf("Last inserted record has id %d" . mysql_insert_id());
+//
+//     if(mysqli_query($mysqli, $sql) === true) {
+//       echo "Account created successfully!";
+//       header("Location: http://www.teamsaauuwwce.web.illinois.edu");
+//       exit;
+//     }
+//     else {
+//       echo "Account could not be created";
+//       $_SESSION['message'] = "Account was not created:(";
+//     }
+//   }
+//   else {
+//     $_SESSION['message'] = "Passwords do not match! Please try again.";
+//   }
+// }
 
 $mysqli->close();
 ?>
@@ -164,7 +187,6 @@ $mysqli->close();
       </form>
       <form class="login-form" action="login.php" method="post" enctype="multipart/form-data">
         <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
-        <input type="text" placeholder="email address" name="email" required/>
         <input type="text" placeholder="username" name="username" required/>
         <input type="password" placeholder="password" name="password" required/>
         <input type="password" placeholder="confirm password" name="confirm-password" required/>
