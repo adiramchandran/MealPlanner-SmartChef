@@ -1,25 +1,25 @@
 <?php
 session_start();
 
-if ( ! empty( $_POST ) ) {
+if ( !empty( $_POST ) ) {
     if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
         // Getting submitted user data from database
         $con = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
         $username = $mysqli->real_escape_string($_POST['username']);
-        $stmt = $con->prepare("SELECT * FROM User WHERE username = ?");
+        $stmt = $con->prepare("SELECT * FROM User WHERE Username = ?");
         $stmt->bind_param('s', $_POST['username']);
         $stmt->execute();
         $result = $stmt->get_result();
     	  $user = $result->fetch_object();
 
     	// Verify user password and set $_SESSION
-    	if ( password_verify( $_POST['password'], $user->password ) ) {
+    	if ( password_verify( $_POST['password'], $user->Password ) ) {
     		$_SESSION['user_id'] = $user->ID;
         echo "verified";
     	}
     }
 }
-
+$con->close();
 //
 //
 // session_start();
@@ -61,8 +61,6 @@ if ( ! empty( $_POST ) ) {
 //     $_SESSION['message'] = "Passwords do not match! Please try again.";
 //   }
 // }
-
-$con->close();
 ?>
 <html>
 <head>
