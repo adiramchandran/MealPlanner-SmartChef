@@ -20,7 +20,7 @@ if ( ! empty( $_POST ) ) {
     }
 }
 
-// 
+//
 //
 // session_start();
 // $_SESSION['message'] = '';
@@ -62,7 +62,7 @@ if ( ! empty( $_POST ) ) {
 //   }
 // }
 
-$mysqli->close();
+$con->close();
 ?>
 <html>
 <head>
