@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     //   echo "verified";
   	// }
 }
-$con->close();
+// $con->close();
 //
 //
 // session_start();
