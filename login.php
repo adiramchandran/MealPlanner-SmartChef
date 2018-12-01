@@ -16,6 +16,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   		$_SESSION['user_id'] = $user->ID;
       echo "verified";
   	}
+    else {
+      echo "failed";
+    }
 }
 // $con->close();
 //
