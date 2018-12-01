@@ -6,16 +6,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $con = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
     $username = $mysqli->real_escape_string($_POST['username']);
     $stmt = $con->prepare("SELECT * FROM User WHERE Username = ?");
-    // $stmt->bind_param('s', $_POST['username']);
-    // $stmt->execute();
-    // $result = $stmt->get_result();
-    // $user = $result->fetch_object();
-    //
-  	// // Verify user password and set $_SESSION
-  	// if ( password_verify( $_POST['password'], $user->Password ) ) {
-  	// 	$_SESSION['user_id'] = $user->ID;
-    //   echo "verified";
-  	// }
+    $stmt->bind_param('s', $_POST['username']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_object();
+
+  	// Verify user password and set $_SESSION
+  	if ( password_verify( $_POST['password'], $user->Password ) ) {
+  		$_SESSION['user_id'] = $user->ID;
+      echo "verified";
+  	}
 }
 // $con->close();
 //
