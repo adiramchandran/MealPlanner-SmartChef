@@ -36,10 +36,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $age = $_POST['age'];
   $weight_per_wk = $_POST['weight_per_wk'];
   $lifestyle = $_POST['lifestyle'];
-  $gender = $_POST['gender'];
+  $gender = $con->real_escape_string($_POST['gender']);
 
   $bmr = 0.0;
   if ($gender == "f"){ // calc female BMR expression
+      echo "Female";
       $bmr += 655 + (4.35 * $weight) + (4.7 * $height) - (4.7 * $age);
   }
   else{                 // calc male BMR expression
@@ -216,7 +217,11 @@ mysqli_close($mysqli);
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="age" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week" name="weight_per_wk" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle" name="lifestyle" required />
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender" name="gender" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender" name="gender" list="gender" required />
+        <datalist id="gender">
+          <option value="f">
+          <option value="m">
+        </datalist>
       <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
       <div class="module">
     </form>
