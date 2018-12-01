@@ -218,8 +218,8 @@ mysqli_close($mysqli);
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle" name="lifestyle" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender" name="gender" list="gender" required />
         <datalist id="gender">
-          <option value="f">
-          <option value="m">
+          <option value="1">
+          <option value="2">
         </datalist>
       <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
       <div class="module">
