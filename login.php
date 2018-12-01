@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if ( !empty( $_POST ) ) {
-    if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
+if (!empty($_POST)) {
+    if (isset($_POST['username']) && isset($_POST['password'])) {
         // Getting submitted user data from database
         $con = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
         $username = $mysqli->real_escape_string($_POST['username']);
@@ -179,6 +179,7 @@ $con->close();
       <form class="register-form" action="login.php" method="post" enctype="multipart/form-data">
         <input type="text" placeholder="name" name="username"/>
         <input type="password" placeholder="password" name="password"/>
+        <input type="password" placeholder="confirm password" name="confirm-password" required/>
         <input type="text" placeholder="email address" name="email"/>
         <button>create</button>
         <p class="message">Already registered? <a href="#">Sign In</a></p>
@@ -187,8 +188,7 @@ $con->close();
         <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
         <input type="text" placeholder="username" name="username" required/>
         <input type="password" placeholder="password" name="password" required/>
-        <input type="password" placeholder="confirm password" name="confirm-password" required/>
-        <input type="submit" value="Create Account" class="btn btn-block" />
+        <input type="submit" value="Login" class="btn btn-block" />
         <p class="message">Not registered? <a href="#">Create an account</a></p>
       </form>
     </div>
