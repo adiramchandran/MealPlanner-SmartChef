@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $result->fetch_object();
 
   	// Verify user password and set $_SESSION
-  	if ( password_verify( $_POST['password'], $user->Password ) ) {
+  	if ($_POST['password'] == $user->Password) {
   		$_SESSION['user_id'] = $user->ID;
       echo "verified";
   	}
