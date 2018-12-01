@@ -36,7 +36,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $age = $_POST['age'];
   $weight_per_wk = $_POST['weight_per_wk'];
   $lifestyle = $_POST['lifestyle'];
-  $gender = $con->real_escape_string($_POST['gender']);
+  $gender = $_POST['gender'];
+  echo "gender: " . $_POST['gender'];
 
   $bmr = 0.0;
   if ($gender == "f"){ // calc female BMR expression
@@ -218,8 +219,8 @@ mysqli_close($mysqli);
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle" name="lifestyle" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender" name="gender" list="gender" required />
         <datalist id="gender">
-          <option value="m">
-          <option value="f">
+          <option type="text" value="m">
+          <option type="text" value="f">
         </datalist>
       <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
       <div class="module">
