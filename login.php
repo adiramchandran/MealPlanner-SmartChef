@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   	// Verify user password and set $_SESSION
   	if ($_POST['password'] == $user->Password) {
   		$_SESSION['user_id'] = $user->ID;
-      echo "verified";
+      echo "Success" . $user->ID;
   	}
     else {
       echo "failed";
