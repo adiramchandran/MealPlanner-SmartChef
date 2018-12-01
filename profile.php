@@ -40,7 +40,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $bmr = 0.0;
   if ($gender == "f"){ // calc female BMR expression
-      echo "Female";
       $bmr += 655 + (4.35 * $weight) + (4.7 * $height) - (4.7 * $age);
   }
   else{                 // calc male BMR expression
