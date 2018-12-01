@@ -37,14 +37,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $weight_per_wk = $_POST['weight_per_wk'];
   $lifestyle = $_POST['lifestyle'];
   $gender = $_POST['gender'];
-  
+
   $bmr = 0.0;
-  if ($gender == "f"){ // calc female BMR expression
+  // if ($gender == "f"){ // calc female BMR expression
       $bmr += 655 + (4.35 * $weight) + (4.7 * $height) - (4.7 * $age);
-  }
-  else{                 // calc male BMR expression
+  // }
+  // else{                 // calc male BMR expression
       $bmr += 66 + (6.23 * $weight) + (12.7 * $height) - (6.8 * $age);
-  }
+  // }
 
   // account for lifestyle (scale of 1 -> 5; sedentary to extremely active)
   if ($lifestyle == 1) { $bmr *= 1.2; }
