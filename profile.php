@@ -37,8 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $weight_per_wk = $_POST['weight_per_wk'];
   $lifestyle = $_POST['lifestyle'];
   $gender = $_POST['gender'];
-  echo "gender: " . $_POST['gender'];
-
+  
   $bmr = 0.0;
   if ($gender == "f"){ // calc female BMR expression
       $bmr += 655 + (4.35 * $weight) + (4.7 * $height) - (4.7 * $age);
