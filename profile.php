@@ -5,6 +5,8 @@ $_SESSION['update_out'] = "";
 $_SESSION['delete_out'] = "";
 $_SESSION['search_out'] = "";
 $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+$con = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+
 // $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //
 // if (!$link) {
@@ -60,9 +62,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
   // printf("Last inserted record has id %d" . mysqli_insert_id());
 
-  if(mysqli_query($mysqli, $sql) === true) {
-    $last_id = mysqli_insert_id($mysqli);
-    $_SESSION['insert_out'] = "New record created successfully. Your ID is: " . $last_id;
+  if($sql->execute()) {
+    $_SESSION['insert_out'] = "Record updated successfully. Your ID is: " . $_SESSION['user_id'];
   }
   else {
     $_SESSION['insert_out'] = "Account was not created";
