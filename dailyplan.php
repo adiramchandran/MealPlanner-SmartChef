@@ -166,7 +166,6 @@ VERSION : 1.1
 
    ?>
 </div>
-</div>
 
 	<!-- [ DEFAULT SCRIPT ] -->
 	<script src="library/modernizr.custom.97074.js"></script>
