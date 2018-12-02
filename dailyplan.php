@@ -71,7 +71,8 @@ VERSION : 1.1
   }
 
   .column {
-    float: left;
+    height:100%;
+    text-align:center;
     width: 33.33%;
     padding-top: 100px;
   }
@@ -137,7 +138,8 @@ VERSION : 1.1
   $sql = "SELECT * FROM RecipeList";
   $results = mysqli_query($mysqli, $sql);
   $i = 1;
-  while ($row = mysqli_fetch_assoc($results) && $i < 4) {
+  $four = 4;
+  while ($row = mysqli_fetch_assoc($results) and $i < $four) {
     echo "<h1>" . $row["title"] . "</h1>";
     echo '<br>';
     echo "Calories: " . $row["calories"];
