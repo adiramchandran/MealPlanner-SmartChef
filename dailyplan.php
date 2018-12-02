@@ -44,12 +44,12 @@ VERSION : 1.1
   }
 
   .box-one {
-  background:cyan;
+  background:green;
   padding-top: 110px;
   }
 
   .box-two {
-  background:dodgerblue;
+  background:green;
   }
 
   .box-three {
@@ -117,9 +117,7 @@ VERSION : 1.1
   $sql = "SELECT * FROM RecipeList";
   $results = mysqli_query($mysqli, $sql);
   while ($row = mysqli_fetch_assoc($results)) {
-    echo $row["title"];
-    echo '<br>';
-    echo $row["url"];
+    echo "<h1>" . $row["title"] . "<\h1>";
     echo '<br>';
     echo $row["calories"];
     echo '<br>';
@@ -130,6 +128,8 @@ VERSION : 1.1
     echo $row["carbs"];
     echo '<br>';
     echo $row["Breakfast"];
+    echo '<br>';
+    echo '<a href=' . $row["url"] . '>View Recipe Now</a>';
     echo '</div>';
     echo '<div class="box-two">';
   }
