@@ -15,6 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   	if ($_POST['password'] == $user->Password) {
   		$_SESSION['user_id'] = $user->ID;
       echo "Success" . $user->ID;
+       echo '<a href="logout.php"><span>' + $user->Username + ' (Logout)</span></a></li>';
   	}
     else {
       echo "failed";
