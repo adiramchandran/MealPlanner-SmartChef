@@ -45,14 +45,27 @@ VERSION : 1.1
 
   .box-one {
   background:green;
+  padding-bottom: 10px;
   }
 
   .box-two {
   background:black;
+  padding-bottom: 10px;
   }
 
   .box-three {
   background:hotpink;
+  }
+
+  .button {
+    background-color: #e7e7e7;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
   }
   </style>
 
