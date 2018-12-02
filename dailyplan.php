@@ -76,7 +76,7 @@ VERSION : 1.1
     width: 33.33%;
     padding-top: 100px;
     float: left;
-    color: #e7e7e7;
+    background-color: #e7e7e7;
   }
 
   .column2 {
@@ -85,7 +85,7 @@ VERSION : 1.1
     width: 33.33%;
     padding-top: 100px;
     float: left;
-    color: #752472;
+    background-color: #752472;
   }
 
   .column3 {
@@ -94,7 +94,7 @@ VERSION : 1.1
     width: 33.33%;
     padding-top: 100px;
     float: left;
-    color: #333;
+    background-color: #333;
   }
   </style>
 
