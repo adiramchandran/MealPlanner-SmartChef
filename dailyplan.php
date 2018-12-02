@@ -70,12 +70,31 @@ VERSION : 1.1
     font-size: 16px;
   }
 
-  .column {
+  .column1 {
     height:100%;
     text-align:center;
     width: 33.33%;
     padding-top: 100px;
     float: left;
+    color: #e7e7e7;
+  }
+
+  .column2 {
+    height:100%;
+    text-align:center;
+    width: 33.33%;
+    padding-top: 100px;
+    float: left;
+    color: #752472;
+  }
+
+  .column3 {
+    height:100%;
+    text-align:center;
+    width: 33.33%;
+    padding-top: 100px;
+    float: left;
+    color: #333;
   }
   </style>
 
@@ -141,7 +160,15 @@ VERSION : 1.1
   $i = 1;
   $four = 4;
   while ($row = mysqli_fetch_assoc($results) and $i < $four) {
-    echo '<div class="column">';
+    if ($i == 1) {
+      echo '<div class="column1">';
+    }
+    if ($i == 2) {
+      echo '<div class="column2">';
+    }
+    if ($i == 3) {
+      echo '<div class="column3">';
+    }
     echo "<h1>" . $row["title"] . "</h1>";
     echo '<br>';
     echo "Calories: " . $row["calories"];
