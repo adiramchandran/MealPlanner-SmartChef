@@ -183,7 +183,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" placeholder="password" name="password"/>
         <input type="password" placeholder="confirm password" name="confirm-password" required/>
         <input type="text" placeholder="email address" name="email"/>
-        <button>create</button>
+        <input type="submit" value="Create Account" class="btn btn-block" />
         <p class="message">Already registered? <a href="#">Sign In</a></p>
       </form>
       <form class="login-form" action="login.php" method="post" enctype="multipart/form-data">
