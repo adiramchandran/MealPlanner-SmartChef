@@ -69,6 +69,12 @@ VERSION : 1.1
     display: inline-block;
     font-size: 16px;
   }
+
+  .column {
+    float: left;
+    width: 33.33%;
+    padding-top: 100px;
+  }
   </style>
 
 </head>
@@ -124,14 +130,14 @@ VERSION : 1.1
 
    <!-- [/NAV]
  ============================================================================================================================-->
-<div class="box-one" style="padding-top: 100px;">
+<div class="column">
   <?php
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 
   $sql = "SELECT * FROM RecipeList";
   $results = mysqli_query($mysqli, $sql);
   $i = 1;
-  while ($row = mysqli_fetch_assoc($results)) {
+  while ($row = mysqli_fetch_assoc($results) && $i < 4) {
     echo "<h1>" . $row["title"] . "</h1>";
     echo '<br>';
     echo "Calories: " . $row["calories"];
@@ -148,10 +154,10 @@ VERSION : 1.1
     echo '</div>';
     $i = $i+1;
     if ($i % 2 == 0) {
-      echo '<div class="box-two">';
+      echo '<div class="column">';
     }
     else {
-      echo '<div class="box-one">';
+      echo '<div class="column">';
     }
   }
 
