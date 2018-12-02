@@ -121,11 +121,11 @@ VERSION : 1.1
     echo '<br>';
     echo "Calories: " . $row["calories"];
     echo '<br>';
-    echo "Fat: " . $row["fat"] . "grams";
+    echo "Fat: " . $row["fat"] . " grams";
     echo '<br>';
-    echo "Protein: " . $row["protein"] . "grams";
+    echo "Protein: " . $row["protein"] . " grams";
     echo '<br>';
-    echo "Carbohydrates: " . $row["carbs"] . "grams";
+    echo "Carbohydrates: " . $row["carbs"] . " grams";
     echo '<br>';
     echo $row["Breakfast"];
     echo '<br>';
