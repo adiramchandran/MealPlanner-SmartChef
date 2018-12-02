@@ -83,7 +83,7 @@ VERSION : 1.1
             <li><a href="#home" class="page-scroll">Weekly Plan</a></li>
             <li><a href="#home" class="page-scroll">Cookbook</a></li>
             <li><a>Welcome, <?php echo $_SESSION['username'];?>!</a>
-            <li><a href="index.html" class="page-scroll">Logout</a></li>
+            <li><a href="logout.php" class="page-scroll">Logout</a></li>
             <li><a href="#contact" class="page-scroll" id="contacts"><i class="fa fa-send"></i></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
