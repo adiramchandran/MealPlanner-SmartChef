@@ -76,6 +76,11 @@ VERSION : 1.1
     width: 33.33%;
     padding-top: 100px;
   }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
   </style>
 
 </head>
@@ -131,6 +136,7 @@ VERSION : 1.1
 
    <!-- [/NAV]
  ============================================================================================================================-->
+<div class="row">
 <div class="column">
   <?php
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
@@ -165,6 +171,7 @@ VERSION : 1.1
 
 
    ?>
+</div>
 </div>
 
 	<!-- [ DEFAULT SCRIPT ] -->
