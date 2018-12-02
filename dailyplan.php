@@ -71,7 +71,7 @@ VERSION : 1.1
   }
 
   .column1 {
-    height:100%;
+    height:800px;
     text-align:center;
     width: 33.33%;
     padding-top: 100px;
