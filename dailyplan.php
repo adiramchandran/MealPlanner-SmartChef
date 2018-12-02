@@ -163,9 +163,9 @@ VERSION : 1.1
     $results = mysqli_query($mysqli, $sql);
     $i = 1;
     $two = 2;
-    while ($row = mysqli_fetch_assoc($results) && $row["Breakfast"] == 1) {
+    while ($row = mysqli_fetch_assoc($results) && $row["Breakfast"] == 'B') {
+        echo "Breakfast: " . $_SESSION['numCalories']*0.2;
         if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
-          echo "Breakfast: " . $_SESSION['numCalories']*0.2;
           echo "<h1>" . $row["title"] . "</h1>";
           echo '<br>';
           echo "Calories: " . $row["calories"];
