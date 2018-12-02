@@ -59,15 +59,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
 
   $sql = "UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE Username = $username";
-  //$sql->bind_param('s', $_SESSION['user_id']);
   // $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
   // printf("Last inserted record has id %d" . mysqli_insert_id());
 
   if(mysqli_query($mysqli, $sql) === true) {
-    $_SESSION['insert_out'] = "Record updated successfully. Your ID is: " . $_SESSION['user_id'];
+    $_SESSION['insert_out'] = "Record updated successfully.";
   }
   else {
-    $_SESSION['insert_out'] = "Account was not created";
+    $_SESSION['insert_out'] = "Account was not updated";
   }
 
   // $sql = $mysqli->prepare("UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE ID = ?");
