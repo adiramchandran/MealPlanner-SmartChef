@@ -75,6 +75,7 @@ VERSION : 1.1
     text-align:center;
     width: 33.33%;
     padding-top: 100px;
+    float: left;
   }
   </style>
 
