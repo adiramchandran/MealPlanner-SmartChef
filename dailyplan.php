@@ -108,17 +108,17 @@ VERSION : 1.1
   while ($row = mysqli_fetch_assoc($results)) {
     echo '<tr><td>';
     echo $row["title"];
-    echo '</td><td>'
+    echo '</td><td>';
     echo $row["url"];
-    echo '</td><td>'
+    echo '</td><td>';
     echo $row["calories"];
-    echo '</td><td>'
+    echo '</td><td>';
     echo $row["fat"];
-    echo '</td><td>'
+    echo '</td><td>';
     echo $row["protein"];
-    echo '</td><td>'
+    echo '</td><td>';
     echo $row["carbs"];
-    echo '</td><td>'
+    echo '</td><td>';
     echo $row["Breakfast"];
     echo '</td></tr>';
   }
