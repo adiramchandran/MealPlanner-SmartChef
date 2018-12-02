@@ -12,8 +12,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "INSERT INTO User (ID, Username, Password, Email) " . " VALUES (NULL, '$username', '$password', '$email')";
 
     if(mysqli_query($mysqli, $sql) === true) {
-      $_SESSION['user_id'] = $user->ID;
-      $_SESSION['username'] = $user->Username;
+      $_SESSION['user_id'] = mysqli_insert_id();
+      $_SESSION['username'] = $username;
       header("Location: http://www.teamsaauuwwce.web.illinois.edu/landingpage.php");
       exit;
     }
