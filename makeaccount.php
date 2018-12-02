@@ -14,7 +14,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(mysqli_query($mysqli, $sql) === true) {
       $_SESSION['user_id'] = $user->ID;
       $_SESSION['username'] = $user->Username;
-      echo "Account created successfully!";
       header("Location: http://www.teamsaauuwwce.web.illinois.edu/landingpage.php");
       exit;
     }
