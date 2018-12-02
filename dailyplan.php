@@ -45,11 +45,10 @@ VERSION : 1.1
 
   .box-one {
   background:green;
-  padding-top: 110px;
   }
 
   .box-two {
-  background:green;
+  background:black;
   }
 
   .box-three {
@@ -110,12 +109,13 @@ VERSION : 1.1
 
    <!-- [/NAV]
  ============================================================================================================================-->
-<div class="box-one">
+<div class="box-one" style="padding-top: 110px;">
   <?php
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 
   $sql = "SELECT * FROM RecipeList";
   $results = mysqli_query($mysqli, $sql);
+  $i = 1;
   while ($row = mysqli_fetch_assoc($results)) {
     echo "<h1>" . $row["title"] . "</h1>";
     echo '<br>';
@@ -131,7 +131,13 @@ VERSION : 1.1
     echo '<br>';
     echo '<a href=' . $row["url"] . '>View Recipe Now</a>';
     echo '</div>';
-    echo '<div class="box-two">';
+    $i = $i+1;
+    if ($i % 2 == 0) {
+      echo '<div class="box-two">';
+    }
+    else {
+      echo '<div class="box-one">';
+    }
   }
 
 
