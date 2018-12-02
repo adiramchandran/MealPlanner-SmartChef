@@ -26,7 +26,19 @@ VERSION : 1.1
 	<!-- [ PLUGIN STYLESHEET ]
         =========================================================================================================================-->
 	<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
-	<link rel="stylesheet" type="text/css" href="css/form.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+        <link rel ="stylesheet" type="text/css" href="library/vegas/vegas.min.css">
+	<!-- [ Boot STYLESHEET ]
+        =========================================================================================================================-->
+	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap.css">
+
+        <!-- [ DEFAULT STYLESHEET ]
+        =========================================================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="css/color/green.css">
 
 </head>
 <body >
