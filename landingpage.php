@@ -114,7 +114,7 @@ VERSION : 1.1
                         <div class="text-center top40">
 													<a href="profile.php" class=" btn btns theme_background_color white fadeInLeft">View Profile</a>
 													<a href="profile.php" class="btn btns white-background themecolor fadeInDown">View Weekly Plan</a>
-													<a href="profile.php" class="btn btns white-background themecolor fadeInDown">Browse Recipes</a>
+													<a href="profile.php" class=" btn btns theme_background_color white fadeInRight">Browse Recipes</a>
 														<!--
                             <a href="#" class=" btn btns theme_background_color white fadeInLeft">Google Play</a>
                             <a href="#" class="btn btns black-background white fadeInRight">Signup Free</a> -->
