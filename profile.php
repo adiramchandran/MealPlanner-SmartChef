@@ -31,6 +31,7 @@ if (mysqli_connect_errno()){
 
 // INSERT DONE
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $username = $_POST['username']
   $height = $_POST['height'];
   $weight = $_POST['weight'];
   $age = $_POST['age'];
@@ -57,17 +58,29 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // use BMR to calc target calories per day
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
 
-  $sql = $mysqli->prepare("UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE ID = ?");
-  $sql->bind_param('s', $_SESSION['user_id']);
+  $sql = "UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE Username = $username";
+  //$sql->bind_param('s', $_SESSION['user_id']);
   // $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
   // printf("Last inserted record has id %d" . mysqli_insert_id());
 
-  if($sql->execute()) {
+  if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['insert_out'] = "Record updated successfully. Your ID is: " . $_SESSION['user_id'];
   }
   else {
     $_SESSION['insert_out'] = "Account was not created";
   }
+
+  // $sql = $mysqli->prepare("UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE ID = ?");
+  // $sql->bind_param('s', $_SESSION['user_id']);
+  // // $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
+  // // printf("Last inserted record has id %d" . mysqli_insert_id());
+  //
+  // if($sql->execute()) {
+  //   $_SESSION['insert_out'] = "Record updated successfully. Your ID is: " . $_SESSION['user_id'];
+  // }
+  // else {
+  //   $_SESSION['insert_out'] = "Account was not created";
+  // }
 }
 
 // UPDATE
@@ -217,6 +230,7 @@ mysqli_close($mysqli);
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['insert_out'] ?></font></div>
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Username" name="username" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="height" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="weight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="age" required />
