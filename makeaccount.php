@@ -1,68 +1,32 @@
 <?php
 session_start();
+$_SESSION['message'] = '';
+$mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Getting submitted user data from database
-    $con = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-    $username = $con->real_escape_string($_POST['username']);
-    $stmt = $con->prepare("SELECT * FROM User WHERE Username = ?");
-    $stmt->bind_param('s', $_POST['username']);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_object();
+  if($_POST['password'] == $_POST['confirm-password']){
+    $email = $mysqli->real_escape_string($_POST['email']);
+    $username = $mysqli->real_escape_string($_POST['username']);
+    $password = $mysqli->real_escape_string($_POST['password']);
+    $sql = "INSERT INTO User (ID, Username, Password, Email) " . " VALUES (NULL, '$username', '$password', '$email')";
 
-  	// Verify user password and set $_SESSION
-  	if ($_POST['password'] == $user->Password) {
-  		$_SESSION['user_id'] = $user->ID;
+    if(mysqli_query($mysqli, $sql) === true) {
+      $_SESSION['user_id'] = $user->ID;
       $_SESSION['username'] = $user->Username;
+      echo "Account created successfully!";
       header("Location: http://www.teamsaauuwwce.web.illinois.edu/landingpage.php");
-  	}
-    else {
-      echo "failed";
+      exit;
     }
+    else {
+      echo "Account could not be created";
+      $_SESSION['message'] = "Account was not created:(";
+    }
+  }
+  else {
+    $_SESSION['message'] = "Passwords do not match! Please try again.";
+  }
 }
-// $con->close();
-//
-//
-// session_start();
-// $_SESSION['message'] = '';
-// $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-//
-// $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-//
-// if (!$link) {
-//     echo "Error: Unable to connect to MySQL." . PHP_EOL;
-//     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-//     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-//     exit;
-// }
-//
-// echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
-// echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
-//
-//
-// if($_SERVER['REQUEST_METHOD'] == 'POST') {
-//   if($_POST['password'] == $_POST['confirm-password']){
-//     $email = $mysqli->real_escape_string($_POST['email']);
-//     $username = $mysqli->real_escape_string($_POST['username']);
-//     $password = $mysqli->real_escape_string($_POST['password']);
-//     $sql = "INSERT INTO User (ID, Username, Password, Email) " . " VALUES (NULL, '$username', '$password', '$email')";
-//     // printf("Last inserted record has id %d" . mysql_insert_id());
-//
-//     if(mysqli_query($mysqli, $sql) === true) {
-//       echo "Account created successfully!";
-//       header("Location: http://www.teamsaauuwwce.web.illinois.edu");
-//       exit;
-//     }
-//     else {
-//       echo "Account could not be created";
-//       $_SESSION['message'] = "Account was not created:(";
-//     }
-//   }
-//   else {
-//     $_SESSION['message'] = "Passwords do not match! Please try again.";
-//   }
-// }
 ?>
 <html>
 <head>
@@ -184,14 +148,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" placeholder="confirm password" name="confirm-password" required/>
         <input type="text" placeholder="email address" name="email"/>
         <button>create</button>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form>
-      <form class="login-form" action="login.php" method="post" enctype="multipart/form-data">
-        <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
-        <input type="text" placeholder="username" name="username" required/>
-        <input type="password" placeholder="password" name="password" required/>
-        <input type="submit" value="Login" class="btn btn-block" />
-        <p class="message">Not registered? <a href="makeaccount.php">Create an account</a></p>
+        <p class="message">Already registered? <a href="login.php">Sign In</a></p>
       </form>
     </div>
   </div>
