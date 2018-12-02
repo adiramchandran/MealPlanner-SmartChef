@@ -76,7 +76,7 @@ VERSION : 1.1
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#home" class="page-scroll">Home</a></li>
+            <li><a href="landingpage.php" class="page-scroll">Home</a></li>
             <li><a href="profile.php" class="page-scroll">My Profile</a></li>
             <li><a href="dailyplan.php" class="page-scroll">Weekly Plan</a></li>
             <li><a href="#home" class="page-scroll">Cookbook</a></li>
@@ -92,7 +92,7 @@ VERSION : 1.1
    <!-- [/NAV]
  ============================================================================================================================-->
 
-<div>
+<div style="padding-top: 150px;">
   <?php
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   if ($mysqli) {
