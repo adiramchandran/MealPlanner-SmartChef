@@ -92,7 +92,7 @@ VERSION : 1.1
    <!-- [/NAV]
  ============================================================================================================================-->
 
-<div style="padding-top: 150px;">
+<div style="padding-top: 120px;">
   <?php
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   if ($mysqli) {
