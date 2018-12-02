@@ -18,6 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   	if ($_POST['password'] == $user->Password) {
       $_SESSION['user_id'] = $user->ID;
       $_SESSION['username'] = $user->Username;
+      $_SESSION['numCalories'] = $user->Cal_per_day;
       header("Location: http://www.teamsaauuwwce.web.illinois.edu/landingpage.php");
   	}
     else {

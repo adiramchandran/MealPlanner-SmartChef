@@ -165,12 +165,15 @@ VERSION : 1.1
   while ($row = mysqli_fetch_assoc($results) and $i < $four) {
     if ($i == 1) {
       echo '<div class="column1">';
+      echo "Breakfast: " . $_SESSION['numCalories']*0.2;
     }
     if ($i == 2) {
       echo '<div class="column2">';
+      echo "Lunch: " . $_SESSION['numCalories']*0.4;
     }
     if ($i == 3) {
       echo '<div class="column3">';
+      echo "Dinne: " . $_SESSION['numCalories']*0.4;
     }
     echo "<h1>" . $row["title"] . "</h1>";
     echo '<br>';
