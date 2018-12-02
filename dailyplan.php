@@ -40,7 +40,6 @@ VERSION : 1.1
   <style>
   .box-one,.box-two,.box-three {
   width:100%;
-  height:4em; /* You can take this out and let the content decide the height of your boxes if you want.... */
   text-align:center;
   }
 
@@ -114,12 +113,6 @@ VERSION : 1.1
 <div class="box-one">
   <?php
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  if ($mysqli) {
-    echo "Connection established! <br>";
-  }
-  else {
-    echo "Connection failed!";
-  }
 
   $sql = "SELECT * FROM RecipeList";
   $results = mysqli_query($mysqli, $sql);
