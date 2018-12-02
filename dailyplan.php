@@ -137,7 +137,6 @@ VERSION : 1.1
    <!-- [/NAV]
  ============================================================================================================================-->
 <div class="row">
-<div class="column">
   <?php
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 
@@ -146,6 +145,7 @@ VERSION : 1.1
   $i = 1;
   $four = 4;
   while ($row = mysqli_fetch_assoc($results) and $i < $four) {
+    echo '<div class="column">';
     echo "<h1>" . $row["title"] . "</h1>";
     echo '<br>';
     echo "Calories: " . $row["calories"];
@@ -161,12 +161,6 @@ VERSION : 1.1
     echo '<button class=button onclick=' . $row["url"] . '>View Recipe Now</button>';
     echo '</div>';
     $i = $i+1;
-    if ($i % 2 == 0) {
-      echo '<div class="column">';
-    }
-    else {
-      echo '<div class="column">';
-    }
   }
 
 
