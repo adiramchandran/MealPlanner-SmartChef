@@ -16,9 +16,9 @@ else {
   echo "Connection failed!";
 }
 
-$sql = "SELECT title, url, calories, fat, protein, carbs, sodium, sugar from RecipeList";
+$sql = "SELECT * FROM RecipeList";
 $results = mysqli_query($mysqli, $sql);
-while ($row = mysqli_fetch_array($results)) {
+while ($row = mysqli_fetch_assoc($results)) {
   echo $row[1]." ".$row[2]." ".$row[3]." ".$row[4]." ".$row[5]." ".$row[6]." ".$row[7]." ".$row[8];
   echo "<br>";
 }
