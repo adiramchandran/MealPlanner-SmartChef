@@ -46,11 +46,13 @@ VERSION : 1.1
   .box-one {
   background:green;
   padding-bottom: 10px;
+  padding-top: 10px;
   }
 
   .box-two {
   background:black;
   padding-bottom: 10px;
+  padding-top: 10px;
   }
 
   .box-three {
@@ -60,8 +62,8 @@ VERSION : 1.1
   .button {
     background-color: #e7e7e7;
     border: none;
-    color: white;
-    padding: 15px 32px;
+    color: black;
+    padding: 30px 45px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -122,7 +124,7 @@ VERSION : 1.1
 
    <!-- [/NAV]
  ============================================================================================================================-->
-<div class="box-one" style="padding-top: 110px;">
+<div class="box-one" style="padding-top: 100px;">
   <?php
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 
