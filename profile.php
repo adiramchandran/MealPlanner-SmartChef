@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 echo $_SESSION['user_id'];
 $_SESSION['insert_out'] = "";
