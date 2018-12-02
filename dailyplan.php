@@ -37,6 +37,26 @@ VERSION : 1.1
 	<link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/responsive.css">
 	<link rel="stylesheet" type="text/css" href="css/color/green.css">
+  <style>
+  .box-one,.box-two,.box-three {
+  width:100%;
+  height:4em; /* You can take this out and let the content decide the height of your boxes if you want.... */
+  text-align:center;
+  }
+
+  .box-one {
+  background:cyan;
+  padding-top: 110px;
+  }
+
+  .box-two {
+  background:dodgerblue;
+  }
+
+  .box-three {
+  background:hotpink;
+  }
+  </style>
 
 </head>
 <body >
@@ -91,8 +111,7 @@ VERSION : 1.1
 
    <!-- [/NAV]
  ============================================================================================================================-->
-
-<div style="padding-top: 110px;">
+<div class="box-one">
   <?php
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   if ($mysqli) {
@@ -104,23 +123,22 @@ VERSION : 1.1
 
   $sql = "SELECT * FROM RecipeList";
   $results = mysqli_query($mysqli, $sql);
-  echo "<table border=1>";
   while ($row = mysqli_fetch_assoc($results)) {
-    echo '<tr><td>';
     echo $row["title"];
-    echo '</td><td>';
+    echo '<br>';
     echo $row["url"];
-    echo '</td><td>';
+    echo '<br>';
     echo $row["calories"];
-    echo '</td><td>';
+    echo '<br>';
     echo $row["fat"];
-    echo '</td><td>';
+    echo '<br>';
     echo $row["protein"];
-    echo '</td><td>';
+    echo '<br>';
     echo $row["carbs"];
-    echo '</td><td>';
+    echo '<br>';
     echo $row["Breakfast"];
-    echo '</td></tr>';
+    echo '</div>';
+    echo '<div class="box-two">';
   }
 
 
