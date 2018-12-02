@@ -92,7 +92,7 @@ VERSION : 1.1
    <!-- [/NAV]
  ============================================================================================================================-->
 
-<div style="padding-top: 110px; background-color: white; color:black;">
+<div style="padding-top: 110px;">
   <?php
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   if ($mysqli) {
@@ -104,9 +104,23 @@ VERSION : 1.1
 
   $sql = "SELECT * FROM RecipeList";
   $results = mysqli_query($mysqli, $sql);
+  echo "<table border=1>";
   while ($row = mysqli_fetch_assoc($results)) {
-    echo $row["title"]." ".$row["url"]." ".$row["calories"]." ".$row["fat"]." ".$row["protein"]." ".$row["carbs"]." ".$row["Breakfast"];
-    echo "<br>";
+    echo '<tr><td>';
+    echo $row["title"];
+    echo '</td><td>'
+    echo $row["url"];
+    echo '</td><td>'
+    echo $row["calories"];
+    echo '</td><td>'
+    echo $row["fat"];
+    echo '</td><td>'
+    echo $row["protein"];
+    echo '</td><td>'
+    echo $row["carbs"];
+    echo '</td><td>'
+    echo $row["Breakfast"];
+    echo '</td></tr>';
   }
 
 
