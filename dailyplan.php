@@ -119,13 +119,13 @@ VERSION : 1.1
   while ($row = mysqli_fetch_assoc($results)) {
     echo "<h1>" . $row["title"] . "</h1>";
     echo '<br>';
-    echo $row["calories"];
+    echo "Calories: " . $row["calories"];
     echo '<br>';
-    echo $row["fat"];
+    echo "Fat: " . $row["fat"] . "grams";
     echo '<br>';
-    echo $row["protein"];
+    echo "Protein: " . $row["protein"] . "grams";
     echo '<br>';
-    echo $row["carbs"];
+    echo "Carbohydrates: " . $row["carbs"] . "grams";
     echo '<br>';
     echo $row["Breakfast"];
     echo '<br>';
