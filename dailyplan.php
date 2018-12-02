@@ -76,11 +76,6 @@ VERSION : 1.1
     width: 33.33%;
     padding-top: 100px;
   }
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
   </style>
 
 </head>
