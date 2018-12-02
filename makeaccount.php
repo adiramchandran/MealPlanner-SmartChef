@@ -143,14 +143,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   <div class="login-page">
     <div class="login-page">
       <div class="form">
-        <form class="register-form" action="login.php" method="post" enctype="multipart/form-data">
-          <input type="text" placeholder="name" name="username"/>
-          <input type="password" placeholder="password" name="password"/>
-          <input type="password" placeholder="confirm password" name="confirm-password" required/>
-          <input type="text" placeholder="email address" name="email"/>
-          <input type="submit" value="Create Account" class="btn btn-block" />
-          <p class="message">Already registered? <a href="#">Sign In</a></p>
-        </form>
         <form class="login-form" action="login.php" method="post" enctype="multipart/form-data">
           <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
           <input type="text" placeholder="name" name="username"/>
