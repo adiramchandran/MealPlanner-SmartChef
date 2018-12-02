@@ -155,45 +155,37 @@ VERSION : 1.1
    <!-- [/NAV]
  ============================================================================================================================-->
 <div class="row">
-  <?php
-  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  <div class="column1">
+    <?php
+    $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 
-  $sql = "SELECT * FROM RecipeList";
-  $results = mysqli_query($mysqli, $sql);
-  $i = 1;
-  $four = 4;
-  while ($row = mysqli_fetch_assoc($results) and $i < $four) {
-    if ($i == 1) {
-      echo '<div class="column1">';
-      echo "Breakfast: " . $_SESSION['numCalories']*0.2;
+    $sql = "SELECT * FROM RecipeList";
+    $results = mysqli_query($mysqli, $sql);
+    $i = 1;
+    $two = 2;
+    while ($row = mysqli_fetch_assoc($results)) {
+        if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
+          echo "Breakfast: " . $_SESSION['numCalories']*0.2;
+          echo "<h1>" . $row["title"] . "</h1>";
+          echo '<br>';
+          echo "Calories: " . $row["calories"];
+          echo '<br>';
+          echo "Fat: " . $row["fat"] . " grams";
+          echo '<br>';
+          echo "Protein: " . $row["protein"] . " grams";
+          echo '<br>';
+          echo "Carbohydrates: " . $row["carbs"] . " grams";
+          echo '<br>';
+          echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+          break;
+        }
     }
-    if ($i == 2) {
-      echo '<div class="column2">';
-      echo "Lunch: " . $_SESSION['numCalories']*0.4;
-    }
-    if ($i == 3) {
-      echo '<div class="column3">';
-      echo "Dinne: " . $_SESSION['numCalories']*0.4;
-    }
-    echo "<h1>" . $row["title"] . "</h1>";
-    echo '<br>';
-    echo "Calories: " . $row["calories"];
-    echo '<br>';
-    echo "Fat: " . $row["fat"] . " grams";
-    echo '<br>';
-    echo "Protein: " . $row["protein"] . " grams";
-    echo '<br>';
-    echo "Carbohydrates: " . $row["carbs"] . " grams";
-    echo '<br>';
-    // echo $row["Breakfast"];
-    // echo '<br>';
-    echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-    echo '</div>';
-    $i = $i+1;
-  }
-
-
-   ?>
+     ?>
+  </div>
+  <div class="column2">
+  </div>
+  <div class="column3">
+  </div>
 </div>
 
 	<!-- [ DEFAULT SCRIPT ] -->

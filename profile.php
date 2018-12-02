@@ -3,7 +3,6 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
     session_cache_limiter("public");
 }
 session_start();
-echo $_SESSION['user_id'];
 $_SESSION['insert_out'] = "";
 $_SESSION['update_out'] = "";
 $_SESSION['delete_out'] = "";
