@@ -19,7 +19,7 @@ else {
 $sql = "SELECT * FROM RecipeList";
 $results = mysqli_query($mysqli, $sql);
 while ($row = mysqli_fetch_assoc($results)) {
-  echo $row[1]." ".$row[2]." ".$row[3]." ".$row[4]." ".$row[5]." ".$row[6]." ".$row[7]." ".$row[8];
+  echo $row["title"]." ".$row["url"]." ".$row["calories"]." ".$row["fat"]." ".$row["protein"]." ".$row["carbs"]." ".$row["Breakfast"];
   echo "<br>";
 }
 
