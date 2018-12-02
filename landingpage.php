@@ -1,5 +1,7 @@
 <?php
-ob_start();
+if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
+    session_cache_limiter("public");
+}
 session_start();
 echo $_SESSION['user_id'];
 echo $_SESSION['username'];

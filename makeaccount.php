@@ -1,4 +1,7 @@
 <?php
+if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
+    session_cache_limiter("public");
+}
 session_start();
 $_SESSION['message'] = '';
 $mysqli = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
