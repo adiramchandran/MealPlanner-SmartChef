@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +15,7 @@ VERSION : 1.1
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Saucy Chef</title>
+	<title>Daily Plan</title>
 
 	<!-- [ FONT-AWESOME ICON ]
         =========================================================================================================================-->
@@ -39,6 +37,24 @@ VERSION : 1.1
 	<link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/responsive.css">
 	<link rel="stylesheet" type="text/css" href="css/color/green.css">
+  <style>
+  .box-one,.box-two,.box-three {
+  width:100%;
+  text-align:center;
+  }
+
+  .box-one {
+  background:green;
+  }
+
+  .box-two {
+  background:black;
+  }
+
+  .box-three {
+  background:hotpink;
+  }
+  </style>
 
 </head>
 <body >
@@ -78,7 +94,7 @@ VERSION : 1.1
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#home" class="page-scroll">Home</a></li>
+            <li><a href="landingpage.php" class="page-scroll">Home</a></li>
             <li><a href="profile.php" class="page-scroll">My Profile</a></li>
             <li><a href="dailyplan.php" class="page-scroll">Weekly Plan</a></li>
             <li><a href="#home" class="page-scroll">Cookbook</a></li>
@@ -93,88 +109,40 @@ VERSION : 1.1
 
    <!-- [/NAV]
  ============================================================================================================================-->
+<div class="box-one" style="padding-top: 110px;">
+  <?php
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+
+  $sql = "SELECT * FROM RecipeList";
+  $results = mysqli_query($mysqli, $sql);
+  $i = 1;
+  while ($row = mysqli_fetch_assoc($results)) {
+    echo "<h1>" . $row["title"] . "</h1>";
+    echo '<br>';
+    echo $row["calories"];
+    echo '<br>';
+    echo $row["fat"];
+    echo '<br>';
+    echo $row["protein"];
+    echo '<br>';
+    echo $row["carbs"];
+    echo '<br>';
+    echo $row["Breakfast"];
+    echo '<br>';
+    echo '<a href=' . $row["url"] . '>View Recipe Now</a>';
+    echo '</div>';
+    $i = $i+1;
+    if ($i % 2 == 0) {
+      echo '<div class="box-two">';
+    }
+    else {
+      echo '<div class="box-one">';
+    }
+  }
 
 
-
-
-
-  <!-- [MAIN GALLERY ]
-=============================================================================================================================-->
-  <section class="main-gallery" id="home">
-    <div class="overlay">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12 text-center">
-                 <h1 class="text-capitalize bigFont" data-scroll-reveal="wait 0.45s, then enter top and move 80px over 1s">Welcome to Saucy Chef</h1>
-
-                <p class="intro" data-scroll-reveal="wait 0.45s, then enter left and move 80px over 1s">Open yourself to all the possibilities for an easy and healthy lifestyle.</p>
-              </div>
-
-              <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                        <div class="text-center top40">
-													<a href="profile.php" class=" btn btns theme_background_color white fadeInLeft">View Profile</a>
-													<a href="dailyplan.php" class="btn btns white-background themecolor fadeInDown">View Weekly Plan</a>
-													<a href="profile.php" class=" btn btns theme_background_color white fadeInRight">Browse Recipes</a>
-														<!--
-                            <a href="#" class=" btn btns theme_background_color white fadeInLeft">Google Play</a>
-                            <a href="#" class="btn btns black-background white fadeInRight">Signup Free</a> -->
-
-                        </div>
-                    </div>
-
-          </div>
-      </div>
-    </div>
-
-  </section>
-
-
- <!-- [FOOTER]
-=============================================================================================================================-->
- <footer class="footer">
-
-					<div class="container">
-						<div class="footer-info col-md-12 text-center">
-							<ul>
-							</ul>
-						</div>
-						<div class="footer-social-icons col-md-12 text-center">
-							<ul>
-							</ul>
-						</div>
-					</div>
-
-
-
- </footer>
-
- <section class="sub-footer">
-					<div class="container">
-						<div class="copyright-text col-md-6 col-sm-6 col-xs-12">
-							<p>© 2014 AM-D. All rights reserved.</p>
-						</div>
-						<div class="designed-by col-md-6 col-sm-6 col-xs-12">
-							<p>Designed by: <a href="#">YOUR PLUGIN</a></p>
-						</div>
-					</div>
-				</section>
-
- <!-- [/FOOTER]
-=============================================================================================================================-->
-
-
-
-
-
-
-
-
-
+   ?>
 </div>
-
-
-<!-- [ /WRAPPER ]
-=============================================================================================================================-->
 
 	<!-- [ DEFAULT SCRIPT ] -->
 	<script src="library/modernizr.custom.97074.js"></script>
