@@ -76,11 +76,11 @@ VERSION : 1.1
     width: 33.33%;
     padding-top: 100px;
     float: left;
-    background-color: #e7e7e7;
+    background-color: #B3B3B3;
   }
 
   .column2 {
-    height:100%;
+    height:800px;
     text-align:center;
     width: 33.33%;
     padding-top: 100px;
@@ -89,7 +89,7 @@ VERSION : 1.1
   }
 
   .column3 {
-    height:100%;
+    height:800px;
     text-align:center;
     width: 33.33%;
     padding-top: 100px;
