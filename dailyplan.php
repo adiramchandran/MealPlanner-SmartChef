@@ -117,7 +117,7 @@ VERSION : 1.1
   $sql = "SELECT * FROM RecipeList";
   $results = mysqli_query($mysqli, $sql);
   while ($row = mysqli_fetch_assoc($results)) {
-    echo "<h1>" . $row["title"] . "<\h1>";
+    echo "<h1>" . $row["title"] . "</h1>";
     echo '<br>';
     echo $row["calories"];
     echo '<br>';
