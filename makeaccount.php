@@ -153,10 +153,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
         <form class="login-form" action="login.php" method="post" enctype="multipart/form-data">
           <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
-          <input type="text" placeholder="username" name="username" required/>
-          <input type="password" placeholder="password" name="password" required/>
-          <input type="submit" value="Login" class="btn btn-block" />
-          <p class="message">Not registered? <a href="makeaccount.php">Create an account</a></p>
+          <input type="text" placeholder="name" name="username"/>
+          <input type="password" placeholder="password" name="password"/>
+          <input type="password" placeholder="confirm password" name="confirm-password" required/>
+          <input type="text" placeholder="email address" name="email"/>
+          <input type="submit" value="Create Account" class="btn btn-block" />
+          <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
       </div>
   </div>
