@@ -63,7 +63,7 @@ VERSION : 1.1
     background-color: #e7e7e7;
     border: none;
     color: black;
-    padding: 30px 45px;
+    padding: 10px 27px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
