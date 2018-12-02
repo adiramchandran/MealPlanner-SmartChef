@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -73,8 +77,8 @@ VERSION : 1.1
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#home" class="page-scroll">Home</a></li>
-            <li><a href="login.php" class="page-scroll">Login</a></li>
-            <li><a href="#testimonial-s" class="page-scroll">Make Account</a></li>
+            <li><a>Welcome, <?php echo $_SESSION['username'];?>!</a>
+            <li><a href="index.html" class="page-scroll">Logout</a></li>
             <li><a href="#contact" class="page-scroll" id="contacts"><i class="fa fa-send"></i></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
