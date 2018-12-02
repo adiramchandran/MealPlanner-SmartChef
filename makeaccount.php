@@ -143,7 +143,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   <div class="login-page">
     <div class="login-page">
       <div class="form">
-        <form class="login-form" action="login.php" method="post" enctype="multipart/form-data">
+        <form class="login-form" action="makeaccount.php" method="post" enctype="multipart/form-data">
           <div class="alert alert-error"><?= $_SESSION['message'] ?></div>
           <input type="text" placeholder="name" name="username"/>
           <input type="password" placeholder="password" name="password"/>
