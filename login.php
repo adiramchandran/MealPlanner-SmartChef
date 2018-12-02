@@ -13,7 +13,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   	// Verify user password and set $_SESSION
   	if ($_POST['password'] == $user->Password) {
-  		$_SESSION['user_id'] = $user->ID;
+        echo "found user";
+      $_SESSION['user_id'] = $user->ID;
       $_SESSION['username'] = $user->Username;
       header("Location: http://www.teamsaauuwwce.web.illinois.edu/landingpage.php");
   	}
