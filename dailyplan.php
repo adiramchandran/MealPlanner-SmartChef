@@ -144,7 +144,7 @@ VERSION : 1.1
     echo '<br>';
     echo $row["Breakfast"];
     echo '<br>';
-    echo '<button onclick=' . $row["url"] . '>View Recipe Now</button>';
+    echo '<button class=button onclick=' . $row["url"] . '>View Recipe Now</button>';
     echo '</div>';
     $i = $i+1;
     if ($i % 2 == 0) {
