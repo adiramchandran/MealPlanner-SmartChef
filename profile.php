@@ -191,7 +191,13 @@ mysqli_close($mysqli);
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html" class="page-scroll">Home</a></li>
+            <li><a href="#home" class="page-scroll">Home</a></li>
+            <li><a href="#home" class="page-scroll">My Profile</a></li>
+            <li><a href="#home" class="page-scroll">Weekly Plan</a></li>
+            <li><a href="#home" class="page-scroll">Cookbook</a></li>
+            <li><a>Welcome, <?php echo $_SESSION['username'];?>!</a>
+            <li><a href="index.html" class="page-scroll">Logout</a></li>
+            <li><a href="#contact" class="page-scroll" id="contacts"><i class="fa fa-send"></i></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
