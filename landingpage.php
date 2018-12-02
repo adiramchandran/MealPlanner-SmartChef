@@ -79,8 +79,8 @@ VERSION : 1.1
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#home" class="page-scroll">Home</a></li>
-            <li><a href="#home" class="page-scroll">My Profile</a></li>
-            <li><a href="#home" class="page-scroll">Weekly Plan</a></li>
+            <li><a href="profile.php" class="page-scroll">My Profile</a></li>
+            <li><a href="dailyplan.php" class="page-scroll">Weekly Plan</a></li>
             <li><a href="#home" class="page-scroll">Cookbook</a></li>
             <li><a>Welcome, <?php echo $_SESSION['username'];?>!</a>
             <li><a href="logout.php" class="page-scroll">Logout</a></li>
@@ -113,7 +113,7 @@ VERSION : 1.1
               <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                         <div class="text-center top40">
 													<a href="profile.php" class=" btn btns theme_background_color white fadeInLeft">View Profile</a>
-													<a href="profile.php" class="btn btns white-background themecolor fadeInDown">View Weekly Plan</a>
+													<a href="dailyplan.php" class="btn btns white-background themecolor fadeInDown">View Weekly Plan</a>
 													<a href="profile.php" class=" btn btns theme_background_color white fadeInRight">Browse Recipes</a>
 														<!--
                             <a href="#" class=" btn btns theme_background_color white fadeInLeft">Google Play</a>
