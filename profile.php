@@ -39,12 +39,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $gender = $_POST['gender'];
 
   $bmr = 0.0;
-  // if ($gender == "f"){ // calc female BMR expression
+  if ($gender == "f"){ // calc female BMR expression
       $bmr += 655 + (4.35 * $weight) + (4.7 * $height) - (4.7 * $age);
-  // }
-  // else{                 // calc male BMR expression
-      // $bmr += 66 + (6.23 * $weight) + (12.7 * $height) - (6.8 * $age);
-  // }
+  }
+  else{                 // calc male BMR expression
+      $bmr += 66 + (6.23 * $weight) + (12.7 * $height) - (6.8 * $age);
+  }
 
   // account for lifestyle (scale of 1 -> 5; sedentary to extremely active)
   if ($lifestyle == 1) { $bmr *= 1.2; }
@@ -222,11 +222,7 @@ mysqli_close($mysqli);
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="age" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week" name="weight_per_wk" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle" name="lifestyle" required />
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender" name="gender" list="gender" required />
-        <datalist id="gender">
-          <option type="text" value="m">
-          <option type="text" value="f">
-        </datalist>
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender (enter m or f)" name="gender" required />
       <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
       <div class="module">
     </form>
