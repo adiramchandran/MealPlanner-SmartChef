@@ -85,7 +85,7 @@ VERSION : 1.1
     width: 33.33%;
     padding-top: 100px;
     float: left;
-    background-color: #752472;
+    background-color: #262626;
   }
 
   .column3 {
