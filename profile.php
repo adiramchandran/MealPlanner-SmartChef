@@ -1,4 +1,5 @@
 <?php
+include 'login.php';
 echo $_SESSION['user_id'];
 $_SESSION['insert_out'] = "";
 $_SESSION['update_out'] = "";
