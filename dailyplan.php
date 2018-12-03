@@ -8,7 +8,6 @@ function findBreakfast() {
   $id = $_SESSION['user_id'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.25 from User where id=$id) and calories > (select Cal_per_day*0.15 from User where id=$id) and MealType = 'B'";
-  // $sql = "SELECT * FROM RecipeList, User where calories < Cal_per_day*0.25 and calories > Cal_per_day*0.15 and MealType = 'B'";
   $results = mysqli_query($mysqli, $sql);
   while ($row = mysqli_fetch_assoc($results)) {
         $_SESSION["breakfast"] = $row["title"];
@@ -246,10 +245,9 @@ VERSION : 1.1
     <?php
     function findLunch() {
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList order by rand()";
+      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.35 from User where id=$id) and calories > (select Cal_per_day*0.45 from User where id=$id) and MealType = 'L'";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
-          if ($row["MealType"] == 'L' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
             $_SESSION["lunch"] = $row["title"];
             echo "<div id=deletel>";
             echo "Lunch: " . $_SESSION['numCalories']*0.4;
@@ -280,7 +278,7 @@ VERSION : 1.1
     <?php
     function findDinner() {
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList order by rand()";
+      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.35 from User where id=$id) and calories > (select Cal_per_day*0.45 from User where id=$id) and MealType = 'D'";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["MealType"] == 'D' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
