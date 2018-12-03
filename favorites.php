@@ -180,7 +180,6 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
             echo "<div class='box-one'>";
-            echo "Breakfast: " . $_SESSION['numCalories']*0.2;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
