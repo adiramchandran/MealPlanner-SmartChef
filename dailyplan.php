@@ -274,6 +274,9 @@ VERSION : 1.1
     }
       findLunch();
     ?>
+    <form action='dailyplan.php' method="GET">
+      <input type="submit" class="button" name="fave" id="fave" value="Favorite" /><br/>
+    </form>
   </div>
   <div class="column3">
     <?php
@@ -306,6 +309,9 @@ VERSION : 1.1
     }
       findDinner();
     ?>
+    <form action='dailyplan.php' method="GET">
+      <input type="submit" class="button" name="fave" id="fave" value="Favorite" /><br/>
+    </form>
   </div>
 </div>
 
