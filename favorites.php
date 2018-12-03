@@ -183,12 +183,12 @@ VERSION : 1.1
   <div class="block">
     <h1>Your Favorites</h1>
   </div>
-  <div class="search-container">
+  <!-- <div class="search-container">
     <form action="">
       <input type="text" placeholder="Search.." name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
-  </div>
+  </div> -->
   <section>
     <?php
     function listFavorites() {
