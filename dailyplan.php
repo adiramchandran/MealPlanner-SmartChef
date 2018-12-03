@@ -3,9 +3,9 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
     session_cache_limiter("public");
 }
 session_start();
+$id = $_SESSION['user_id'];
 
 function findBreakfast() {
-  $id = $_SESSION['user_id'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.25 from User where id=$id) and calories > (select Cal_per_day*0.15 from User where id=$id) and MealType = 'B'";
   $results = mysqli_query($mysqli, $sql);
