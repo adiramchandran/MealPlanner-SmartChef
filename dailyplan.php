@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
   $title = $_SESSION['breakfast'];
   $id = $_SESSION['user_id'];
   $sql = "INSERT INTO UserFavorites (ID, RecipeName) " . " VALUES ('$id', '$title')";
-  // $results = mysqli_query($mysqli, $sql);
+  $results = mysqli_query($mysqli, $sql);
   // if ($results) {
   //   echo "succeeded";
   // }
