@@ -46,8 +46,8 @@ VERSION : 1.1
   }
   .box-one {
   background:green;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  /* padding-bottom: 10px;
+  padding-top: 10px; */
   }
   .box-two {
   background:black;
