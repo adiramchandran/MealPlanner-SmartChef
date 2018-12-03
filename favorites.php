@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $mealType = $_POST['search'];
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where Username=$user and MealType=$mealType";
+  $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where Username="."'$user'"." and MealType=$mealType";
   $results = mysqli_query($mysqli, $sql);
   while ($row = mysqli_fetch_assoc($results)) {
         echo "<div class='box-one'>";
