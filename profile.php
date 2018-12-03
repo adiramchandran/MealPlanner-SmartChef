@@ -29,6 +29,7 @@ if (mysqli_connect_errno()){
 */
 // INSERT DONE <-- THIS IS NOW AN UPDATE
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // extract all the new information
   $height = $_POST['height'];
   $weight = $_POST['weight'];
   $age = $_POST['age'];
@@ -36,6 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $lifestyle = $_POST['lifestyle'];
   $gender = $_POST['gender'];
   $bmr = 0.0;
+  // bmr calculations
   if ($gender == 2){ // calc female BMR expression
       $bmr += 655 + (4.35 * $weight) + (4.7 * $height) - (4.7 * $age);
   }
@@ -52,12 +54,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // use BMR to calc target calories per day
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
   $_SESSION['numCalories'] = $cal;
-  $sql = $mysqli->prepare("UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE ID = ?");
-  $sql->bind_param('s', $_SESSION['user_id']);
+  $sql = $mysqli->prepare("UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE Username = ?");
+  $sql->bind_param('s', $_SESSION['username']);
   // $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
   // printf("Last inserted record has id %d" . mysqli_insert_id());
   if($sql->execute()) {
-    $_SESSION['insert_out'] = "Record updated successfully. Your ID is: " . $_SESSION['user_id'];
+    $_SESSION['insert_out'] = "Record updated successfully. Your Username is: " . $_SESSION['username'];
   }
   else {
     $_SESSION['insert_out'] = "Account was not created";
@@ -69,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $password = $_POST['password']
   $sql = "DELETE FROM User WHERE Username = $usernameID  AND Password = $password";
   if(mysqli_query($mysqli, $sql) === true) {
-    $_SESSION['delete_out'] = "Your entry has been deleted";
+    $_SESSION['delete_out'] = "Your account has been deleted";
   }
   else {
     $_SESSION['delete_out'] = "Account not deleted";
