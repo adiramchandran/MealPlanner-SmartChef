@@ -285,6 +285,11 @@ VERSION : 1.1
       mysqli_close($mysqli);
 
     }
+    else if (isset($_SESSION['lunch'])) {
+      $lunch = $_SESSION['lunch'];
+      $sql = "SELECT * FROM RecipeList where title='$lunch'";
+
+    }
     else {
       findLunch();
     }
