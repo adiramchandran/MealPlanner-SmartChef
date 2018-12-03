@@ -107,7 +107,7 @@ VERSION : 1.1
 
   h1 {
     padding-left: 50px;
-    padding-top: 200px;
+    padding-top: 150px;
   }
 
   </style>
