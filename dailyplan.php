@@ -27,6 +27,10 @@ function findBreakfast() {
       }
   }
 }
+
+if(array_key_exists('test',$_POST)){
+   findBreakfast();
+}
 ?>
 
 <!DOCTYPE html>
@@ -183,7 +187,9 @@ VERSION : 1.1
   <?php
       findBreakfast();
   ?>
-  <input type="button" class=button value="Shuffle" onclick="findBreakfast()"/>
+  <form method="post">
+    <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+  </form>
   </div>
   <div class="column2">
   </div>
