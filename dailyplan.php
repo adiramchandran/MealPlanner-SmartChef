@@ -22,18 +22,14 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
   // }
 }
 
-if(array_key_exists('testb',$_POST)){
-  removeFunction("deleteb");
-  findBreakfast();
-}
-if(array_key_exists('testl',$_POST)){
-  removeFunction("deletel");
-  findLunch();
-}
-if(array_key_exists('testd',$_POST)){
-  removeFunction("deleted");
-  findLunch();
-}
+// if(array_key_exists('testl',$_POST)){
+//   removeFunction("deletel");
+//   findLunch();
+// }
+// if(array_key_exists('testd',$_POST)){
+//   removeFunction("deleted");
+//   findLunch();
+// }
 ?>
 
 <!DOCTYPE html>
@@ -186,6 +182,11 @@ VERSION : 1.1
 <div class="row">
   <div class="column1">
     <?php
+    if(array_key_exists('testb',$_POST)){
+      removeFunction("deleteb");
+      findBreakfast();
+    }
+
     function findBreakfast() {
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList order by rand()";
@@ -207,7 +208,7 @@ VERSION : 1.1
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
             echo '<form method="post">
-              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+              <input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>
             </form>';
             echo "</div>";
             break;
@@ -216,6 +217,7 @@ VERSION : 1.1
       mysqli_close($mysqli);
     }
     findBreakfast();
+
     ?>
     <form method="GET">
       <input type="submit" class="button" name="fave" id="fave" value="Favorite" /><br/>
