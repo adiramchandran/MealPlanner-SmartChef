@@ -177,14 +177,14 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-            echo '<input type="button" class=button value="Shuffle" onclick="<?php echo findBreakfast(); ?>"/>';
             break;
           }
       }
     }
 
     findBreakfast();
-     ?>
+  ?>
+  <input type="button" class=button value="Shuffle" onclick="<?php echo findBreakfast(); ?>"/>
   </div>
   <div class="column2">
   </div>
