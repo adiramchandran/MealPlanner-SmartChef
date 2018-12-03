@@ -65,8 +65,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 // DELETE
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $deleteID = $_POST['deleteID'];
-  $sql = "DELETE FROM User WHERE ID = $deleteID";
+  $usernameID = $_POST['username'];
+  $password = $_POST['password']
+  $sql = "DELETE FROM User WHERE Username = $usernameID AND Password = $password";
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['delete_out'] = "Your entry has been deleted";
   }
@@ -195,7 +196,8 @@ mysqli_close($mysqli);
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['delete_out'] ?></font></div>
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="ID" name="deleteID" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Username" name="username" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Password" name="password" required />
       <input type="submit" value="Delete Account" name="deleteAccount" class="btn btn-block" />
 
       <div class="module">
