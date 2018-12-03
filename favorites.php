@@ -101,7 +101,7 @@ VERSION : 1.1
   }
 
   .block {
-    height:100px;
+    height:300px;
     background-color: #B3B3B3;
     padding-top: 100px;
   }
@@ -163,7 +163,7 @@ VERSION : 1.1
  ============================================================================================================================-->
 <div class="row">
   <div class="block">
-
+    <h1>Your Favorites</h1>
   </div>
 </div>
 </div>
