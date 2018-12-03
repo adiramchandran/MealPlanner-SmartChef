@@ -107,7 +107,6 @@ VERSION : 1.1
   }
 
   h1 {
-    padding-top:10px;
     padding-left: 50px;
   }
 
