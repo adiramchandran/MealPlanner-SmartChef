@@ -1,4 +1,8 @@
 <?php
+if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
+    session_cache_limiter("public");
+}
+session_start();
 ?>
 
 <!DOCTYPE html>
