@@ -8,10 +8,17 @@ function removeFunction() {
      'removeCurr();',
   '</script>';
 }
-
-if(array_key_exists('test',$_POST)){
-  removeFunction();
+if(array_key_exists('testb',$_POST)){
+  removeFunction("deleteb");
   findBreakfast();
+}
+if(array_key_exists('testl',$_POST)){
+  removeFunction("deletel");
+  findLunch();
+}
+if(array_key_exists('testd',$_POST)){
+  removeFunction("deleted");
+  findLunch();
 }
 ?>
 
@@ -34,8 +41,8 @@ VERSION : 1.1
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
   <script type="text/javascript">
-  function removeCurr() {
-    var elem = document.getElementById("curr");
+  function removeCurr(x) {
+    var elem = document.getElementById(x);
     elem.parentNode.removeChild(elem);
   }
   </script>
@@ -60,23 +67,19 @@ VERSION : 1.1
   width:100%;
   text-align:center;
   }
-
   .box-one {
   background:green;
   padding-bottom: 10px;
   padding-top: 10px;
   }
-
   .box-two {
   background:black;
   padding-bottom: 10px;
   padding-top: 10px;
   }
-
   .box-three {
   background:hotpink;
   }
-
   .button {
     background-color: #e7e7e7;
     border: none;
@@ -87,7 +90,6 @@ VERSION : 1.1
     display: inline-block;
     font-size: 16px;
   }
-
   .column1 {
     height:800px;
     text-align:center;
@@ -96,7 +98,6 @@ VERSION : 1.1
     float: left;
     background-color: #B3B3B3;
   }
-
   .column2 {
     height:800px;
     text-align:center;
@@ -105,7 +106,6 @@ VERSION : 1.1
     float: left;
     background-color: #262626;
   }
-
   .column3 {
     height:800px;
     text-align:center;
@@ -178,7 +178,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'B' and $row["calories"] <= $_SESSION['numCalories']*0.2) {
-            echo "<div id=curr>";
+            echo "<div id=deleteb>";
             echo "Breakfast: " . $_SESSION['numCalories']*0.2;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -200,9 +200,11 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
-
     findBreakfast();
     ?>
+    <form method="post">
+      <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+    </form>
   </div>
   <div class="column2">
     <?php
@@ -212,7 +214,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'L' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
-            echo "<div id=curr>";
+            echo "<div id=deletel>";
             echo "Lunch: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -234,9 +236,11 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
-
     findLunch();
     ?>
+    <form method="post">
+      <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+    </form>
   </div>
   <div class="column3">
     <?php
@@ -246,7 +250,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'D' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
-            echo "<div id=curr>";
+            echo "<div id=deleted>";
             echo "Dinner: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -268,7 +272,6 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
-
     findDinner();
     ?>
   </div>
