@@ -9,10 +9,18 @@ function removeFunction() {
   '</script>';
 }
 
-// if(array_key_exists('test',$_POST)){
-//   removeFunction();
-//   findBreakfast();
-// }
+if(array_key_exists('testb',$_POST)){
+  removeFunction("deleteb");
+  findBreakfast();
+}
+if(array_key_exists('testl',$_POST)){
+  removeFunction("deletel");
+  findLunch();
+}
+if(array_key_exists('testd',$_POST)){
+  removeFunction("deleted");
+  findLunch();
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +42,8 @@ VERSION : 1.1
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
   <script type="text/javascript">
-  function removeCurr() {
-    var elem = document.getElementById('curr');
+  function removeCurr(x) {
+    var elem = document.getElementById(x);
     elem.parentNode.removeChild(elem);
   }
   </script>
@@ -174,10 +182,11 @@ VERSION : 1.1
     <?php
     function findBreakfast() {
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList";
+      $sql = "SELECT * FROM RecipeList order by rand()";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'B' and $row["calories"] <= $_SESSION['numCalories']*0.2) {
+            echo "<div id=deleteb>";
             echo "Breakfast: " . $_SESSION['numCalories']*0.2;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -190,6 +199,10 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<form method="post">
+              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+            </form>';
+            echo "</div>";
             break;
           }
       }
@@ -206,10 +219,11 @@ VERSION : 1.1
     <?php
     function findLunch() {
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList";
+      $sql = "SELECT * FROM RecipeList order by rand()";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'L' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
+            echo "<div id=deletel>";
             echo "Lunch: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -222,6 +236,10 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<form method="post">
+              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+            </form>';
+            echo '</div>';
             break;
           }
       }
@@ -238,10 +256,11 @@ VERSION : 1.1
     <?php
     function findDinner() {
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList";
+      $sql = "SELECT * FROM RecipeList order by rand()";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'D' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
+            echo "<div id=deleted>";
             echo "Dinner: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -254,6 +273,10 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<form method="post">
+              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+            </form>';
+            echo '</div>';
             break;
           }
       }
@@ -262,9 +285,6 @@ VERSION : 1.1
 
     findDinner();
     ?>
-    <form method="post">
-      <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
-    </form>
   </div>
 </div>
 
