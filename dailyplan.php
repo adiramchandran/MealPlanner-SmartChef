@@ -202,9 +202,6 @@ VERSION : 1.1
     }
     findBreakfast();
     ?>
-    <form method="post">
-      <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
-    </form>
   </div>
   <div class="column2">
     <?php
@@ -238,9 +235,6 @@ VERSION : 1.1
     }
     findLunch();
     ?>
-    <form method="post">
-      <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
-    </form>
   </div>
   <div class="column3">
     <?php
