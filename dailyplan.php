@@ -112,7 +112,7 @@ VERSION : 1.1
     width: 33.33%;
     padding-top: 100px;
     float: left;
-    background-color: #333;
+    background-color: #a9867f;
   }
   </style>
 
