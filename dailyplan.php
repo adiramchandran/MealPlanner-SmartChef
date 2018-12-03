@@ -329,7 +329,7 @@ VERSION : 1.1
       $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'D' order by rand()";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
-            $_SESSION["lunch"] = $row["title"];
+            $_SESSION["dinner"] = $row["title"];
             echo "<div id=deletel>";
             echo "Lunch: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
