@@ -174,7 +174,10 @@ VERSION : 1.1
     <?php
     function findBreakfast() {
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList WHERE B/L/D = 'B' AND calories <= .20*$_SESSION['numCalories'] AND calories >= .15*$_SESSION['numCalories'] order by rand()";
+      $lower = .20*$_SESSION['numCalories'];
+      $upper = .15*$_SESSION['numCalories'];
+      $meal = 'B';
+      $sql = "SELECT * FROM RecipeList WHERE B/L/D = $meal AND calories <= $upper AND calories >= $lower order by rand()";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           echo "<div id=deleteb>";
