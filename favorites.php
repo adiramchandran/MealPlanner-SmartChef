@@ -101,7 +101,7 @@ VERSION : 1.1
   }
 
   .block {
-    height:300px;
+    height:150px;
     background-color: #B3B3B3;
     padding-top: 200px;
   }
