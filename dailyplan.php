@@ -12,12 +12,12 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "INSERT INTO UserFavorites (ID, RecipeName) " . " VALUES ('$_SESSION[\'user_id\']', '$_SESSION[\'breakfast\']')";
   $results = mysqli_query($mysqli, $sql);
-  if ($results) {
-    echo "succeeded";
-  }
-  else {
-    echo "failed";
-  }
+  // if ($results) {
+  //   echo "succeeded";
+  // }
+  // else {
+  //   echo "failed";
+  // }
 }
 
 if(array_key_exists('testb',$_POST)){
@@ -215,7 +215,7 @@ VERSION : 1.1
     }
     findBreakfast();
     ?>
-    <form method="get">
+    <form method="GET">
       <input type="submit" class="button" name="fave" id="fave" value="Favorite" /><br/>
     </form>
   </div>
