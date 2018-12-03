@@ -29,7 +29,7 @@ function findBreakfast() {
       }
   }
 }
-public function removeFunction() {
+function removeFunction() {
   echo '<script type="text/javascript">',
      'removeCurr();',
   '</script>';
