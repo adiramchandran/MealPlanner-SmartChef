@@ -93,19 +93,19 @@ VERSION : 1.1
 	<!-- [ FONT-AWESOME ICON ]
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     function removeCurr(x) {
       var elem = document.getElementById(x);
       elem.parentNode.removeChild(elem);
     }
-  </script>
+  </script> -->
 
   <?php
-  function removeFunction($x) {
-    echo '<script type="text/javascript">',
-       'removeCurr('.$x.');',
-    '</script>';
-  }
+  // function removeFunction($x) {
+  //   echo '<script type="text/javascript">',
+  //      'removeCurr('.$x.');',
+  //   '</script>';
+  // }
    ?>
 	<!-- [ PLUGIN STYLESHEET ]
         =========================================================================================================================-->
