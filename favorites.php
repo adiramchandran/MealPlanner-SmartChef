@@ -171,6 +171,34 @@ VERSION : 1.1
   <div class="block">
     <h1>Your Favorites</h1>
   </div>
+  <section>
+    <?php
+    function listFavorites() {
+      $id = $_SESSION['user_id'];
+      $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+      $sql = "SELECT * FROM RecipeList left join UserFavorites on title=RecipeName where id=$id";
+      $results = mysqli_query($mysqli, $sql);
+      while ($row = mysqli_fetch_assoc($results)) {
+            echo "<div class='box-one'>";
+            echo "Breakfast: " . $_SESSION['numCalories']*0.2;
+            echo "<h1>" . $row["title"] . "</h1>";
+            echo '<br>';
+            echo "Calories: " . $row["calories"];
+            echo '<br>';
+            echo "Fat: " . $row["fat"] . " grams";
+            echo '<br>';
+            echo "Protein: " . $row["protein"] . " grams";
+            echo '<br>';
+            echo "Carbohydrates: " . $row["carbs"] . " grams";
+            echo '<br>';
+            echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            // echo '<input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>';
+            echo "</div>";
+      }
+      mysqli_close($mysqli);
+    }
+     ?>
+  <section>
 </div>
 </div>
 
