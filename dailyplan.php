@@ -8,10 +8,14 @@ function removeFunction() {
      'removeCurr();',
   '</script>';
 }
-if(array_key_exists('test',$_POST)){
+if($_POST['test']){
   removeFunction("deleteb");
   findBreakfast();
 }
+// if(array_key_exists('test',$_POST)){
+//   removeFunction("deleteb");
+//   findBreakfast();
+// }
 // if(array_key_exists('testl',$_POST)){
 //   removeFunction("deletel");
 //   findLunch();
@@ -200,7 +204,7 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
-    //findBreakfast();
+    findBreakfast();
     ?>
   </div>
   <div class="column2">
@@ -233,7 +237,7 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
-    //findLunch();
+    findLunch();
     ?>
   </div>
   <div class="column3">
@@ -266,7 +270,7 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
-    //findDinner();
+    findDinner();
     ?>
   </div>
 </div>
