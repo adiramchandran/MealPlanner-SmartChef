@@ -198,7 +198,7 @@ VERSION : 1.1
       findBreakfast();
   ?>
   <form method="post">
-    <input type="submit" class="button" name="test" id="test" onclick="removeCurr()" value="Shuffle" /><br/>
+    <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
   </form>
   </div>
   <div class="column2">
