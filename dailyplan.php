@@ -10,7 +10,9 @@ function removeFunction() {
 }
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  $sql = "INSERT INTO UserFavorites (ID, RecipeName) " . " VALUES ('$_SESSION[\'user_id\']', '$_SESSION[\'breakfast\']')";
+  $title = $_SESSION['breakfast'];
+  $id = $_SESSION['user_id'];
+  $sql = "INSERT INTO UserFavorites (ID, RecipeName) " . " VALUES ('$id', '$title')";
   // $results = mysqli_query($mysqli, $sql);
   // if ($results) {
   //   echo "succeeded";
