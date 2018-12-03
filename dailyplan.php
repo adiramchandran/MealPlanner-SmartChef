@@ -209,7 +209,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results) and $row["B/L/D"] == 'L') {
           if ($row["calories"] <= $_SESSION['numCalories']*0.4) {
-            echo "Breakfast: " . $_SESSION['numCalories']*0.4;
+            echo "Lunch: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
@@ -240,7 +240,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results) and $row["B/L/D"] == 'D') {
           if ($row["calories"] <= $_SESSION['numCalories']*0.4) {
-            echo "Breakfast: " . $_SESSION['numCalories']*0.4;
+            echo "Dinner: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
