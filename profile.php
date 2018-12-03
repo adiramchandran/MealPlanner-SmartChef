@@ -62,20 +62,22 @@ if (!empty($_POST['CreateAccount'])) {
   else {
    $_SESSION['insert_out'] = "Profile was not updated.";
   }
+  mysqli_close($mysqli);
 }
 // DELETE
 if (!empty($_POST['deleteAccount'])) {
   $usernameID = $_POST['username'];
   $password = $_POST['password'];
   $sql = "DELETE FROM User WHERE Username = "."'$usernameID'"."AND Password = "."'$password'";
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['delete_out'] = "Your account has been deleted";
   }
   else {
     $_SESSION['delete_out'] = "Account not deleted";
   }
+  mysqli_close($mysqli);
 }
-mysqli_close($mysqli);
 ?>
 <html>
 <head>
