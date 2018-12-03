@@ -94,9 +94,9 @@ VERSION : 1.1
 
   .row {
     height:800px;
-    border-right: 175px;
+    border-right: 175px solid;
     border-color: #262626;
-    border-left: 175px;
+    border-left: 175px solid;
     background-color: #fff;
   }
 
