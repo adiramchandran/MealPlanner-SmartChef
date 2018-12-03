@@ -34,6 +34,64 @@ function findBreakfast() {
   mysqli_close($mysqli);
 }
 
+function findLunch() {
+  $user = $_SESSION['username'];
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'L'";
+  $results = mysqli_query($mysqli, $sql);
+  while ($row = mysqli_fetch_assoc($results)) {
+        $_SESSION["lunch"] = $row["title"];
+        echo "<div id=deletel>";
+        echo "Lunch: " . $_SESSION['numCalories']*0.4;
+        echo "<h1>" . $row["title"] . "</h1>";
+        echo '<br>';
+        echo "Calories: " . $row["calories"];
+        echo '<br>';
+        echo "Fat: " . $row["fat"] . " grams";
+        echo '<br>';
+        echo "Protein: " . $row["protein"] . " grams";
+        echo '<br>';
+        echo "Carbohydrates: " . $row["carbs"] . " grams";
+        echo '<br>';
+        echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+        echo '<form action="dailyplan.php" method="post">
+          <input type="submit" class="button" name="shufflel" id="shufflel" value="Shuffle" /><br/>
+        </form>';
+        echo '</div>';
+        break;
+  }
+  mysqli_close($mysqli);
+}
+
+function findDinner() {
+  $user = $_SESSION['username'];
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'D'";
+  $results = mysqli_query($mysqli, $sql);
+  while ($row = mysqli_fetch_assoc($results)) {
+        $_SESSION["dinner"] = $row["title"];
+        echo "<div id=deleted>";
+        echo "Dinner: " . $_SESSION['numCalories']*0.4;
+        echo "<h1>" . $row["title"] . "</h1>";
+        echo '<br>';
+        echo "Calories: " . $row["calories"];
+        echo '<br>';
+        echo "Fat: " . $row["fat"] . " grams";
+        echo '<br>';
+        echo "Protein: " . $row["protein"] . " grams";
+        echo '<br>';
+        echo "Carbohydrates: " . $row["carbs"] . " grams";
+        echo '<br>';
+        echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+        echo '<form action="dailyplan.php" method="post">
+          <input type="submit" class="button" name="shuffled" id="shuffled" value="Shuffle" /><br/>
+        </form>';
+        echo '</div>';
+        break;
+  }
+  mysqli_close($mysqli);
+}
+
 if (!empty($_POST['faveb'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $title = $_SESSION['breakfast'];
@@ -247,7 +305,66 @@ VERSION : 1.1
 <div class="row">
   <div class="column1">
     <?php
+    if (!empty($_POST['shuffleb'])) {
+      $user = $_SESSION['username'];
+      $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'B' order by rand()";
+      $results = mysqli_query($mysqli, $sql);
+      while ($row = mysqli_fetch_assoc($results)) {
+            $_SESSION["breakfast"] = $row["title"];
+            echo "<div id=deletel>";
+            echo "Breakfast: " . $_SESSION['numCalories']*0.4;
+            echo "<h1>" . $row["title"] . "</h1>";
+            echo '<br>';
+            echo "Calories: " . $row["calories"];
+            echo '<br>';
+            echo "Fat: " . $row["fat"] . " grams";
+            echo '<br>';
+            echo "Protein: " . $row["protein"] . " grams";
+            echo '<br>';
+            echo "Carbohydrates: " . $row["carbs"] . " grams";
+            echo '<br>';
+            echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<form action="dailyplan.php" method="post">
+              <input type="submit" class="button" name="shuffleb" id="shuffleb" value="Shuffle" /><br/>
+            </form>';
+            echo '</div>';
+            break;
+      }
+      mysqli_close($mysqli);
+
+    }
+    else if (isset($_SESSION['breakfast'])) {
+      $breakfast = $_SESSION['breakfast'];
+      $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+      $sql = "SELECT * FROM RecipeList where title='$breakfast'";
+      $results = mysqli_query($mysqli, $sql);
+      while ($row = mysqli_fetch_assoc($results)) {
+            $_SESSION["breakfast"] = $row["title"];
+            echo "<div id=deletel>";
+            echo "Breakfast: " . $_SESSION['numCalories']*0.4;
+            echo "<h1>" . $row["title"] . "</h1>";
+            echo '<br>';
+            echo "Calories: " . $row["calories"];
+            echo '<br>';
+            echo "Fat: " . $row["fat"] . " grams";
+            echo '<br>';
+            echo "Protein: " . $row["protein"] . " grams";
+            echo '<br>';
+            echo "Carbohydrates: " . $row["carbs"] . " grams";
+            echo '<br>';
+            echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<form action="dailyplan.php" method="post">
+              <input type="submit" class="button" name="shuffleb" id="shuffleb" value="Shuffle" /><br/>
+            </form>';
+            echo '</div>';
+            break;
+      }
+      mysqli_close($mysqli);
+    }
+    else {
       findBreakfast();
+    }
     ?>
     <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="faveb" id="faveb" value="Favorite" /><br/>
@@ -316,34 +433,6 @@ VERSION : 1.1
     else {
       findLunch();
     }
-    function findLunch() {
-      $user = $_SESSION['username'];
-      $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'L'";
-      $results = mysqli_query($mysqli, $sql);
-      while ($row = mysqli_fetch_assoc($results)) {
-            $_SESSION["lunch"] = $row["title"];
-            echo "<div id=deletel>";
-            echo "Lunch: " . $_SESSION['numCalories']*0.4;
-            echo "<h1>" . $row["title"] . "</h1>";
-            echo '<br>';
-            echo "Calories: " . $row["calories"];
-            echo '<br>';
-            echo "Fat: " . $row["fat"] . " grams";
-            echo '<br>';
-            echo "Protein: " . $row["protein"] . " grams";
-            echo '<br>';
-            echo "Carbohydrates: " . $row["carbs"] . " grams";
-            echo '<br>';
-            echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-            echo '<form action="dailyplan.php" method="post">
-              <input type="submit" class="button" name="shufflel" id="shufflel" value="Shuffle" /><br/>
-            </form>';
-            echo '</div>';
-            break;
-      }
-      mysqli_close($mysqli);
-    }
     ?>
     <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="favel" id="favel" value="Favorite" /><br/>
@@ -359,7 +448,7 @@ VERSION : 1.1
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["dinner"] = $row["title"];
             echo "<div id=deletel>";
-            echo "Lunch: " . $_SESSION['numCalories']*0.4;
+            echo "Dinner: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
@@ -380,17 +469,14 @@ VERSION : 1.1
       mysqli_close($mysqli);
 
     }
-    else {
-      findDinner();
-    }
-    function findDinner() {
-      $user = $_SESSION['username'];
+    else if (isset($_SESSION['dinner'])) {
+      $dinner = $_SESSION['dinner'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'D'";
+      $sql = "SELECT * FROM RecipeList where title='$dinner'";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["dinner"] = $row["title"];
-            echo "<div id=deleted>";
+            echo "<div id=deletel>";
             echo "Dinner: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -410,6 +496,9 @@ VERSION : 1.1
             break;
       }
       mysqli_close($mysqli);
+    }
+    else {
+      findDinner();
     }
     ?>
     <form action='dailyplan.php' method="POST">
