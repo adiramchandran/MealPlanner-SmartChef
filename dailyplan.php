@@ -157,29 +157,33 @@ VERSION : 1.1
 <div class="row">
   <div class="column1">
     <?php
-    $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-
-    $sql = "SELECT * FROM RecipeList";
-    $results = mysqli_query($mysqli, $sql);
-    $i = 1;
-    $two = 2;
-    while ($row = mysqli_fetch_assoc($results) and $row["Breakfast"] == 'B') {
-        if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
-          echo "Breakfast: " . $_SESSION['numCalories']*0.2;
-          echo "<h1>" . $row["title"] . "</h1>";
-          echo '<br>';
-          echo "Calories: " . $row["calories"];
-          echo '<br>';
-          echo "Fat: " . $row["fat"] . " grams";
-          echo '<br>';
-          echo "Protein: " . $row["protein"] . " grams";
-          echo '<br>';
-          echo "Carbohydrates: " . $row["carbs"] . " grams";
-          echo '<br>';
-          echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-          break;
-        }
+    function findBreakfast() {
+      $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+      $sql = "SELECT * FROM RecipeList order by rand()";
+      $results = mysqli_query($mysqli, $sql);
+      $i = 1;
+      $two = 2;
+      while ($row = mysqli_fetch_assoc($results) and $row["Breakfast"] == 'B') {
+          if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
+            echo "Breakfast: " . $_SESSION['numCalories']*0.2;
+            echo "<h1>" . $row["title"] . "</h1>";
+            echo '<br>';
+            echo "Calories: " . $row["calories"];
+            echo '<br>';
+            echo "Fat: " . $row["fat"] . " grams";
+            echo '<br>';
+            echo "Protein: " . $row["protein"] . " grams";
+            echo '<br>';
+            echo "Carbohydrates: " . $row["carbs"] . " grams";
+            echo '<br>';
+            echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<button class=button onclick="findBreakfast()">Shuffle</button>';
+            break;
+          }
+      }
     }
+
+    findBreakfast();
      ?>
   </div>
   <div class="column2">
