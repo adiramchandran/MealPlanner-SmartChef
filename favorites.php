@@ -103,7 +103,12 @@ VERSION : 1.1
   .block {
     height:300px;
     background-color: #B3B3B3;
-    padding-top: 100px;
+    padding-top: 200px;
+  }
+
+  h1 {
+    padding-top:20px;
+    padding-left: 50px;
   }
 
   </style>
