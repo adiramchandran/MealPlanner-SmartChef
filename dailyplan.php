@@ -323,6 +323,38 @@ VERSION : 1.1
   </div>
   <div class="column3">
     <?php
+    if (!empty($_POST['shuffled'])) {
+      $user = $_SESSION['username'];
+      $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'D' order by rand()";
+      $results = mysqli_query($mysqli, $sql);
+      while ($row = mysqli_fetch_assoc($results)) {
+            $_SESSION["lunch"] = $row["title"];
+            echo "<div id=deletel>";
+            echo "Lunch: " . $_SESSION['numCalories']*0.4;
+            echo "<h1>" . $row["title"] . "</h1>";
+            echo '<br>';
+            echo "Calories: " . $row["calories"];
+            echo '<br>';
+            echo "Fat: " . $row["fat"] . " grams";
+            echo '<br>';
+            echo "Protein: " . $row["protein"] . " grams";
+            echo '<br>';
+            echo "Carbohydrates: " . $row["carbs"] . " grams";
+            echo '<br>';
+            echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<form action="dailyplan.php" method="post">
+              <input type="submit" class="button" name="shuffled" id="shuffled" value="Shuffle" /><br/>
+            </form>';
+            echo '</div>';
+            break;
+      }
+      mysqli_close($mysqli);
+
+    }
+    else {
+      findDinner();
+    }
     function findDinner() {
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
@@ -343,14 +375,14 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-            // echo '
-            //   <input type="submit" class="button" name="testd" id="testd" value="Shuffle" /><br/>';
+            echo '<form action="dailyplan.php" method="post">
+              <input type="submit" class="button" name="shuffled" id="shuffled" value="Shuffle" /><br/>
+            </form>';
             echo '</div>';
             break;
       }
       mysqli_close($mysqli);
     }
-      findDinner();
     ?>
     <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="faved" id="faved" value="Favorite" /><br/>
