@@ -4,6 +4,32 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
 }
 session_start();
 
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $mealType = $_POST['search'];
+  $id = $_SESSION['user_id'];
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where ID=$id and MealType=$mealType";
+  $results = mysqli_query($mysqli, $sql);
+  while ($row = mysqli_fetch_assoc($results)) {
+        echo "<div class='box-one'>";
+        echo "<h1>" . $row["title"] . "</h1>";
+        echo '<br>';
+        echo "Calories: " . $row["calories"];
+        echo '<br>';
+        echo "Fat: " . $row["fat"] . " grams";
+        echo '<br>';
+        echo "Protein: " . $row["protein"] . " grams";
+        echo '<br>';
+        echo "Carbohydrates: " . $row["carbs"] . " grams";
+        echo '<br>';
+        echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+        echo '<input type="submit" class="button" name="unfave" id="unfave" value="Favorite" /><br/>';
+        echo "</div>";
+  }
+  mysqli_close($mysqli);
+}
+
+
 // if($_SERVER['REQUEST_METHOD'] == 'GET') {
 //   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //   $title = $_SESSION['breakfast'];
