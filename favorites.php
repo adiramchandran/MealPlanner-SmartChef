@@ -4,11 +4,10 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
 }
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $mealType = $_POST['search'];
+function listFavorites() {
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where Username="."'$user'"." and MealType=$mealType";
+  $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where Username="."'$user'"."";
   $results = mysqli_query($mysqli, $sql);
   while ($row = mysqli_fetch_assoc($results)) {
         echo "<div class='box-one'>";
@@ -27,7 +26,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
   mysqli_close($mysqli);
 }
-
 
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
@@ -209,17 +207,18 @@ VERSION : 1.1
     <h1>Your Favorites</h1>
   </div>
   <div class="search-container" style="float:center;">
-    <form action="">
+    <form action="favorites.php" method="post">
       <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
+      <input type="submit" name="search"><i class="fa fa-search"></i></button>
     </form>
   </div>
   <section>
     <?php
-    function listFavorites() {
+    if (!empty($_POST['search'])) {
+      $mealType = $_POST['search'];
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where Username="."'$user'"."";
+      $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where Username="."'$user'"." and MealType="."'$mealType'";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
             echo "<div class='box-one'>";
@@ -238,8 +237,9 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
-
-    listFavorites();
+    else {
+      listFavorites();
+    }
      ?>
   <section>
 </div>
