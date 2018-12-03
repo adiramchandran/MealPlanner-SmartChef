@@ -57,7 +57,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sql = $mysqli->prepare("UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE Username = ?");
   $sql->bind_param('s', $_SESSION['username']);
   // $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
-  // printf("Last inserted record has id %d" . mysqli_insert_id());
   if($sql->execute()) {
     $_SESSION['insert_out'] = "Record updated successfully. Your Username is: " . $_SESSION['username'];
   }
