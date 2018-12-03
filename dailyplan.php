@@ -8,17 +8,17 @@ function removeFunction() {
      'removeCurr();',
   '</script>';
 }
-// if($_SERVER['REQUEST_METHOD'] == 'GET') {
-//   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-//   $sql = "INSERT INTO UserFavorites (ID, RecipeName) " . " VALUES ('$_SESSION[\'user_id\']', '$_SESSION[\'breakfast\']')";
-//   $results = mysqli_query($mysqli, $sql);
-//   // if ($results) {
-//   //   echo "succeeded";
-//   // }
-//   // else {
-//   //   echo "failed";
-//   // }
-// }
+if($_SERVER['REQUEST_METHOD'] == 'GET') {
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  // $sql = "INSERT INTO UserFavorites (ID, RecipeName) " . " VALUES ('$_SESSION[\'user_id\']', '$_SESSION[\'breakfast\']')";
+  // $results = mysqli_query($mysqli, $sql);
+  // if ($results) {
+  //   echo "succeeded";
+  // }
+  // else {
+  //   echo "failed";
+  // }
+}
 
 if(array_key_exists('testb',$_POST)){
   removeFunction("deleteb");
