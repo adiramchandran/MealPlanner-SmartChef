@@ -51,12 +51,10 @@ if($_POST){
     if(isset($_POST['testb'])){
         findBreakfast();
     }elseif(isset($_POST['testl'])){
-        removeFunction();
-        findBreakfast();
+        findLunch();
     }
     elseif(isset($_POST['testd'])){
-      removeFunction();
-      findBreakfast();
+        findDinner();
     }
 }
 // if(array_key_exists('testb',$_POST)){
