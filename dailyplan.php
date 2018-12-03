@@ -4,6 +4,10 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
 }
 session_start();
 
+$_SESSION['onload1'] = 1;
+$_SESSION['onload2'] = 1;
+$_SESSION['onload3'] = 1;
+
 function findBreakfast() {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList order by rand()";
@@ -229,7 +233,10 @@ VERSION : 1.1
 <div class="row">
   <div class="column1">
     <?php
+    if ($_SESSION['onload1'] == 1) {
       findBreakfast();
+      $_SESSION['onload1'] = 2;
+    }
     ?>
     <form method="GET">
       <input type="submit" class="button" name="fave" id="fave" value="Favorite" /><br/>
@@ -267,7 +274,10 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
-    findLunch();
+    if ($_SESSION['onload2'] == 1) {
+      findLunch();
+      $_SESSION['onload2'] = 2;
+    }
     ?>
   </div>
   <div class="column3">
@@ -301,7 +311,10 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
-    findDinner();
+    if ($_SESSION['onload3'] == 1) {
+      findDinner();
+      $_SESSION['onload3'] = 2;
+    }
     ?>
   </div>
 </div>
