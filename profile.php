@@ -57,10 +57,10 @@ if (!empty($_POST['CreateAccount'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE Username =" . "'$username'";
   if (mysqli_query($mysqli, $sql)) {
-    $_SESSION['insert_out'] = "Record updated successfully. Your Username is: " . $_SESSION['username'];
+    $_SESSION['insert_out'] = "Profile has been updated!";
   }
   else {
-   $_SESSION['insert_out'] = "Account was not created";
+   $_SESSION['insert_out'] = "Profile was not updated.";
   }
 }
 // DELETE
