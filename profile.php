@@ -204,7 +204,15 @@ mysqli_close($mysqli);
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight (in pounds)" name="weight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age (in years)" name="age" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week" name="weight_per_wk" required />
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle (1-5, increasing level of activity)" name="lifestyle" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle (1-5, increasing level of activity)" name="lifestyle" list="lifestyle" required />
+        <datalist id="lifestyle">
+          <option type="text" value="1">
+          <option type="text" value="2">
+          <option type="text" value="3">
+          <option type="text" value="4">
+          <option type="text" value="5">
+        </datalist>
+
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender (1 for male, 2 for female)" name="gender" list="gender" required />
         <datalist id="gender">
           <option type="text" value="1">
