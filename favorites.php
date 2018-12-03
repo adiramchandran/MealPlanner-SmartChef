@@ -94,9 +94,9 @@ VERSION : 1.1
 
   .row {
     height:800px;
-    border-right: 150px solid #262626;
+    border-right: 175px;
     border-color: #262626;
-    border-left: 150px solid #262626;
+    border-left: 175px;
     background-color: #fff;
   }
 
@@ -124,7 +124,7 @@ VERSION : 1.1
  ============================================================================================================================-->
    <!-- Navigation
     ==========================================-->
-    <nav  class="amd-menu navbar navbar-default navbar-fixed-top fadeInDown">
+    <nav  class="amd-menu navbar navbar-default navbar-fixed-top theme_background_color fadeInDown">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
