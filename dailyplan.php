@@ -34,11 +34,6 @@ function findBreakfast() {
   mysqli_close($mysqli);
 }
 
-function removeFunction($x) {
-  echo '<script type="text/javascript">',
-     'removeCurr('.$x.');',
-  '</script>';
-}
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $title = $_SESSION['breakfast'];
@@ -103,6 +98,14 @@ VERSION : 1.1
     elem.parentNode.removeChild(elem);
   }
   </script>
+
+  <<?php
+  function removeFunction($x) {
+    echo '<script type="text/javascript">',
+       'removeCurr('.$x.');',
+    '</script>';
+  }
+   ?>
 	<!-- [ PLUGIN STYLESHEET ]
         =========================================================================================================================-->
 	<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
