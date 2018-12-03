@@ -55,7 +55,7 @@ if (!empty($_POST['CreateAccount'])) {
   $_SESSION['numCalories'] = $cal;
   $username = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  $sql = "UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE Username = '$username'";
+  $sql = "UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE Username =" . "'$username'";
   if (mysqli_query($mysqli, $sql)) {
     $_SESSION['insert_out'] = "Record updated successfully. Your Username is: " . $_SESSION['username'];
   }
