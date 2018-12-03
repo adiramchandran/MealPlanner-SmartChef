@@ -67,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $usernameID = $_POST['username'];
   $password = $_POST['password']
-  $sql = "DELETE FROM User WHERE Username = $usernameID AND Password = $password";
+  $sql = "DELETE FROM User WHERE Username = "."'$usernameID'"." AND Password = "."'$password'"."";
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['delete_out'] = "Your entry has been deleted";
   }
