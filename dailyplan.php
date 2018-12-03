@@ -190,9 +190,6 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-            echo '<form method="post">
-              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
-            </form>';
             break;
           }
       }
@@ -200,6 +197,9 @@ VERSION : 1.1
 
     findBreakfast();
     ?>
+    <form method="post">
+      <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+    </form>
   </div>
   <div class="column2">
   </div>
