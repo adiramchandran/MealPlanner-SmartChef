@@ -37,7 +37,8 @@ function removeFunction() {
 }
 
 if(array_key_exists('test',$_POST)){
-   shuffleBreakfast();
+  removeFunction();
+  findBreakfast();
 }
 ?>
 
@@ -65,37 +66,6 @@ VERSION : 1.1
     elem.parentNode.removeChild(elem);
   }
   </script>
-  <?php
-  function shuffleBreakfast() {
-    removeFunction();
-    $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-    $sql = "SELECT * FROM RecipeList order by rand()";
-    $results = mysqli_query($mysqli, $sql);
-    while ($row = mysqli_fetch_assoc($results) and $row["B/L/D"] == 'B') {
-        if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
-          echo '<div class="column1" id="curr">';
-          echo "Breakfast: " . $_SESSION['numCalories']*0.2;
-          echo "<h1>" . $row["title"] . "</h1>";
-          echo '<br>';
-          echo "Calories: " . $row["calories"];
-          echo '<br>';
-          echo "Fat: " . $row["fat"] . " grams";
-          echo '<br>';
-          echo "Protein: " . $row["protein"] . " grams";
-          echo '<br>';
-          echo "Carbohydrates: " . $row["carbs"] . " grams";
-          echo '<br>';
-          echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-          echo '<form method="post">
-            <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
-          </form>';
-          echo '</div>';
-          break;
-        }
-    }
-  }
-
-   ?>
 	<!-- [ PLUGIN STYLESHEET ]
         =========================================================================================================================-->
 	<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
