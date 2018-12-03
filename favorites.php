@@ -219,7 +219,7 @@ VERSION : 1.1
     function listFavorites() {
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where Username=$user";
+      $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where Username="."'$user'"."";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
             echo "<div class='box-one'>";
