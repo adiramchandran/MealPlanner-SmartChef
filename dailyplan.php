@@ -174,7 +174,7 @@ VERSION : 1.1
     <?php
     function findBreakfast() {
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList order by rand()";
+      $sql = "SELECT * FROM RecipeList";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results) and $row["B/L/D"] == 'B') {
           if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
