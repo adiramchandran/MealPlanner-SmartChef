@@ -104,6 +104,7 @@ VERSION : 1.1
     height:250px;
     background-color: #B3B3B3;
     border-bottom-color: #257525;
+    border-bottom: 5px;
   }
 
   h1 {
