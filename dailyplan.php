@@ -51,16 +51,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
   //   echo "failed";
   // }
 }
-if($_POST){
-    if(isset($_POST['testb'])){
-        findBreakfast();
-    }elseif(isset($_POST['testl'])){
-        findLunch();
-    }
-    elseif(isset($_POST['testd'])){
-        findDinner();
-    }
-}
+// if($_POST){
+//     if(isset($_POST['testb'])){
+//         findBreakfast();
+//     }elseif(isset($_POST['testl'])){
+//         findLunch();
+//     }
+//     elseif(isset($_POST['testd'])){
+//         findDinner();
+//     }
+// }
 // if(array_key_exists('testb',$_POST)){
 //   removeFunction("deleteb");
 //   findBreakfast();
