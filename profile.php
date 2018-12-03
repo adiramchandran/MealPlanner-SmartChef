@@ -62,27 +62,20 @@ if (!empty($_POST['CreateAccount'])) {
   else {
    $_SESSION['insert_out'] = "Account was not created";
   }
-  // $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
-  // if($sql->execute()) {
-  //   $_SESSION['insert_out'] = "Record updated successfully. Your Username is: " . $_SESSION['username'];
-  // }
-  // else {
-  //   $_SESSION['insert_out'] = "Account was not created";
-  // }
 }
 // DELETE
-// if (!empty($_POST['deleteAccount'])) {
-//   $usernameID = $_POST['username'];
-//   $password = $_POST['password']
-//   $sql = "DELETE FROM User WHERE Username = $usernameID  AND Password = $password";
-//   if(mysqli_query($mysqli, $sql) === true) {
-//     $_SESSION['delete_out'] = "Your account has been deleted";
-//   }
-//   else {
-//     $_SESSION['delete_out'] = "Account not deleted";
-//   }
-// }
-// mysqli_close($mysqli);
+if (!empty($_POST['deleteAccount'])) {
+  $usernameID = $_POST['username'];
+  $password = $_POST['password']
+  $sql = "DELETE FROM User WHERE Username = "."'$usernameID'"."AND Password = "."'$password'";
+  if(mysqli_query($mysqli, $sql) === true) {
+    $_SESSION['delete_out'] = "Your account has been deleted";
+  }
+  else {
+    $_SESSION['delete_out'] = "Account not deleted";
+  }
+}
+mysqli_close($mysqli);
 ?>
 <html>
 <head>
