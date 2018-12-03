@@ -110,14 +110,14 @@ VERSION : 1.1
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap.css">
-  <script>
+  <!-- <script>
   $(function() {
     $("testb").click(function() {
        $("#deleteb").load("dailyplan.php")
     })
   })
 
-  </script>
+  </script> -->
 
         <!-- [ DEFAULT STYLESHEET ]
         =========================================================================================================================-->
