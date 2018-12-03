@@ -13,11 +13,11 @@ if(array_key_exists('testb',$_POST)){
   removeFunction("deleteb");
   findBreakfast();
 }
-if(array_key_exists('testl',$_POST)){
+else if(array_key_exists('testl',$_POST)){
   removeFunction("deletel");
   findLunch();
 }
-if(array_key_exists('testd',$_POST)){
+else if(array_key_exists('testd',$_POST)){
   removeFunction("deleted");
   findDinner();
 }
