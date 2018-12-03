@@ -3,9 +3,40 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
     session_cache_limiter("public");
 }
 session_start();
-function removeFunction() {
+
+function findBreakfast() {
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $sql = "SELECT * FROM RecipeList order by rand()";
+  $results = mysqli_query($mysqli, $sql);
+  while ($row = mysqli_fetch_assoc($results)) {
+      if ($row["B/L/D"] == 'B' and $row["calories"] <= $_SESSION['numCalories']*0.2) {
+        $_SESSION["breakfast"] = $row["title"];
+        echo "<div id=deleteb>";
+        echo "Breakfast: " . $_SESSION['numCalories']*0.2;
+        echo "<h1>" . $row["title"] . "</h1>";
+        echo '<br>';
+        echo "Calories: " . $row["calories"];
+        echo '<br>';
+        echo "Fat: " . $row["fat"] . " grams";
+        echo '<br>';
+        echo "Protein: " . $row["protein"] . " grams";
+        echo '<br>';
+        echo "Carbohydrates: " . $row["carbs"] . " grams";
+        echo '<br>';
+        echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+        echo '<form method="post">
+          <input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>
+        </form>';
+        echo "</div>";
+        break;
+      }
+  }
+  mysqli_close($mysqli);
+}
+
+function removeFunction($x) {
   echo '<script type="text/javascript">',
-     'removeCurr();',
+     'removeCurr('.$x.');',
   '</script>';
 }
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -23,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 if($_POST){
     if(isset($_POST['testb'])){
-        removeFunction();
+        removeFunction('deleteb');
         findBreakfast();
     }elseif(isset($_POST['testl'])){
         removeFunction();
@@ -198,37 +229,7 @@ VERSION : 1.1
 <div class="row">
   <div class="column1">
     <?php
-    function findBreakfast() {
-      $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList order by rand()";
-      $results = mysqli_query($mysqli, $sql);
-      while ($row = mysqli_fetch_assoc($results)) {
-          if ($row["B/L/D"] == 'B' and $row["calories"] <= $_SESSION['numCalories']*0.2) {
-            $_SESSION["breakfast"] = $row["title"];
-            echo "<div id=deleteb>";
-            echo "Breakfast: " . $_SESSION['numCalories']*0.2;
-            echo "<h1>" . $row["title"] . "</h1>";
-            echo '<br>';
-            echo "Calories: " . $row["calories"];
-            echo '<br>';
-            echo "Fat: " . $row["fat"] . " grams";
-            echo '<br>';
-            echo "Protein: " . $row["protein"] . " grams";
-            echo '<br>';
-            echo "Carbohydrates: " . $row["carbs"] . " grams";
-            echo '<br>';
-            echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-            echo '<form method="post">
-              <input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>
-            </form>';
-            echo "</div>";
-            break;
-          }
-      }
-      mysqli_close($mysqli);
-    }
-    findBreakfast();
-
+      findBreakfast();
     ?>
     <form method="GET">
       <input type="submit" class="button" name="fave" id="fave" value="Favorite" /><br/>
