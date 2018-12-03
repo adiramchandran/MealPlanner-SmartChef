@@ -269,7 +269,6 @@ VERSION : 1.1
             // </form>';
             echo '</div>';
             break;
-          }
       }
       mysqli_close($mysqli);
     }
@@ -303,7 +302,6 @@ VERSION : 1.1
             //   <input type="submit" class="button" name="testd" id="testd" value="Shuffle" /><br/>';
             echo '</div>';
             break;
-          }
       }
       mysqli_close($mysqli);
     }
