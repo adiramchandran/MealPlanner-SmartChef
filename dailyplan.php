@@ -247,7 +247,7 @@ VERSION : 1.1
     <?php
       findBreakfast();
     ?>
-    <form action='dailyplan.php' method="GET">
+    <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="faveb" id="faveb" value="Favorite" /><br/>
     </form>
   </div>
@@ -284,7 +284,7 @@ VERSION : 1.1
     }
       findLunch();
     ?>
-    <form action='dailyplan.php' method="GET">
+    <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="favel" id="favel" value="Favorite" /><br/>
     </form>
   </div>
@@ -319,7 +319,7 @@ VERSION : 1.1
     }
       findDinner();
     ?>
-    <form action='dailyplan.php' method="GET">
+    <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="faved" id="faved" value="Favorite" /><br/>
     </form>
   </div>
