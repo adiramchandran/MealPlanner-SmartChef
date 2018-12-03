@@ -122,10 +122,6 @@ VERSION : 1.1
     })
   })
 
-	return false;
-	});
-});
-
   </script>
 
         <!-- [ DEFAULT STYLESHEET ]
