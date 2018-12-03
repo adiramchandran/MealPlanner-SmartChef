@@ -91,6 +91,13 @@ VERSION : 1.1
     float: left;
     background-color: #333;
   }
+
+  .row {
+    border-right: 100px solid #262626;
+    border-left: 100px solid #262626;
+    background-color: #fff;
+  }
+
   </style>
 
 </head>
@@ -147,13 +154,6 @@ VERSION : 1.1
    <!-- [/NAV]
  ============================================================================================================================-->
 <div class="row">
-  <div class="column1">
-
-  </div>
-  <div class="column2">
-
-  </div>
-  <div class="column3">
 
   </div>
 </div>
