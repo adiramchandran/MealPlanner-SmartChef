@@ -9,11 +9,11 @@ $_SESSION['onload2'] = 1;
 $_SESSION['onload3'] = 1;
 
 function findBreakfast() {
+  $b = 'B';
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  $sql = "SELECT * FROM RecipeList order by rand()";
+  $sql = "SELECT * FROM RecipeList as r, User as u where r.calories < u.Cal_per_day*0.25 and r.calories > u.Cal_per_day*0.15 and r.MealType = $b";
   $results = mysqli_query($mysqli, $sql);
   while ($row = mysqli_fetch_assoc($results)) {
-      if ($row["B/L/D"] == 'B' and $row["calories"] <= $_SESSION['numCalories']*0.2) {
         $_SESSION["breakfast"] = $row["title"];
         echo "<div id=deleteb>";
         echo "Breakfast: " . $_SESSION['numCalories']*0.2;
@@ -31,7 +31,6 @@ function findBreakfast() {
         // echo '<input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>';
         echo "</div>";
         break;
-      }
   }
   mysqli_close($mysqli);
 }
