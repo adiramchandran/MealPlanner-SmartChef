@@ -198,11 +198,6 @@ VERSION : 1.1
 <div class="row">
   <div class="column1">
     <?php
-    if(array_key_exists('testb',$_POST)){
-      removeFunction("deleteb");
-      findBreakfast();
-    }
-
     function findBreakfast() {
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList order by rand()";
