@@ -200,11 +200,11 @@ mysqli_close($mysqli);
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['insert_out'] ?></font></div>
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height" name="height" required />
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight" name="weight" required />
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age" name="age" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height (in inches)" name="height" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight (in pounds)" name="weight" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age (in years)" name="age" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week" name="weight_per_wk" required />
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle (1-5, 1 for no activity, 5 for very active)" name="lifestyle" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle (1-5, increasing level of activity)" name="lifestyle" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender (1 for male, 2 for female)" name="gender" list="gender" required />
         <datalist id="gender">
           <option type="text" value="1">
