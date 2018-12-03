@@ -234,30 +234,30 @@ VERSION : 1.1
   </div>
   <div class="column3">
     <?php
-    function findDinner() {
-      $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList";
-      $results = mysqli_query($mysqli, $sql);
-      while ($row = mysqli_fetch_assoc($results) and $row["B/L/D"] == 'D') {
-          if ($row["calories"] <= $_SESSION['numCalories']*0.4) {
-            echo "Dinner: " . $_SESSION['numCalories']*0.4;
-            echo "<h1>" . $row["title"] . "</h1>";
-            echo '<br>';
-            echo "Calories: " . $row["calories"];
-            echo '<br>';
-            echo "Fat: " . $row["fat"] . " grams";
-            echo '<br>';
-            echo "Protein: " . $row["protein"] . " grams";
-            echo '<br>';
-            echo "Carbohydrates: " . $row["carbs"] . " grams";
-            echo '<br>';
-            echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-            break;
-          }
-      }
-    }
-
-    findDinner();
+    // function findDinner() {
+    //   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+    //   $sql = "SELECT * FROM RecipeList";
+    //   $results = mysqli_query($mysqli, $sql);
+    //   while ($row = mysqli_fetch_assoc($results) and $row["B/L/D"] == 'D') {
+    //       if ($row["calories"] <= $_SESSION['numCalories']*0.4) {
+    //         echo "Dinner: " . $_SESSION['numCalories']*0.4;
+    //         echo "<h1>" . $row["title"] . "</h1>";
+    //         echo '<br>';
+    //         echo "Calories: " . $row["calories"];
+    //         echo '<br>';
+    //         echo "Fat: " . $row["fat"] . " grams";
+    //         echo '<br>';
+    //         echo "Protein: " . $row["protein"] . " grams";
+    //         echo '<br>';
+    //         echo "Carbohydrates: " . $row["carbs"] . " grams";
+    //         echo '<br>';
+    //         echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+    //         break;
+    //       }
+    //   }
+    // }
+    //
+    // findDinner();
     ?>
     <form method="post">
       <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
