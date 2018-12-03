@@ -48,6 +48,7 @@ VERSION : 1.1
   background:white;
   border-bottom: 10px;
   border-color: #e7e7e7;
+  color: black;
   /* padding-bottom: 10px;
   padding-top: 10px; */
   }
