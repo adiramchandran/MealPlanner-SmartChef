@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       header("Location: http://www.teamsaauuwwce.web.illinois.edu/landingpage.php");
   	}
     else {
-      echo "failed";
+      echo "Login Failed, Please Try Again";
     }
 }
 // $con->close();
