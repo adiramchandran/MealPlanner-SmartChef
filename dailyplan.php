@@ -32,19 +32,19 @@ function findBreakfast() {
   mysqli_close($mysqli);
 }
 
-// if($_SERVER['REQUEST_METHOD'] == 'GET') {
-//   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-//   $title = $_SESSION['breakfast'];
-//   $user = $_SESSION['username'];
-//   $sql = "INSERT INTO UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
-//   $results = mysqli_query($mysqli, $sql);
-//   // if ($results) {
-//   //   echo "succeeded";
-//   // }
-//   // else {
-//   //   echo "failed";
-//   // }
-// }
+if($_SERVER['REQUEST_METHOD'] == 'GET') {
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $title = $_SESSION['breakfast'];
+  $user = $_SESSION['username'];
+  $sql = "INSERT INTO UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
+  $results = mysqli_query($mysqli, $sql);
+  // if ($results) {
+  //   echo "succeeded";
+  // }
+  // else {
+  //   echo "failed";
+  // }
+}
 // if($_POST){
 //     if(isset($_POST['testb'])){
 //         findBreakfast();
