@@ -7,7 +7,6 @@ $_SESSION['insert_out'] = "";
 $_SESSION['update_out'] = "";
 $_SESSION['delete_out'] = "";
 $_SESSION['search_out'] = "";
-$mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 $con = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 // $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //
@@ -28,7 +27,7 @@ if (mysqli_connect_errno()){
 }
 */
 // INSERT DONE <-- THIS IS NOW AN UPDATE
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if (!empty($_POST['CreateAccount'])) {
   // extract all the new information
   $height = $_POST['height'];
   $weight = $_POST['weight'];
@@ -54,29 +53,36 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // use BMR to calc target calories per day
   $cal = $bmr + ( ($weight_per_wk * 3500) / 7 );
   $_SESSION['numCalories'] = $cal;
-  $sql = $mysqli->prepare("UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE Username = ?");
-  $sql->bind_param('s', $_SESSION['username']);
-  // $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
-  if($sql->execute()) {
+  $username = $_SESSION['username'];
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $sql = "UPDATE User SET Height = $height, Weight = $weight, Age = $age, Weight_per_wk = $weight_per_wk, Lifestyle = $lifestyle, Gender = $gender, BMR = $bmr, Cal_per_day = $cal WHERE Username = '$username'";
+  if (mysqli_query($mysqli, $sql)) {
     $_SESSION['insert_out'] = "Record updated successfully. Your Username is: " . $_SESSION['username'];
   }
   else {
-    $_SESSION['insert_out'] = "Account was not created";
+   $_SESSION['insert_out'] = "Account was not created";
   }
+  // $sql = "INSERT INTO User (ID, Height, Weight, Age, Weight_per_wk, Lifestyle, Gender, BMR, Cal_per_day) " . " VALUES (NULL, '$height', '$weight', '$age', '$weight_per_wk', '$lifestyle', '$gender', '$bmr', '$cal')";
+  // if($sql->execute()) {
+  //   $_SESSION['insert_out'] = "Record updated successfully. Your Username is: " . $_SESSION['username'];
+  // }
+  // else {
+  //   $_SESSION['insert_out'] = "Account was not created";
+  // }
 }
 // DELETE
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $usernameID = $_POST['username'];
-  $password = $_POST['password']
-  $sql = "DELETE FROM User WHERE Username = $usernameID  AND Password = $password";
-  if(mysqli_query($mysqli, $sql) === true) {
-    $_SESSION['delete_out'] = "Your account has been deleted";
-  }
-  else {
-    $_SESSION['delete_out'] = "Account not deleted";
-  }
-}
-mysqli_close($mysqli);
+// if (!empty($_POST['deleteAccount'])) {
+//   $usernameID = $_POST['username'];
+//   $password = $_POST['password']
+//   $sql = "DELETE FROM User WHERE Username = $usernameID  AND Password = $password";
+//   if(mysqli_query($mysqli, $sql) === true) {
+//     $_SESSION['delete_out'] = "Your account has been deleted";
+//   }
+//   else {
+//     $_SESSION['delete_out'] = "Account not deleted";
+//   }
+// }
+// mysqli_close($mysqli);
 ?>
 <html>
 <head>
@@ -147,7 +153,7 @@ mysqli_close($mysqli);
           <ul class="nav navbar-nav navbar-right">
             <li><a href="landingpage.php" class="page-scroll">Home</a></li>
             <li><a href="profile.php" class="page-scroll">My Profile</a></li>
-            <li><a href="dailyplan.php" class="page-scroll">Weekly Plan</a></li>
+            <li><a href="dailyplan.php" class="page-scroll">Daily Plan</a></li>
             <li><a href="favorites.php" class="page-scroll">Favorites</a></li>
             <li><a>Welcome, <?php echo $_SESSION['username'];?>!</a>
             <li><a href="logout.php" class="page-scroll">Logout</a></li>
@@ -189,13 +195,13 @@ mysqli_close($mysqli);
           <option type="text" value="1">
           <option type="text" value="2">
         </datalist>
-      <input type="submit" value="Submit" name="Create Account" class="btn btn-block" />
+      <input type="submit" value="Submit" name="CreateAccount" class="btn btn-block" />
       <div class="module">
     </form>
   </section>
 
   <section class="metrics">
-    <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form style="margin-top:80px;" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['delete_out'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Username" name="username" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Password" name="password" required />
