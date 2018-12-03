@@ -3,6 +3,14 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
     session_cache_limiter("public");
 }
 session_start();
+
+// if($_SERVER['REQUEST_METHOD'] == 'GET') {
+//   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+//   $title = $_SESSION['breakfast'];
+//   $id = $_SESSION['user_id'];
+//   $sql = "Delete from UserFavorites (ID, RecipeName) " . " VALUES ('$id', '$title')";
+//   $results = mysqli_query($mysqli, $sql);
+// }
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +34,7 @@ VERSION : 1.1
 	<!-- [ PLUGIN STYLESHEET ]
         =========================================================================================================================-->
 	<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
         <link rel ="stylesheet" type="text/css" href="library/vegas/vegas.min.css">
@@ -115,6 +124,35 @@ VERSION : 1.1
     padding-top: 150px;
   }
 
+  .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .search-container {
+    float: none;
+  }
+  .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+}
+
   </style>
 
 </head>
@@ -174,6 +212,12 @@ VERSION : 1.1
   <div class="block">
     <h1>Your Favorites</h1>
   </div>
+  <div class="search-container">
+    <form action="">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
   <section>
     <?php
     function listFavorites() {
@@ -194,7 +238,7 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-            // echo '<input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>';
+            echo '<input type="submit" class="button" name="unfave" id="unfave" value="Favorite" /><br/>'
             echo "</div>";
       }
       mysqli_close($mysqli);
