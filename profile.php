@@ -26,6 +26,25 @@ if (mysqli_connect_errno()){
     printf("connection failed: %s\n", mysqli_connect_error());
 }
 */
+
+// Show Metrics
+if (!empty($_POST['showMetrics'])) {
+  $usernameMet = $_POST['usernameMets'];
+  $passwordMet = $_POST['passwordMets'];
+  $sql = "SELECT * FROM User WHERE Username = "."'$usernameID'"."AND Password = "."'$password'";
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  if(mysqli_query($mysqli, $sql) === true) {
+    $_SESSION['search_out'] = "Shit worked";
+    
+  }
+  else {
+    $_SESSION['search_out'] = "Shit did not work";
+  }
+
+  mysqli_close($mysqli);
+}
+
+
 // INSERT DONE <-- THIS IS NOW AN UPDATE
 if (!empty($_POST['CreateAccount'])) {
   // extract all the new information
@@ -72,12 +91,12 @@ if (!empty($_POST['deleteAccount'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['delete_out'] = "Your account has been deleted";
+    header("Location: http://www.teamsaauuwwce.web.illinois.edu/index.html");
   }
   else {
     $_SESSION['delete_out'] = "Account not deleted";
   }
 
-  header("Location: http://www.teamsaauuwwce.web.illinois.edu/index.html");
   mysqli_close($mysqli);
 }
 ?>
@@ -171,6 +190,18 @@ if (!empty($_POST['deleteAccount'])) {
 
   <!-- [METRICS ]
 =============================================================================================================================-->
+  
+  <section class="metrics">
+    <form style="margin-top:80px;" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+      <div class="alert alert-error"><font color="black"><?= $_SESSION['search_out'] ?></font></div>
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Username" name="usernameMets" required />
+      <input style="color:#000000;" this.style.color='#000000' type="password" placeholder="Password" name="passwordMets" required />
+      <input type="submit" value="Show Metrics" name="showMetrics" class="btn btn-block" />
+      <div class="module">
+    </form>
+  </section>
+
+   <!-- Section for updating user information-->
   <section class="metrics">
     <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['insert_out'] ?></font></div>
@@ -197,16 +228,18 @@ if (!empty($_POST['deleteAccount'])) {
     </form>
   </section>
 
+  <!-- Section for deleting user-->
   <section class="metrics">
     <form style="margin-top:80px;" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['delete_out'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Username" name="username" required />
       <input style="color:#000000;" this.style.color='#000000' type="password" placeholder="Password" name="password" required />
       <input type="submit" value="Delete Account" name="deleteAccount" class="btn btn-block" />
-
       <div class="module">
     </form>
   </section>
+
+
 
 </div>
 
