@@ -49,7 +49,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 if($_POST){
     if(isset($_POST['testb'])){
-        removeFunction('deleteb');
         findBreakfast();
     }elseif(isset($_POST['testl'])){
         removeFunction();
