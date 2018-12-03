@@ -21,7 +21,23 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
   //   echo "failed";
   // }
 }
-
+if($_POST){
+    if(isset($_POST['testb'])){
+        removeFunction();
+        findBreakfast();
+    }elseif(isset($_POST['testl'])){
+        removeFunction();
+        findBreakfast();
+    }
+    elseif(isset($_POST['testd'])){
+      removeFunction();
+      findBreakfast();
+    }
+}
+// if(array_key_exists('testb',$_POST)){
+//   removeFunction("deleteb");
+//   findBreakfast();
+// }
 // if(array_key_exists('testl',$_POST)){
 //   removeFunction("deletel");
 //   findLunch();
@@ -247,7 +263,7 @@ VERSION : 1.1
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
             echo '<form method="post">
-              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+              <input type="submit" class="button" name="testl" id="testl" value="Shuffle" /><br/>
             </form>';
             echo '</div>';
             break;
@@ -281,7 +297,7 @@ VERSION : 1.1
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
             echo '<form method="post">
-              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+              <input type="submit" class="button" name="testd" id="testd" value="Shuffle" /><br/>
             </form>';
             echo '</div>';
             break;
