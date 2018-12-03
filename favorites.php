@@ -118,13 +118,13 @@ VERSION : 1.1
 =============================================================================================================================-->
 <!-- [WRAPPER ]
 =============================================================================================================================-->
-<div>
+<div class="wrapper">
 
  <!-- [NAV]
  ============================================================================================================================-->
    <!-- Navigation
     ==========================================-->
-    <nav  class="amd-menu navbar navbar-default navbar-fixed-top theme_background_color fadeInDown">
+    <nav  class="amd-menu navbar navbar-default navbar-fixed-top fadeInDown">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
