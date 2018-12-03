@@ -8,18 +8,18 @@ function removeFunction() {
      'removeCurr();',
   '</script>';
 }
-if(array_key_exists('testb',$_POST)){
+if(array_key_exists('hello',$_POST)){
   removeFunction("deleteb");
   findBreakfast();
 }
-if(array_key_exists('testl',$_POST)){
-  removeFunction("deletel");
-  findLunch();
-}
-if(array_key_exists('testd',$_POST)){
-  removeFunction("deleted");
-  findLunch();
-}
+// if(array_key_exists('testl',$_POST)){
+//   removeFunction("deletel");
+//   findLunch();
+// }
+// if(array_key_exists('testd',$_POST)){
+//   removeFunction("deleted");
+//   findDinner();
+// }
 ?>
 
 <!DOCTYPE html>
