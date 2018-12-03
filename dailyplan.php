@@ -4,6 +4,9 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
 }
 session_start();
 function findBreakfast() {
+  echo '<script type="text/javascript">',
+     'removeCurr();',
+     '</script>';
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList order by rand()";
   $results = mysqli_query($mysqli, $sql);
@@ -53,7 +56,7 @@ VERSION : 1.1
 	<!-- [ FONT-AWESOME ICON ]
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
-  <script>
+  <script type="text/javascript">
   function removeCurr() {
     var elem = document.getElementById('curr');
     elem.parentNode.removeChild(elem);
