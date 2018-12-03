@@ -4,6 +4,32 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
 }
 session_start();
 function findBreakfast() {
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $sql = "SELECT * FROM RecipeList order by rand()";
+  $results = mysqli_query($mysqli, $sql);
+  $i = 1;
+  $two = 2;
+  while ($row = mysqli_fetch_assoc($results) and $row["Breakfast"] == 'B') {
+      if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
+        echo '<div id="curr">';
+        echo "Breakfast: " . $_SESSION['numCalories']*0.2;
+        echo "<h1>" . $row["title"] . "</h1>";
+        echo '<br>';
+        echo "Calories: " . $row["calories"];
+        echo '<br>';
+        echo "Fat: " . $row["fat"] . " grams";
+        echo '<br>';
+        echo "Protein: " . $row["protein"] . " grams";
+        echo '<br>';
+        echo "Carbohydrates: " . $row["carbs"] . " grams";
+        echo '<br>';
+        echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+        echo '</div>';
+        break;
+      }
+  }
+}
+function shuffleBreakfast() {
   echo '<script type="text/javascript">',
      'removeCurr();',
      '</script>';
@@ -34,7 +60,7 @@ function findBreakfast() {
 }
 
 if(array_key_exists('test',$_POST)){
-   findBreakfast();
+   shuffleBreakfast();
 }
 ?>
 
