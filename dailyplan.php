@@ -200,7 +200,7 @@ VERSION : 1.1
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
             echo '<form method="post">
-              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+              <input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>
             </form>';
             echo "</div>";
             break;
@@ -211,9 +211,6 @@ VERSION : 1.1
 
     findBreakfast();
     ?>
-    <form method="post">
-      <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
-    </form>
   </div>
   <div class="column2">
     <?php
@@ -237,7 +234,7 @@ VERSION : 1.1
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
             echo '<form method="post">
-              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+              <input type="submit" class="button" name="testl" id="testl" value="Shuffle" /><br/>
             </form>';
             echo '</div>';
             break;
@@ -248,9 +245,6 @@ VERSION : 1.1
 
     findLunch();
     ?>
-    <form method="post">
-      <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
-    </form>
   </div>
   <div class="column3">
     <?php
@@ -274,7 +268,7 @@ VERSION : 1.1
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
             echo '<form method="post">
-              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+              <input type="submit" class="button" name="testd" id="testd" value="Shuffle" /><br/>
             </form>';
             echo '</div>';
             break;
