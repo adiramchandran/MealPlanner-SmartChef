@@ -11,6 +11,7 @@ function findBreakfast() {
   $two = 2;
   while ($row = mysqli_fetch_assoc($results) and $row["Breakfast"] == 'B') {
       if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
+        echo '<div id="curr">';
         echo "Breakfast: " . $_SESSION['numCalories']*0.2;
         echo "<h1>" . $row["title"] . "</h1>";
         echo '<br>';
@@ -23,6 +24,7 @@ function findBreakfast() {
         echo "Carbohydrates: " . $row["carbs"] . " grams";
         echo '<br>';
         echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+        echo '</div>';
         break;
       }
   }
@@ -51,7 +53,12 @@ VERSION : 1.1
 	<!-- [ FONT-AWESOME ICON ]
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
-
+  <script>
+  function removeCurr() {
+    var elem = document.getElementById('curr');
+    elem.parentNode.removeChild(elem);
+  }
+  </script>
 	<!-- [ PLUGIN STYLESHEET ]
         =========================================================================================================================-->
 	<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
@@ -188,7 +195,7 @@ VERSION : 1.1
       findBreakfast();
   ?>
   <form method="post">
-    <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
+    <input type="submit" class="button" name="test" id="test" onclick="removeCurr()" value="Shuffle" /><br/>
   </form>
   </div>
   <div class="column2">
