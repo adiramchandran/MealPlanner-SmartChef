@@ -40,9 +40,7 @@ function shuffleBreakfast() {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList order by rand()";
   $results = mysqli_query($mysqli, $sql);
-  $i = 1;
-  $two = 2;
-  while ($row = mysqli_fetch_assoc($results) and $row["Breakfast"] == 'B') {
+  while ($row = mysqli_fetch_assoc($results) and $row["B/L/D"] == 'B') {
       if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
         echo '<div class="column1" id="curr">';
         echo "Breakfast: " . $_SESSION['numCalories']*0.2;
