@@ -93,6 +93,7 @@ VERSION : 1.1
   }
 
   .row {
+    height:800px;
     border-right: 100px solid #262626;
     border-left: 100px solid #262626;
     background-color: #fff;
