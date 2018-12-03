@@ -28,9 +28,7 @@ function findBreakfast() {
         echo "Carbohydrates: " . $row["carbs"] . " grams";
         echo '<br>';
         echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-        echo '<form action=\'{$_SERVER[\'PHP_SELF\']}\' method="post">
-          <input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>
-        </form>';
+        echo '<input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>';
         echo "</div>";
         break;
       }
@@ -117,6 +115,17 @@ VERSION : 1.1
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap.css">
+  <script>
+$(document).ready(function() {
+
+  $("#testb").click(function() {
+     $("#deleteb").load("dailyplan.php");
+
+	return false;
+	});
+});
+
+  </script>
 
         <!-- [ DEFAULT STYLESHEET ]
         =========================================================================================================================-->
@@ -265,9 +274,9 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-            echo '<form action=\'{$_SERVER[\'PHP_SELF\']}\' method="post">
-              <input type="submit" class="button" name="testl" id="testl" value="Shuffle" onclick="removeCurr(deleteb)" /><br/>
-            </form>';
+            // echo '<form action=\'{$_SERVER[\'PHP_SELF\']}\' method="post">
+            //   <input type="submit" class="button" name="testl" id="testl" value="Shuffle" onclick="removeCurr(deleteb)" /><br/>
+            // </form>';
             echo '</div>';
             break;
           }
@@ -302,9 +311,8 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-            echo '<form action=\'{$_SERVER[\'PHP_SELF\']}\' method="post">
-              <input type="submit" class="button" name="testd" id="testd" value="Shuffle" /><br/>
-            </form>';
+            // echo '
+            //   <input type="submit" class="button" name="testd" id="testd" value="Shuffle" /><br/>';
             echo '</div>';
             break;
           }
