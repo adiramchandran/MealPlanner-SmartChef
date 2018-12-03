@@ -29,9 +29,9 @@ if (mysqli_connect_errno()){
 
 // Show Metrics
 if (!empty($_POST['showMetrics'])) {
-  $usernameMet = $_POST['usernameMets'];
-  $passwordMet = $_POST['passwordMets'];
-  $sql = "SELECT * FROM User WHERE Username = "."'$usernameMet'"."AND Password = "."'$passwordMet'";
+  $usernameMets = $_POST['usernameMets'];
+  $passwordMets = $_POST['passwordMets'];
+  $sql = "SELECT * FROM User WHERE Username = "."'$usernameMets'"." AND Password = "."'$passwordMets'";
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['search_out'] = "Shit worked";
