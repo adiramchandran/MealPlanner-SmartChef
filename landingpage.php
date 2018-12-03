@@ -82,7 +82,7 @@ VERSION : 1.1
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#home" class="page-scroll">Home</a></li>
             <li><a href="profile.php" class="page-scroll">My Profile</a></li>
-            <li><a href="dailyplan.php" class="page-scroll">Weekly Plan</a></li>
+            <li><a href="dailyplan.php" class="page-scroll">Daily Plan</a></li>
             <li><a href="favorites.php" class="page-scroll">Favorites</a></li>
             <li><a>Welcome, <?php echo $_SESSION['username'];?>!</a>
             <li><a href="logout.php" class="page-scroll">Logout</a></li>
