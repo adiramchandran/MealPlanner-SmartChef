@@ -23,7 +23,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Carbohydrates: " . $row["carbs"] . " grams";
         echo '<br>';
         echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-        echo '<input type="submit" class="button" name="unfave" id="unfave" value="Favorite" /><br/>';
         echo "</div>";
   }
   mysqli_close($mysqli);
