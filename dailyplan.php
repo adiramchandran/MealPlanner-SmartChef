@@ -93,10 +93,10 @@ VERSION : 1.1
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
   <script type="text/javascript">
-  function removeCurr(x) {
-    var elem = document.getElementById(x);
-    elem.parentNode.removeChild(elem);
-  }
+    function removeCurr(x) {
+      var elem = document.getElementById(x);
+      elem.parentNode.removeChild(elem);
+    }
   </script>
 
   <<?php
@@ -262,7 +262,7 @@ VERSION : 1.1
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
             echo '<form method="post">
-              <input type="submit" class="button" name="testl" id="testl" value="Shuffle" /><br/>
+              <input type="submit" class="button" name="testl" id="testl" value="Shuffle" onclick="removeCurr(deleteb)" /><br/>
             </form>';
             echo '</div>';
             break;
