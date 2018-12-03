@@ -7,7 +7,7 @@ session_start();
 function findBreakfast() {
   $b = 'B';
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  $sql = "SELECT * FROM RecipeList as r, User as u where r.calories < u.Cal_per_day*0.25 and r.calories > u.Cal_per_day*0.15 and r.MealType = $b";
+  $sql = "SELECT * FROM RecipeList, User where calories < Cal_per_day*0.25 and calories > Cal_per_day*0.15 and MealType = $b";
   $results = mysqli_query($mysqli, $sql);
   while ($row = mysqli_fetch_assoc($results)) {
         $_SESSION["breakfast"] = $row["title"];
@@ -110,14 +110,14 @@ VERSION : 1.1
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap.css">
-  <script>
+  <!-- <script>
   $(function() {
     $("testb").click(function() {
        $("#deleteb").load("dailyplan.php")
     })
   })
 
-  </script>
+  </script> -->
 
         <!-- [ DEFAULT STYLESHEET ]
         =========================================================================================================================-->
