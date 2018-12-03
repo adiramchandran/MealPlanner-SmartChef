@@ -95,8 +95,8 @@ VERSION : 1.1
   .row {
     height:800px;
     border-right: 175px solid #262626;
-    border-color: #262626;
     border-left: 175px solid #262626;
+    border-color: #76b852;
     background-color: #fff;
   }
 
