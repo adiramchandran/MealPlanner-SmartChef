@@ -197,6 +197,8 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
+
+    listFavorites()
      ?>
   <section>
 </div>
