@@ -72,6 +72,7 @@ if (!empty($_POST['deleteAccount'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['delete_out'] = "Your account has been deleted";
+    header("Location: http://www.teamsaauuwwce.web.illinois.edu/index.html");
   }
   else {
     $_SESSION['delete_out'] = "Account not deleted";
