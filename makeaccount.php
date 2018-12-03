@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $mysqli->real_escape_string($_POST['email']);
     $username = $mysqli->real_escape_string($_POST['username']);
     $password = $mysqli->real_escape_string($_POST['password']);
-    $sql = "INSERT INTO User (ID, Username, Password, Email) " . " VALUES (NULL, '$username', '$password', '$email')";
+    $sql = "INSERT INTO User (Username, Password, Email) " . " VALUES ('$username', '$password', '$email')";
 
     if(mysqli_query($mysqli, $sql) === true) {
       $_SESSION['user_id'] = mysqli_insert_id();
