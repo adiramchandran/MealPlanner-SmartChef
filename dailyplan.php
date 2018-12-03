@@ -9,17 +9,9 @@ function removeFunction() {
   '</script>';
 }
 
-if(array_key_exists('testb',$_POST)){
-  removeFunction("deleteb");
+if(array_key_exists('test',$_POST)){
+  removeFunction();
   findBreakfast();
-}
-else if(array_key_exists('testl',$_POST)){
-  removeFunction("deletel");
-  findLunch();
-}
-else if(array_key_exists('testd',$_POST)){
-  removeFunction("deleted");
-  findDinner();
 }
 ?>
 
@@ -42,8 +34,8 @@ VERSION : 1.1
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
   <script type="text/javascript">
-  function removeCurr(x) {
-    var elem = document.getElementById(x);
+  function removeCurr() {
+    var elem = document.getElementById("curr");
     elem.parentNode.removeChild(elem);
   }
   </script>
@@ -186,7 +178,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'B' and $row["calories"] <= $_SESSION['numCalories']*0.2) {
-            echo "<div id=deleteb>";
+            echo "<div id=curr>";
             echo "Breakfast: " . $_SESSION['numCalories']*0.2;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -200,7 +192,7 @@ VERSION : 1.1
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
             echo '<form method="post">
-              <input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>
+              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
             </form>';
             echo "</div>";
             break;
@@ -220,7 +212,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'L' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
-            echo "<div id=deletel>";
+            echo "<div id=curr>";
             echo "Lunch: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -234,7 +226,7 @@ VERSION : 1.1
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
             echo '<form method="post">
-              <input type="submit" class="button" name="testl" id="testl" value="Shuffle" /><br/>
+              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
             </form>';
             echo '</div>';
             break;
@@ -254,7 +246,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'D' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
-            echo "<div id=deleted>";
+            echo "<div id=curr>";
             echo "Dinner: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -268,7 +260,7 @@ VERSION : 1.1
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
             echo '<form method="post">
-              <input type="submit" class="button" name="testd" id="testd" value="Shuffle" /><br/>
+              <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
             </form>';
             echo '</div>';
             break;
