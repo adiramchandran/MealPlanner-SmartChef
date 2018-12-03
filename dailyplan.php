@@ -9,7 +9,6 @@ function findBreakfast() {
   $results = mysqli_query($mysqli, $sql);
   while ($row = mysqli_fetch_assoc($results) and $row["B/L/D"] == 'B') {
       if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
-        echo '<div id="curr">';
         echo "Breakfast: " . $_SESSION['numCalories']*0.2;
         echo "<h1>" . $row["title"] . "</h1>";
         echo '<br>';
@@ -25,7 +24,6 @@ function findBreakfast() {
         echo '<form method="post">
           <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
         </form>';
-        echo '</div>';
         break;
       }
   }
