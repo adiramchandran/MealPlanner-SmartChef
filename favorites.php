@@ -29,13 +29,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
-// if($_SERVER['REQUEST_METHOD'] == 'GET') {
-//   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-//   $title = $_SESSION['breakfast'];
-//   $id = $_SESSION['user_id'];
-//   $sql = "Delete from UserFavorites (ID, RecipeName) " . " VALUES ('$id', '$title')";
-//   $results = mysqli_query($mysqli, $sql);
-// }
+if($_SERVER['REQUEST_METHOD'] == 'GET') {
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $title = $_SESSION['breakfast'];
+  $id = $_SESSION['user_id'];
+  $sql = "Delete from UserFavorites (ID, RecipeName) " . " VALUES ('$id', '$title')";
+  $results = mysqli_query($mysqli, $sql);
+}
 ?>
 
 <!DOCTYPE html>

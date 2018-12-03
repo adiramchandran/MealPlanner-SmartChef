@@ -247,7 +247,7 @@ VERSION : 1.1
     function findLunch() {
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username=$user) and calories > (select Cal_per_day*0.35 from User where Username=$user) and MealType = 'L'";
+      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'L'";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["lunch"] = $row["title"];
@@ -280,7 +280,7 @@ VERSION : 1.1
     function findDinner() {
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username=$user) and calories > (select Cal_per_day*0.35 from User where Username=$user) and MealType = 'D'";
+      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'D'";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["dinner"] = $row["title"];
