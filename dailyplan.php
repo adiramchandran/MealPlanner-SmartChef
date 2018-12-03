@@ -176,8 +176,8 @@ VERSION : 1.1
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList";
       $results = mysqli_query($mysqli, $sql);
-      while ($row = mysqli_fetch_assoc($results) and $row["B/L/D"] == 'B') {
-          if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
+      while ($row = mysqli_fetch_assoc($results)) {
+          if ($row["B/L/D"] == 'B' and $row["calories"] <= $_SESSION['numCalories']*0.2) {
             echo "Breakfast: " . $_SESSION['numCalories']*0.2;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -208,8 +208,8 @@ VERSION : 1.1
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList";
       $results = mysqli_query($mysqli, $sql);
-      while ($row = mysqli_fetch_assoc($results) and $row["B/L/D"] == 'L') {
-          if ($row["calories"] <= $_SESSION['numCalories']*0.4) {
+      while ($row = mysqli_fetch_assoc($results)) {
+          if ($row["B/L/D"] == 'L' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
             echo "Lunch: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
@@ -240,8 +240,8 @@ VERSION : 1.1
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList";
       $results = mysqli_query($mysqli, $sql);
-      while ($row = mysqli_fetch_assoc($results) and $row["B/L/D"] == 'D') {
-          if ($row["calories"] <= $_SESSION['numCalories']*0.4) {
+      while ($row = mysqli_fetch_assoc($results)) {
+          if ($row["B/L/D"] == 'D' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
             echo "Dinner: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
