@@ -183,12 +183,12 @@ VERSION : 1.1
   <div class="block">
     <h1>Your Favorites</h1>
   </div>
-  <!-- <div class="search-container">
+  <div class="search-container">
     <form action="">
       <input type="text" placeholder="Search.." name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
-  </div> -->
+  </div>
   <section>
     <?php
     function listFavorites() {
@@ -209,7 +209,7 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-            echo '<input type="submit" class="button" name="unfave" id="unfave" value="Favorite" /><br/>'
+            echo '<input type="submit" class="button" name="unfave" id="unfave" value="Favorite" /><br/>';
             echo "</div>";
       }
       mysqli_close($mysqli);
