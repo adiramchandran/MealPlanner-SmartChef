@@ -29,10 +29,13 @@ function findBreakfast() {
       }
   }
 }
-function shuffleBreakfast() {
+public function removeFunction() {
   echo '<script type="text/javascript">',
      'removeCurr();',
-     '</script>';
+  '</script>';
+}
+function shuffleBreakfast() {
+  removeFunction();
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList order by rand()";
   $results = mysqli_query($mysqli, $sql);
