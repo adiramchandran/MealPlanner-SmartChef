@@ -4,10 +4,6 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
 }
 session_start();
 
-$_SESSION['onload1'] = 1;
-$_SESSION['onload2'] = 1;
-$_SESSION['onload3'] = 1;
-
 function findBreakfast() {
   $b = 'B';
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
@@ -252,7 +248,7 @@ VERSION : 1.1
       $sql = "SELECT * FROM RecipeList order by rand()";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
-          if ($row["B/L/D"] == 'L' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
+          if ($row["MealType"] == 'L' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
             $_SESSION["lunch"] = $row["title"];
             echo "<div id=deletel>";
             echo "Lunch: " . $_SESSION['numCalories']*0.4;
@@ -286,7 +282,7 @@ VERSION : 1.1
       $sql = "SELECT * FROM RecipeList order by rand()";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
-          if ($row["B/L/D"] == 'D' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
+          if ($row["MealType"] == 'D' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
             $_SESSION["dinner"] = $row["title"];
             echo "<div id=deleted>";
             echo "Dinner: " . $_SESSION['numCalories']*0.4;
