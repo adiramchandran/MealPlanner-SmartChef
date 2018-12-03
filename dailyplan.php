@@ -100,7 +100,7 @@ VERSION : 1.1
     }
   </script>
 
-  <<?php
+  <?php
   function removeFunction($x) {
     echo '<script type="text/javascript">',
        'removeCurr('.$x.');',
