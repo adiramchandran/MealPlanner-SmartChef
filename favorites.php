@@ -45,7 +45,9 @@ VERSION : 1.1
   text-align:center;
   }
   .box-one {
-  background:green;
+  background:white;
+  border-bottom: 10px;
+  border-color: #e7e7e7;
   /* padding-bottom: 10px;
   padding-top: 10px; */
   }
