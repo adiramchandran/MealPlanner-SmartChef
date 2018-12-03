@@ -184,7 +184,7 @@ VERSION : 1.1
 
     findBreakfast();
   ?>
-  <input type="button" class=button value="Shuffle" onclick="<?php echo findBreakfast(); ?>"/>
+  <input type="button" class=button value="Shuffle" onclick="findBreakfast()"/>
   </div>
   <div class="column2">
   </div>
