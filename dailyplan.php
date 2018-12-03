@@ -177,7 +177,7 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-            echo '<button class=button onclick="findBreakfast()">Shuffle</button>';
+            echo '<button class=button onclick="<?php echo findBreakfast(); ?>">Shuffle</button>';
             break;
           }
       }
