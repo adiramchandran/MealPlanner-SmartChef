@@ -66,7 +66,7 @@ if (!empty($_POST['CreateAccount'])) {
 // DELETE
 if (!empty($_POST['deleteAccount'])) {
   $usernameID = $_POST['username'];
-  $password = $_POST['password']
+  $password = $_POST['password'];
   $sql = "DELETE FROM User WHERE Username = "."'$usernameID'"."AND Password = "."'$password'";
   if(mysqli_query($mysqli, $sql) === true) {
     $_SESSION['delete_out'] = "Your account has been deleted";
@@ -197,7 +197,7 @@ mysqli_close($mysqli);
     <form style="margin-top:80px;" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['delete_out'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Username" name="username" required />
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Password" name="password" required />
+      <input style="color:#000000;" this.style.color='#000000' type="password" placeholder="Password" name="password" required />
       <input type="submit" value="Delete Account" name="deleteAccount" class="btn btn-block" />
 
       <div class="module">
