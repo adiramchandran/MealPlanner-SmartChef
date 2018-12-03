@@ -11,7 +11,7 @@ function findBreakfast() {
   $two = 2;
   while ($row = mysqli_fetch_assoc($results) and $row["Breakfast"] == 'B') {
       if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
-        echo '<div id="curr">';
+        echo '<div class="column1" id="curr">';
         echo "Breakfast: " . $_SESSION['numCalories']*0.2;
         echo "<h1>" . $row["title"] . "</h1>";
         echo '<br>';
@@ -43,7 +43,7 @@ function shuffleBreakfast() {
   $two = 2;
   while ($row = mysqli_fetch_assoc($results) and $row["Breakfast"] == 'B') {
       if ($row["calories"] <= $_SESSION['numCalories']*0.2) {
-        echo '<div id="curr">';
+        echo '<div class="column1" id="curr">';
         echo "Breakfast: " . $_SESSION['numCalories']*0.2;
         echo "<h1>" . $row["title"] . "</h1>";
         echo '<br>';
@@ -222,14 +222,12 @@ VERSION : 1.1
    <!-- [/NAV]
  ============================================================================================================================-->
 <div class="row">
-  <div class="column1">
   <?php
       findBreakfast();
   ?>
   <form method="post">
     <input type="submit" class="button" name="test" id="test" value="Shuffle" /><br/>
   </form>
-  </div>
   <div class="column2">
   </div>
   <div class="column3">
