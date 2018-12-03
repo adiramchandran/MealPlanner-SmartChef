@@ -91,6 +91,7 @@ VERSION : 1.1
     font-size: 16px;
   }
   .column1 {
+    padding-left: 20px;
     height:800px;
     text-align:center;
     width: 33.33%;
