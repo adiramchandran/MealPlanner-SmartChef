@@ -28,7 +28,7 @@ function findBreakfast() {
         echo "Carbohydrates: " . $row["carbs"] . " grams";
         echo '<br>';
         echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-        echo '<input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>';
+        // echo '<input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>';
         echo "</div>";
         break;
       }
@@ -239,12 +239,9 @@ VERSION : 1.1
 <div class="row">
   <div class="column1">
     <?php
-    if ($_SESSION['onload1'] == 1) {
       findBreakfast();
-      $_SESSION['onload1'] = 2;
-    }
     ?>
-    <form action='{$_SERVER['PHP_SELF']}' method="GET">
+    <form action='dailyplan.php' method="GET">
       <input type="submit" class="button" name="fave" id="fave" value="Favorite" /><br/>
     </form>
   </div>
@@ -280,10 +277,7 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
-    if ($_SESSION['onload2'] == 1) {
       findLunch();
-      $_SESSION['onload2'] = 2;
-    }
     ?>
   </div>
   <div class="column3">
@@ -316,10 +310,7 @@ VERSION : 1.1
       }
       mysqli_close($mysqli);
     }
-    if ($_SESSION['onload3'] == 1) {
       findDinner();
-      $_SESSION['onload3'] = 2;
-    }
     ?>
   </div>
 </div>
