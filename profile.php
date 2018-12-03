@@ -76,6 +76,8 @@ if (!empty($_POST['deleteAccount'])) {
   else {
     $_SESSION['delete_out'] = "Account not deleted";
   }
+
+  header("Location: http://www.teamsaauuwwce.web.illinois.edu/index.html");
   mysqli_close($mysqli);
 }
 ?>
