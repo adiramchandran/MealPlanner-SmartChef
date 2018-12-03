@@ -19,7 +19,7 @@ if(array_key_exists('testl',$_POST)){
 }
 if(array_key_exists('testd',$_POST)){
   removeFunction("deleted");
-  findLunch();
+  findDinner();
 }
 ?>
 
