@@ -8,6 +8,18 @@ function removeFunction() {
      'removeCurr();',
   '</script>';
 }
+if($_SERVER['REQUEST_METHOD'] == 'GET') {
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $sql = "INSERT INTO UserFavorites (ID, RecipeName) " . " VALUES ('$_SESSION[\'user_id\']', '$_SESSION[\'breakfast\']')";
+  $results = mysqli_query($mysqli, $sql);
+  if ($results) {
+    echo "succeeded";
+  }
+  else {
+    echo "failed";
+  }
+}
+
 if(array_key_exists('testb',$_POST)){
   removeFunction("deleteb");
   findBreakfast();
@@ -178,6 +190,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'B' and $row["calories"] <= $_SESSION['numCalories']*0.2) {
+            $_SESSION["breakfast"] = $row["title"];
             echo "<div id=deleteb>";
             echo "Breakfast: " . $_SESSION['numCalories']*0.2;
             echo "<h1>" . $row["title"] . "</h1>";
@@ -202,7 +215,11 @@ VERSION : 1.1
     }
     findBreakfast();
     ?>
+    <form method="get">
+      <input type="submit" class="button" name="fave" id="fave" value="Favorite" /><br/>
+    </form>
   </div>
+
   <div class="column2">
     <?php
     function findLunch() {
@@ -211,6 +228,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'L' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
+            $_SESSION["lunch"] = $row["title"];
             echo "<div id=deletel>";
             echo "Lunch: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
@@ -244,6 +262,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
           if ($row["B/L/D"] == 'D' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
+            $_SESSION["dinner"] = $row["title"];
             echo "<div id=deleted>";
             echo "Dinner: " . $_SESSION['numCalories']*0.4;
             echo "<h1>" . $row["title"] . "</h1>";
