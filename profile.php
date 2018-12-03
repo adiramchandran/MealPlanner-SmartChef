@@ -181,14 +181,14 @@ if (!empty($_POST['CreateAccount'])) {
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight (in pounds)" name="weight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age (in years)" name="age" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week" name="weight_per_wk" required />
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle (1-5, increasing level of activity)" name="lifestyle" list="lifestyle" required />
-        <datalist id="lifestyle">
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle (1-5, increasing level of activity)" name="lifestyle" required />
+        <!-- <datalist id="lifestyle">
           <option type="text" value="1 - Sedentary">
           <option type="text" value="2 - Lightly Active">
           <option type="text" value="3 - Moderately Active">
           <option type="text" value="4 - Very Active">
           <option type="text" value="5 - Extremely Active">
-        </datalist>
+        </datalist> -->
 
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Gender (1 for male, 2 for female)" name="gender" list="gender" required />
         <datalist id="gender">
