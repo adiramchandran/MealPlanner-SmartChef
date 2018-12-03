@@ -32,18 +32,28 @@ function findBreakfast() {
   mysqli_close($mysqli);
 }
 
-if($_SERVER['REQUEST_METHOD'] == 'GET') {
+if (!empty($_POST['faveb'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $title = $_SESSION['breakfast'];
   $user = $_SESSION['username'];
   $sql = "INSERT INTO UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
   $results = mysqli_query($mysqli, $sql);
-  // if ($results) {
-  //   echo "succeeded";
-  // }
-  // else {
-  //   echo "failed";
-  // }
+}
+
+if (!empty($_POST['favel'])) {
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $title = $_SESSION['lunch'];
+  $user = $_SESSION['username'];
+  $sql = "INSERT INTO UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
+  $results = mysqli_query($mysqli, $sql);
+}
+
+if (!empty($_POST['faved'])) {
+  $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+  $title = $_SESSION['dinner'];
+  $user = $_SESSION['username'];
+  $sql = "INSERT INTO UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
+  $results = mysqli_query($mysqli, $sql);
 }
 // if($_POST){
 //     if(isset($_POST['testb'])){
@@ -238,7 +248,7 @@ VERSION : 1.1
       findBreakfast();
     ?>
     <form action='dailyplan.php' method="GET">
-      <input type="submit" class="button" name="fave" id="fave" value="Favorite" /><br/>
+      <input type="submit" class="button" name="faveb" id="faveb" value="Favorite" /><br/>
     </form>
   </div>
 
@@ -275,7 +285,7 @@ VERSION : 1.1
       findLunch();
     ?>
     <form action='dailyplan.php' method="GET">
-      <input type="submit" class="button" name="fave" id="fave" value="Favorite" /><br/>
+      <input type="submit" class="button" name="favel" id="favel" value="Favorite" /><br/>
     </form>
   </div>
   <div class="column3">
@@ -310,7 +320,7 @@ VERSION : 1.1
       findDinner();
     ?>
     <form action='dailyplan.php' method="GET">
-      <input type="submit" class="button" name="fave" id="fave" value="Favorite" /><br/>
+      <input type="submit" class="button" name="faved" id="faved" value="Favorite" /><br/>
     </form>
   </div>
 </div>
