@@ -100,6 +100,12 @@ VERSION : 1.1
     background-color: #fff;
   }
 
+  .block {
+    height:100px;
+    background-color: #B3B3B3;
+    padding-top: 100px;
+  }
+
   </style>
 
 </head>
@@ -156,8 +162,10 @@ VERSION : 1.1
    <!-- [/NAV]
  ============================================================================================================================-->
 <div class="row">
+  <div class="block">
 
   </div>
+</div>
 </div>
 
 	<!-- [ DEFAULT SCRIPT ] -->
