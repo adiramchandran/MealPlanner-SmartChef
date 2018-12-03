@@ -283,7 +283,6 @@ VERSION : 1.1
       $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.35 from User where id=$id) and calories > (select Cal_per_day*0.45 from User where id=$id) and MealType = 'D'";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
-          if ($row["MealType"] == 'D' and $row["calories"] <= $_SESSION['numCalories']*0.4) {
             $_SESSION["dinner"] = $row["title"];
             echo "<div id=deleted>";
             echo "Dinner: " . $_SESSION['numCalories']*0.4;
