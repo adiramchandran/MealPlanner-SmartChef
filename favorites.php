@@ -34,7 +34,7 @@ if (!empty($_POST['unfave'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $title = $_POST['title'];
   $user = $_SESSION['username'];
-  $sql = "DELETE FROM UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
+  $sql = "DELETE FROM UserFavorites WHERE Username = '$user' AND  RecipeName = '$title'";
   $results = mysqli_query($mysqli, $sql);
 }
 
@@ -259,16 +259,6 @@ VERSION : 1.1
     }
      ?>
   <section>
-
-
-    <form align="center" action="favorites.php" method="post">
-      <input type="hidden" name="title" id="title" value="$row["title"]">
-      <input class="button" type="Submit" name="unfave" value="Unfavorite Recipe"></button>
-    </form>
-
-
-
-
 </div>
 </div>
 
