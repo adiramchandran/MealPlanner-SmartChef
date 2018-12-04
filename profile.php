@@ -35,7 +35,21 @@ if (!empty($_POST['showMetrics'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $result = mysqli_query($mysqli, $sql);
   if(mysqli_num_rows($result) > 0) {
-    $_SESSION['search_out'] = "Shit worked";
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "Username: " . $row["Username"];
+        echo "Height: " . $row["Height"];
+        echo "Weight: " . $row["Weight"];
+        echo "Age: " . $row["Age"];
+        echo "Weight Change Per Week (lbs): " . $row["Weight_per_wk"];
+        echo "Lifestyle Rating " . $row["Lifestyle"];
+        if ($row["Gender"] == 1){
+          echo "Gender: Male";
+        }
+        else{
+          echo "Gender: Female";
+        }
+        
+    }
     
   }
   else {
