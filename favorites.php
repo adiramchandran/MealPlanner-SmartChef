@@ -203,12 +203,12 @@ VERSION : 1.1
   <div class="search-container" style="float:center;">
     <form action="favorites.php" method="post">
       <input type="text" placeholder="Search.." name="search">
-      <input type="submit" name="search"><i class="fa fa-search"></i></button>
+      <input type="submit" name="filter"><i class="fa fa-search"></i></button>
     </form>
   </div>
   <section>
     <?php
-    if (!empty($_POST['search'])) {
+    if (!empty($_POST['filter'])) {
       $mealType = $_POST['search'];
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
