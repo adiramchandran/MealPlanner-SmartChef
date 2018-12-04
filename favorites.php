@@ -200,9 +200,14 @@ VERSION : 1.1
   <div class="block">
     <h1>Your Favorites</h1>
   </div>
-  <div class="search-container" style="float:center;">
+  <div class="search-container" style="float:center; color:black;">
     <form action="favorites.php" method="post">
-      <input type="text" placeholder="Search.." name="search">
+      <input type="text" placeholder="Search.." name="search" list="meal">
+      <datalist id="meal">
+        <option type="text" value="B">
+        <option type="text" value="L">
+          <option type="text" value="D">
+      </datalist>
       <input type="submit" name="filter"><i class="fa fa-search"></i></button>
     </form>
   </div>
