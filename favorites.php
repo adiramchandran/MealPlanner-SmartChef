@@ -106,7 +106,8 @@ VERSION : 1.1
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
+    margin-top: 20px;
   }
   .column1 {
     height:800px;
