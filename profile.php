@@ -174,7 +174,7 @@ if (!empty($_POST['deleteAccount'])) {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <a class="navbar-brand" href="index.html">SAUCY CHEF<span class="black"></span></a>
+            <a class="navbar-brand" href="landingpage.php">SAUCY CHEF<span class="black"></span></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
