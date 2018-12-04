@@ -96,8 +96,9 @@ if (!empty($_POST['deleteAccount'])) {
   $usernameID = $_POST['username'];
   $password = $_POST['password'];
   $sql = "DELETE FROM User WHERE Username = "."'$usernameID'"."AND Password = "."'$password'";
+  $sql_fk = "DELETE FROM UserFavorites WHERE Username = "."'$username'"."";
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  if(mysqli_query($mysqli, $sql) === true) {
+  if(mysqli_query($mysqli, $sql_fk) == true mysqli_query($mysqli, $sql) === true) {
     $_SESSION['delete_out'] = "Your account has been deleted";
     header("Location: http://www.teamsaauuwwce.web.illinois.edu/index.html");
   }
