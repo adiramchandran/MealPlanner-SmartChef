@@ -234,7 +234,7 @@ VERSION : 1.1
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 20px;
   }
   .column1 {
     height:800px;
@@ -261,6 +261,10 @@ VERSION : 1.1
     float: left;
     padding-right: 15px;
     background-color: #a9867f;
+  }
+
+  h1 {
+    margin-top: 10px;
   }
   </style>
 
