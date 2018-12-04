@@ -204,13 +204,13 @@ VERSION : 1.1
   </div>
   <div class="search-container" style="float:center; color:black;">
     <form action="favorites.php" method="post">
-      <input type="text" placeholder="Search.." name="search" list="meal">
+      <input type="text" placeholder="Filter by Meal" name="search" list="meal">
       <datalist id="meal">
         <option type="text" value="B">
         <option type="text" value="L">
           <option type="text" value="D">
       </datalist>
-      <input type="submit" name="filter"><i class="fa fa-search"></i></button>
+      <input class="button" type="Submit" name="filter"></button>
     </form>
   </div>
   <section>
