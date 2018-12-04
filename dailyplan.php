@@ -217,7 +217,7 @@ VERSION : 1.1
     height:800px;
     text-align:center;
     width: 33.33%;
-    padding-top: 100px;
+    padding-top: 130px;
     float: left;
     background-color: #B3B3B3;
   }
@@ -225,7 +225,7 @@ VERSION : 1.1
     height:800px;
     text-align:center;
     width: 33.33%;
-    padding-top: 100px;
+    padding-top: 130px;
     float: left;
     background-color:#76b852;
   }
@@ -233,7 +233,7 @@ VERSION : 1.1
     height:800px;
     text-align:center;
     width: 33.33%;
-    padding-top: 100px;
+    padding-top: 130px;
     float: left;
     background-color: #a9867f;
   }
@@ -279,12 +279,11 @@ VERSION : 1.1
           <ul class="nav navbar-nav navbar-right">
             <li><a href="landingpage.php" class="page-scroll">Home</a></li>
             <li><a href="profile.php" class="page-scroll">My Profile</a></li>
-            <li><a href="dailyplan.php" class="page-scroll">Weekly Plan</a></li>
+            <li><a href="dailyplan.php" class="page-scroll">Daily Plan</a></li>
             <li><a href="favorites.php" class="page-scroll">Favorites</a></li>
             <li><a href="similar.php" class="page-scroll">Similar Users</a></li>
             <li><a>Welcome, <?php echo $_SESSION['username'];?>!</a>
             <li><a href="logout.php" class="page-scroll">Logout</a></li>
-            <li><a href="#contact" class="page-scroll" id="contacts"><i class="fa fa-send"></i></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -304,7 +303,7 @@ VERSION : 1.1
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["breakfast"] = $row["title"];
             echo "<div id=deletel>";
-            echo "Breakfast: " . $_SESSION['numCalories']*0.4;
+            echo "Target Breakfast Calorie Count: " . $_SESSION['numCalories']*0.4 . " calories";
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
@@ -332,7 +331,7 @@ VERSION : 1.1
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["breakfast"] = $row["title"];
             echo "<div id=deletel>";
-            echo "Breakfast: " . $_SESSION['numCalories']*0.4;
+            echo "Target Breakfast Calorie Count: " . $_SESSION['numCalories']*0.4 . " calories";
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
@@ -371,7 +370,7 @@ VERSION : 1.1
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["lunch"] = $row["title"];
             echo "<div id=deletel>";
-            echo "Lunch: " . $_SESSION['numCalories']*0.4;
+            echo "Target Lunch Calorie Count: " . $_SESSION['numCalories']*0.4 . " calories";
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
@@ -399,7 +398,7 @@ VERSION : 1.1
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["lunch"] = $row["title"];
             echo "<div id=deletel>";
-            echo "Lunch: " . $_SESSION['numCalories']*0.4;
+            echo "Target Lunch Calorie Count: " . $_SESSION['numCalories']*0.4 . " calories";
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
@@ -437,7 +436,7 @@ VERSION : 1.1
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["dinner"] = $row["title"];
             echo "<div id=deletel>";
-            echo "Dinner: " . $_SESSION['numCalories']*0.4;
+            echo "Target Dinner Calorie Count: " . $_SESSION['numCalories']*0.4 . " calories";
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
@@ -465,7 +464,7 @@ VERSION : 1.1
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["dinner"] = $row["title"];
             echo "<div id=deletel>";
-            echo "Dinner: " . $_SESSION['numCalories']*0.4;
+            echo "Target Dinner Calorie Count: " . $_SESSION['numCalories']*0.4 . " calories";
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
