@@ -217,7 +217,7 @@ if (!empty($_POST['deleteAccount'])) {
 
    <!-- Section for updating user information-->
   <section class="metrics">
-    <form style="margin-top:80px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form style="margin-top:40px;}" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['insert_out'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height (in inches)" name="height" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight (in pounds)" name="weight" required />
@@ -244,7 +244,7 @@ if (!empty($_POST['deleteAccount'])) {
 
   <!-- Section for deleting user-->
   <section class="metrics">
-    <form style="margin-top:80px;" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form style="margin-top:40px;" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['delete_out'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Username" name="username" required />
       <input style="color:#000000;" this.style.color='#000000' type="password" placeholder="Password" name="password" required />
