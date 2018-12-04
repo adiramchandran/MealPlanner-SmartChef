@@ -3,7 +3,6 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
     session_cache_limiter("public");
 }
 session_start();
-
 function listFavorites() {
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
@@ -26,7 +25,6 @@ function listFavorites() {
   }
   mysqli_close($mysqli);
 }
-
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $title = $_SESSION['breakfast'];
@@ -126,7 +124,6 @@ VERSION : 1.1
     float: left;
     background-color: #333;
   }
-
   .row {
     height:100%;
     border-right: 175px solid #262626;
@@ -134,19 +131,16 @@ VERSION : 1.1
     border-color: #76b852;
     background-color: #fff;
   }
-
   .block {
     height:250px;
     background-color: #B3B3B3;
     border-bottom-color: #257525;
     border-bottom: 5px;
   }
-
   h1 {
     padding-left: 50px;
     padding-top: 150px;
   }
-
   </style>
 
 </head>
@@ -206,20 +200,19 @@ VERSION : 1.1
   <div class="block">
     <h1>Your Favorites</h1>
   </div>
-  <div class="search-container" style="float:center; color:black">
+  <div class="search-container" style="float:center;">
     <form action="favorites.php" method="post">
-      <input type="text" placeholder="Filter by Meal Type" name="mealT" list="meal">
-      <input type="submit" name="filter"></button>
+      <input type="text" placeholder="Search.." name="search">
+      <input type="submit" name="search"><i class="fa fa-search"></i></button>
     </form>
   </div>
   <section>
     <?php
-    if (!empty($_POST['filter'])) {
-      $mealType = $_POST['mealT'];
+    if (!empty($_POST['search'])) {
       $mealType = $_POST['search'];
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where MealType = "."'$mealType'"." and Username="."'$user'";
+      $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where MealType = '$mealType' and Username="."'$user'";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
             echo "<div class='box-one'>";
