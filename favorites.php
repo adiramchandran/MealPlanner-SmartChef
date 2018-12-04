@@ -25,13 +25,15 @@ function listFavorites() {
   }
   mysqli_close($mysqli);
 }
-if($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+if (!empty($_POST['unfave'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  $title = $_SESSION['breakfast'];
-  $id = $_SESSION['user_id'];
-  $sql = "Delete from UserFavorites (ID, RecipeName) " . " VALUES ('$id', '$title')";
+  $title = $_POST['title'];
+  $user = $_SESSION['username'];
+  $sql = "DELETE FROM UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
   $results = mysqli_query($mysqli, $sql);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -240,6 +242,10 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<form align="center" action="favorites.php" method="post">
+              <input type="hidden" name="title" id="title" value="' . $row["title"] . '">
+              <input class="button" type="Submit" name="unfave" value="Unfavorite Recipe"></button>
+            </form>';
             echo "</div>";
       }
       mysqli_close($mysqli);
@@ -249,6 +255,16 @@ VERSION : 1.1
     }
      ?>
   <section>
+
+
+    <form align="center" action="favorites.php" method="post">
+      <input type="hidden" name="title" id="title" value="$row["title"]">
+      <input class="button" type="Submit" name="unfave" value="Unfavorite Recipe"></button>
+    </form>
+
+
+
+
 </div>
 </div>
 
