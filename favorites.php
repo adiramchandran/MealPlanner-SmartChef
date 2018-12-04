@@ -228,8 +228,8 @@ VERSION : 1.1
   </div>
   <div class="search-container" style="float:center; color:black;">
     <form align="center" action="favorites.php" method="post">
-      <input type="text" style="padding-top:8px; padding-bottom:8px; text-align:center; margin-top: 20px; margin-bottom: 20px;" placeholder="Lower Calorie Bound" name="lower">
-      <input type="text" style="padding-top:8px; padding-bottom:8px; text-align:center; margin-top: 20px; margin-bottom: 20px;" placeholder="Upper Calorie Bound" name="upper" >
+      <input type="number" style="padding-top:8px; padding-bottom:8px; text-align:center; margin-top: 20px; margin-bottom: 20px;" placeholder="Lower Calorie Bound" name="lower">
+      <input type="number" style="padding-top:8px; padding-bottom:8px; text-align:center; margin-top: 20px; margin-bottom: 20px;" placeholder="Upper Calorie Bound" name="upper" >
       <input class="button" type="Submit" name="range"></button>
     </form>
   </div>
@@ -240,6 +240,34 @@ VERSION : 1.1
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT distinct * FROM RecipeList left join UserFavorites on title=RecipeName where MealType = '$mealType' and Username="."'$user'";
+      $results = mysqli_query($mysqli, $sql);
+      while ($row = mysqli_fetch_assoc($results)) {
+            echo "<div class='box-one'>";
+            echo "<h2>" . $row["title"] . "</h2>";
+            echo '<br>';
+            echo "Calories: " . $row["calories"];
+            echo '<br>';
+            echo "Fat: " . $row["fat"] . " grams";
+            echo '<br>';
+            echo "Protein: " . $row["protein"] . " grams";
+            echo '<br>';
+            echo "Carbohydrates: " . $row["carbs"] . " grams";
+            echo '<br>';
+            echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<form align="center" action="favorites.php" method="post">
+              <input type="hidden" name="title" id="title" value="' . $row["title"] . '">
+              <input class="button" type="Submit" name="unfave" value="Unfavorite Recipe"></button>
+            </form>';
+            echo "</div>";
+      }
+      mysqli_close($mysqli);
+    }
+    else if (!empty($_POST['range'])) {
+      $lower = $_POST['lower'];
+      $upper = $_POST['upper'];
+      $user = $_SESSION['username'];
+      $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+      $sql = "SELECT * FROM UserRecipes JOIN RecipeList ON RecipeName = title WHERE calories > $lower AND calories <= $upper";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
             echo "<div class='box-one'>";
