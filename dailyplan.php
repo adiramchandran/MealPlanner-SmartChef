@@ -3,10 +3,6 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
     session_cache_limiter("public");
 }
 session_start();
-
-
-
-
 function findBreakfast() {
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
@@ -33,7 +29,6 @@ function findBreakfast() {
   }
   mysqli_close($mysqli);
 }
-
 function findLunch() {
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
@@ -62,7 +57,6 @@ function findLunch() {
   }
   mysqli_close($mysqli);
 }
-
 function findDinner() {
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
@@ -91,7 +85,6 @@ function findDinner() {
   }
   mysqli_close($mysqli);
 }
-
 if (!empty($_POST['faveb'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $title = $_SESSION['breakfast'];
@@ -99,7 +92,6 @@ if (!empty($_POST['faveb'])) {
   $sql = "INSERT INTO UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
   $results = mysqli_query($mysqli, $sql);
 }
-
 if (!empty($_POST['favel'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $title = $_SESSION['lunch'];
@@ -107,7 +99,6 @@ if (!empty($_POST['favel'])) {
   $sql = "INSERT INTO UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
   $results = mysqli_query($mysqli, $sql);
 }
-
 if (!empty($_POST['faved'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $title = $_SESSION['dinner'];
@@ -187,7 +178,6 @@ VERSION : 1.1
        $("#deleteb").load("dailyplan.php")
     })
   })
-
   </script> -->
 
         <!-- [ DEFAULT STYLESHEET ]
@@ -289,7 +279,7 @@ VERSION : 1.1
           <ul class="nav navbar-nav navbar-right">
             <li><a href="landingpage.php" class="page-scroll">Home</a></li>
             <li><a href="profile.php" class="page-scroll">My Profile</a></li>
-            <li><a href="dailyplan.php" class="page-scroll">Daily Plan</a></li>
+            <li><a href="dailyplan.php" class="page-scroll">Weekly Plan</a></li>
             <li><a href="favorites.php" class="page-scroll">Favorites</a></li>
             <li><a>Welcome, <?php echo $_SESSION['username'];?>!</a>
             <li><a href="logout.php" class="page-scroll">Logout</a></li>
@@ -332,7 +322,6 @@ VERSION : 1.1
             break;
       }
       mysqli_close($mysqli);
-
     }
     else if (isset($_SESSION['breakfast'])) {
       $breakfast = $_SESSION['breakfast'];
@@ -400,7 +389,6 @@ VERSION : 1.1
             break;
       }
       mysqli_close($mysqli);
-
     }
     else if (isset($_SESSION['lunch'])) {
       $lunch = $_SESSION['lunch'];
@@ -467,7 +455,6 @@ VERSION : 1.1
             break;
       }
       mysqli_close($mysqli);
-
     }
     else if (isset($_SESSION['dinner'])) {
       $dinner = $_SESSION['dinner'];
