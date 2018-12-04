@@ -312,7 +312,7 @@ VERSION : 1.1
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["breakfast"] = $row["title"];
             echo "<div id=deletel>";
-            echo "Target Breakfast Calories: " . $_SESSION['numCalories']*0.4 . " calories";
+            echo "Target Breakfast Calories: " . $_SESSION['numCalories']*0.2 . " calories";
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
@@ -344,7 +344,7 @@ VERSION : 1.1
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["breakfast"] = $row["title"];
             echo "<div id=deletel>";
-            echo "Target Breakfast Calories: " . $_SESSION['numCalories']*0.4 . " calories";
+            echo "Target Breakfast Calories: " . $_SESSION['numCalories']*0.2 . " calories";
             echo "<h1>" . $row["title"] . "</h1>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
