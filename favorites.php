@@ -221,13 +221,13 @@ VERSION : 1.1
     <?php
     if (!empty($_POST['filter'])) {
       echo $_POST['mealT'];
-      if ($_POST['mealT'] === "Breakfast") {
+      if (strcmp($_POST['mealT'],"Breakfast") == 0) {
         $mealType = 'B';
       }
-      else if ($_POST['mealT'] === "Lunch") {
+      if (strcmp($_POST['mealT'],"Lunch") == 0) {
         $mealType = 'L';
       }
-      else if ($_POST['mealT'] === "Dinner") {
+      else if (strcmp($_POST['mealT'],"Dinner") == 0) {
         $mealType = 'D';
       }
       $mealType = $_POST['search'];
