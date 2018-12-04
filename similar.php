@@ -64,7 +64,7 @@ VERSION : 1.1
   padding-top: 10px;
   }
   .box-three {
-  background:black;
+  background:#a9867f;
   padding-top: 20px;
   padding-bottom: 20px;
   }
@@ -178,9 +178,6 @@ VERSION : 1.1
 <div class="row">
   <div class="block">
     <h1>Similar Users</h1>
-    <form action='dailyplan.php' method="POST">
-      <input type="submit" align="right" class="button" name="similar" id="similar" value="Next Similar User" /><br/>
-    </form>
   </div>
   <<?php
   $username = $_SESSION['username'];
