@@ -11,7 +11,7 @@ function findBreakfast() {
   while ($row = mysqli_fetch_assoc($results)) {
         $_SESSION["breakfast"] = $row["title"];
         echo "<div id=deleteb>";
-        echo "Target Breakfast Calories: " . $_SESSION['numCalories']*0.2 . "calories";
+        echo "Target Breakfast Calories: " . $_SESSION['numCalories']*0.2 . " calories";
         echo "<h1>" . $row["title"] . "</h1>";
         echo '<br>';
         echo "Calories: " . $row["calories"];
@@ -23,7 +23,7 @@ function findBreakfast() {
         echo "Carbohydrates: " . $row["carbs"] . " grams";
         echo '<br>';
         echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
-        // echo '<input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>';
+        echo '<input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>';
         echo "</div>";
         break;
   }
