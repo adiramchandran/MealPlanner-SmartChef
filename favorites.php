@@ -235,7 +235,7 @@ VERSION : 1.1
   </div>
   <div>
     <form align="center" action="#" method="post" style="float:center; color:black;">
-      <button onclick="#" value="Remove Filters" name="refresh"></button>
+      <button onclick="#" value="Remove Filters" name="refresh">Remove Filters</button>
     </form>
   </div>
   <section>
