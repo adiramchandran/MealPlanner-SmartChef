@@ -218,7 +218,7 @@ VERSION : 1.1
 
   .divider{
     height:5px;
-    height:auto;
+    width:auto;
     display:inline-block;
   }
 
