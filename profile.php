@@ -36,7 +36,7 @@ if (!empty($_POST['showMetrics'])) {
   $result = mysqli_query($mysqli, $sql);
   if(mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
-      $_SESSION['search_out'] = $row["Age"];
+      $_SESSION['search_out'] = "Username: " . $row["Username"];
         echo "Username: " . $row["Username"];
         echo "Height: " . $row["Height"];
         echo "Weight: " . $row["Weight"];
