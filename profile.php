@@ -33,7 +33,8 @@ if (!empty($_POST['showMetrics'])) {
   $passwordMets = $_POST['passwordMets'];
   $sql = "SELECT * FROM User WHERE Username = "."'$usernameMets'"." AND Password = "."'$passwordMets'";
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  if(mysqli_query($mysqli, $sql) === true) {
+  $result = mysqli_query($mysqli, $sql);
+  if(mysqli_num_rows($result) > 0) {
     $_SESSION['search_out'] = "Shit worked";
     
   }
