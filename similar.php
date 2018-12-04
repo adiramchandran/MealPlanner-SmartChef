@@ -43,6 +43,7 @@ VERSION : 1.1
   <style>
   form {
     text-align: right;
+    padding-right: 10px;
   }
   .box-one,.box-two,.box-three {
   width:100%;
