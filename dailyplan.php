@@ -103,6 +103,7 @@ if (!empty($_POST['faveb'])) {
   $user = $_SESSION['username'];
   $sql = "INSERT INTO UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
   $results = mysqli_query($mysqli, $sql);
+  $_SESSION['messageb'] = "Recipe Favorited!";
 }
 if (!empty($_POST['favel'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
@@ -110,6 +111,7 @@ if (!empty($_POST['favel'])) {
   $user = $_SESSION['username'];
   $sql = "INSERT INTO UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
   $results = mysqli_query($mysqli, $sql);
+  $_SESSION['messagel'] = "Recipe Favorited!";
 }
 if (!empty($_POST['faved'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
@@ -117,6 +119,7 @@ if (!empty($_POST['faved'])) {
   $user = $_SESSION['username'];
   $sql = "INSERT INTO UserFavorites (Username, RecipeName) " . " VALUES ('$user', '$title')";
   $results = mysqli_query($mysqli, $sql);
+  $_SESSION['messaged'] = "Recipe Favorited!";
 }
 // if($_POST){
 //     if(isset($_POST['testb'])){
@@ -392,6 +395,7 @@ VERSION : 1.1
     <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="faveb" id="faveb" value="Favorite" /><br/>
     </form>
+    <div style="margin-top:10px;" class="alert alert-error"><?= $_SESSION['messageb'] ?></div>
   </div>
 
   <div class="column2">
@@ -467,6 +471,7 @@ VERSION : 1.1
     <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="favel" id="favel" value="Favorite" /><br/>
     </form>
+    <div style="margin-top:10px;" class="alert alert-error"><?= $_SESSION['messagel'] ?></div>
   </div>
   <div class="column3">
     <?php
@@ -541,6 +546,7 @@ VERSION : 1.1
     <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="faved" id="faved" value="Favorite" /><br/>
     </form>
+    <div style="margin-top:10px;" class="alert alert-error"><?= $_SESSION['messaged'] ?></div>
   </div>
 </div>
 
