@@ -203,7 +203,7 @@ VERSION : 1.1
     <h1>Your Favorites</h1>
   </div>
   <div class="search-container" style="float:center; color:black;">
-    <form action="favorites.php" method="post">
+    <form align="center" action="favorites.php" method="post">
       <input type="text" placeholder="Filter by Meal" name="search" list="meal">
       <datalist id="meal">
         <option type="text" value="B">
