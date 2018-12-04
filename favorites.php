@@ -108,6 +108,7 @@ VERSION : 1.1
     display: inline-block;
     font-size: 18px;
     margin-top: 20px;
+    margin-bottom: 15px;
   }
   .column1 {
     height:800px;
