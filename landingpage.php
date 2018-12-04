@@ -133,22 +133,6 @@ VERSION : 1.1
 
  <!-- [FOOTER]
 =============================================================================================================================-->
- <footer class="footer">
-
-					<div class="container">
-						<div class="footer-info col-md-12 text-center">
-							<ul>
-							</ul>
-						</div>
-						<div class="footer-social-icons col-md-12 text-center">
-							<ul>
-							</ul>
-						</div>
-					</div>
-
-
-
- </footer>
 
  <section class="sub-footer">
 					<div class="container">
