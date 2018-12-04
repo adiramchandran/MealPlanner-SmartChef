@@ -230,9 +230,7 @@ VERSION : 1.1
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    font-size: 18px;
     margin-top: 20px;
   }
   .column1 {
