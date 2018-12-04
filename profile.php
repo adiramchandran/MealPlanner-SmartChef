@@ -206,7 +206,7 @@ if (!empty($_POST['deleteAccount'])) {
 =============================================================================================================================-->
 
   <section class="metrics">
-    <form style="margin-top:80px;" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form style="margin-top:120px;" class="form" action="profile.php" method="post" enctype="multipart/form-data" autocomplete="off">
       <div class="alert alert-error"><font color="black"><?= $_SESSION['search_out'] ?></font></div>
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Username" name="usernameMets" required />
       <input style="color:#000000;" this.style.color='#000000' type="password" placeholder="Password" name="passwordMets" required />
