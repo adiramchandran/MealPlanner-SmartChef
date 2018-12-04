@@ -233,7 +233,6 @@ VERSION : 1.1
     font-size: 16px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-radius: 5px;
     margin-top: 20px;
   }
   .column1 {
