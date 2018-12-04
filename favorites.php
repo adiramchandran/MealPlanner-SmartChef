@@ -226,6 +226,13 @@ VERSION : 1.1
       <input class="button" type="Submit" name="filter"></button>
     </form>
   </div>
+  <div class="search-container" style="float:center; color:black;">
+    <form align="center" action="favorites.php" method="post">
+      <input type="text" style="padding-top:8px; padding-bottom:8px; text-align:center; margin-top: 20px; margin-bottom: 20px;" placeholder="Lower Calorie Bound" name="lower">
+      <input type="text" style="padding-top:8px; padding-bottom:8px; text-align:center; margin-top: 20px; margin-bottom: 20px;" placeholder="Upper Calorie Bound" name="upper" >
+      <input class="button" type="Submit" name="range"></button>
+    </form>
+  </div>
   <section>
     <?php
     if (!empty($_POST['filter'])) {
