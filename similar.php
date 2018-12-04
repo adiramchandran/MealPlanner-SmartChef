@@ -54,7 +54,7 @@ VERSION : 1.1
   padding-bottom: 20px;
   border-color: #e7e7e7;
   color: black;
-  padding-top: 20px; 
+  padding-top: 20px;
   /* padding-bottom: 10px;
   padding-top: 10px; */
   }
@@ -194,12 +194,12 @@ VERSION : 1.1
   while ($row = mysqli_fetch_assoc($results)) {
         if ($row["Username"] != $_SESSION['similar']) {
           echo "<div class='box-three'>";
-          echo "<h2>" . $row["Username"] . "</h2>";
+          echo "<h3>" . $row["Username"] . "</h3>";
           echo "</div>";
         }
         $_SESSION['similar'] = $row["Username"];
         echo "<div class='box-one'>";
-        echo "<h1>" . $row["title"] . "</h1>";
+        echo "<h2>" . $row["title"] . "</h2>";
         echo '<br>';
         echo "Calories: " . $row["calories"];
         echo '<br>';
