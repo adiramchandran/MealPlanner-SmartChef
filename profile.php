@@ -35,13 +35,11 @@ if (!empty($_POST['showMetrics'])) {
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $result = mysqli_query($mysqli, $sql);
   if(mysqli_num_rows($result) > 0) {
-    // $_SESSION['search_out'] = "Shit worked";
-    echo "not fucked"
+    $_SESSION['search_out'] = "Shit worked";
     
   }
   else {
-    // $_SESSION['search_out'] = "Shit did not work";
-    echo "Fucked"
+    $_SESSION['search_out'] = "Shit did not work";
   }
 
   mysqli_close($mysqli);
