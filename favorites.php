@@ -75,7 +75,7 @@ VERSION : 1.1
   text-align:center;
   }
   .box-one {
-  background:white;
+  background:#a9867f;
   padding-top: 20px;
   padding-bottom: 20px;
   border-bottom: 10px;
@@ -208,7 +208,6 @@ VERSION : 1.1
   <div class="block">
     <h1>Your Favorites</h1>
   </div>
-  <div class="block1">
   <div class="search-container" style="float:center; color:black;">
     <form align="center" action="favorites.php" method="post">
       <input type="text" style="padding-top:8px; padding-bottom:8px; text-align:center; margin-top: 20px; margin-bottom: 20px;" placeholder="Filter by Meal" name="search" list="meal">
@@ -220,7 +219,6 @@ VERSION : 1.1
       <input class="button" type="Submit" name="filter"></button>
     </form>
   </div>
-</div>
   <section>
     <?php
     if (!empty($_POST['filter'])) {
