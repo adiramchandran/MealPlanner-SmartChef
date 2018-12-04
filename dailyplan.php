@@ -23,7 +23,11 @@ function findBreakfast() {
         echo "Carbohydrates: " . $row["carbs"] . " grams";
         echo '<br>';
         echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+        echo '<div clas="divider">';
+        echo '</div>';
         echo '<input type="submit" class="button" name="testb" id="testb" value="Shuffle" /><br/>';
+        echo '<div clas="divider">';
+        echo '</div>';
         echo "</div>";
         break;
   }
@@ -49,9 +53,13 @@ function findLunch() {
         echo "Carbohydrates: " . $row["carbs"] . " grams";
         echo '<br>';
         echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+        echo '<div clas="divider">';
+        echo '</div>';
         echo '<form action="dailyplan.php" method="post">
           <input type="submit" class="button" name="shufflel" id="shufflel" value="Shuffle" /><br/>
         </form>';
+        echo '<div clas="divider">';
+        echo '</div>';
         echo '</div>';
         break;
   }
@@ -77,9 +85,13 @@ function findDinner() {
         echo "Carbohydrates: " . $row["carbs"] . " grams";
         echo '<br>';
         echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+        echo '<div clas="divider">';
+        echo '</div>';
         echo '<form action="dailyplan.php" method="post">
           <input type="submit" class="button" name="shuffled" id="shuffled" value="Shuffle" /><br/>
         </form>';
+        echo '<div clas="divider">';
+        echo '</div>';
         echo '</div>';
         break;
   }
@@ -203,6 +215,13 @@ VERSION : 1.1
   .box-three {
   background:hotpink;
   }
+
+  .divider{
+    height:5px;
+    height:auto;
+    display:inline-block;
+  }
+
   .button {
     background-color: #e7e7e7;
     border: none;
@@ -320,9 +339,13 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '<form action="dailyplan.php" method="post">
               <input type="submit" class="button" name="shuffleb" id="shuffleb" value="Shuffle" /><br/>
             </form>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '</div>';
             break;
       }
@@ -348,9 +371,13 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '<form action="dailyplan.php" method="post">
               <input type="submit" class="button" name="shuffleb" id="shuffleb" value="Shuffle" /><br/>
             </form>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '</div>';
             break;
       }
@@ -387,9 +414,13 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '<form action="dailyplan.php" method="post">
               <input type="submit" class="button" name="shufflel" id="shufflel" value="Shuffle" /><br/>
             </form>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '</div>';
             break;
       }
@@ -415,9 +446,13 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '<form action="dailyplan.php" method="post">
               <input type="submit" class="button" name="shufflel" id="shufflel" value="Shuffle" /><br/>
             </form>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '</div>';
             break;
       }
@@ -453,9 +488,13 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '<form action="dailyplan.php" method="post">
               <input type="submit" class="button" name="shuffled" id="shuffled" value="Shuffle" /><br/>
             </form>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '</div>';
             break;
       }
@@ -481,9 +520,13 @@ VERSION : 1.1
             echo "Carbohydrates: " . $row["carbs"] . " grams";
             echo '<br>';
             echo '<button class=button target="_blank" onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '<form action="dailyplan.php" method="post">
               <input type="submit" class="button" name="shuffled" id="shuffled" value="Shuffle" /><br/>
             </form>';
+            echo '<div clas="divider">';
+            echo '</div>';
             echo '</div>';
             break;
       }
