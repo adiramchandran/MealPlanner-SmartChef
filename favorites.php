@@ -223,7 +223,7 @@ VERSION : 1.1
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
             echo "<div class='box-one'>";
-            echo "<h1>" . $row["title"] . "</h1>";
+            echo "<h2>" . $row["title"] . "</h2>";
             echo '<br>';
             echo "Calories: " . $row["calories"];
             echo '<br>';
