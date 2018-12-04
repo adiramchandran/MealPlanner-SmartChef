@@ -208,7 +208,7 @@ VERSION : 1.1
   </div>
   <div class="search-container" style="float:center; color:black">
     <form action="favorites.php" method="post">
-      <input type="text" placeholder="Filter by Meal Type" name="search" list="meal">
+      <input type="text" placeholder="Filter by Meal Type" name="mealT" list="meal">
       <datalist id="meal">
         <option type="text" value="Breakfast">
         <option type="text" value="Lunch">
@@ -220,14 +220,14 @@ VERSION : 1.1
   <section>
     <?php
     if (!empty($_POST['filter'])) {
-      echo $_POST['search'];
-      if ($_POST['search'] == 'Breakfast') {
+      echo $_POST['mealT'];
+      if ($_POST['mealT'] == "Breakfast") {
         $mealType = 'B';
       }
-      else if ($_POST['search'] == 'Lunch') {
+      else if ($_POST['mealT'] == "Lunch") {
         $mealType = 'L';
       }
-      else if ($_POST['search'] == 'Dinner') {
+      else if ($_POST['mealT'] == "Dinner") {
         $mealType = 'D';
       }
       $mealType = $_POST['search'];
