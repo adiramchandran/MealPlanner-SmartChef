@@ -63,7 +63,7 @@ VERSION : 1.1
   padding-top: 10px;
   }
   .box-three {
-  background:hotpink;
+  background:#e7e7e7;
   }
   .button {
     background-color: #e7e7e7;
@@ -189,11 +189,13 @@ VERSION : 1.1
   $results = mysqli_query($mysqli, $sql);
   $_SESSION['similar'] = "";
   while ($row = mysqli_fetch_assoc($results)) {
-        echo "<div class='box-one'>";
         if ($row["Username"] != $_SESSION['similar']) {
+          echo "<div class='box-three'>";
           echo "<h1>" . $row["Username"] . "</h1>";
+          echo "</div>";
         }
         $_SESSION['similar'] = $row["Username"];
+        echo "<div class='box-one'>";
         echo "<h1>" . $row["title"] . "</h1>";
         echo '<br>';
         echo "Calories: " . $row["calories"];
