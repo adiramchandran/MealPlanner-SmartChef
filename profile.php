@@ -6,7 +6,7 @@ session_start();
 $_SESSION['insert_out'] = "";
 $_SESSION['update_out'] = "";
 $_SESSION['delete_out'] = "";
-$_SESSION['search_out'] = "";
+$_SESSION['search_out'] = "Find your current metrics!";
 $con = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 // $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //
