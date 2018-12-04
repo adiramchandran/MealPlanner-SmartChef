@@ -36,13 +36,15 @@ if (!empty($_POST['showMetrics'])) {
   $result = mysqli_query($mysqli, $sql);
   if(mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
-      $_SESSION['search_out'] = "Username: " . $row["Username"] . "\n<br />". "Height: " . $row["Height"] . "\n<br />" . "Weight: " . $row["Weight"] . "\n<br />" . "Age: " . $row["Age"] . "\n<br />" . "Weight Change Per Week (lbs): " . $row["Weight_per_wk"] . "\n<br />". "Lifestyle Rating " . $row["Lifestyle"];
-        if ($row["Gender"] == 1){
-          echo "Gender: Male";
+      if ($row["Gender"] == 1){
+          $gender = "Gender: Male";
         }
         else{
-          echo "Gender: Female";
+          $gender = "Gender: Female";
         }
+
+      $_SESSION['search_out'] = "Username: " . $row["Username"] . "\n<br />". "Height: " . $row["Height"] . "\n<br />" . "Weight: " . $row["Weight"] . "\n<br />" . "Age: " . $row["Age"] . "\n<br />" . "Weight Change Per Week (lbs): " . $row["Weight_per_wk"] . "\n<br />". "Lifestyle Rating " . $row["Lifestyle"] . "\n<br />". "$gender$";
+        
         
 
     }
