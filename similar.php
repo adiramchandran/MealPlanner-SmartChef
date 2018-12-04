@@ -41,6 +41,9 @@ VERSION : 1.1
         <link rel="stylesheet" type="text/css" href="css/responsive.css">
 	<link rel="stylesheet" type="text/css" href="css/color/green.css">
   <style>
+  form {
+    text-align: right;
+  }
   .box-one,.box-two,.box-three {
   width:100%;
   text-align:center;
@@ -172,7 +175,7 @@ VERSION : 1.1
   <div class="block">
     <h1>Similar Users</h1>
     <form action='dailyplan.php' method="POST">
-      <input type="submit" align="right" class="button" name="Next Similar User" id="similar" value="similar" /><br/>
+      <input type="submit" align="right" class="button" name="similar" id="similar" value="Next Similar User" /><br/>
     </form>
   </div>
   <section>
