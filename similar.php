@@ -54,6 +54,7 @@ VERSION : 1.1
   padding-bottom: 20px;
   border-color: #e7e7e7;
   color: black;
+  padding-top: 20px; 
   /* padding-bottom: 10px;
   padding-top: 10px; */
   }
