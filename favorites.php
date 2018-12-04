@@ -80,7 +80,7 @@ VERSION : 1.1
   padding-bottom: 20px;
   border-bottom: 10px;
   border-color: #e7e7e7;
-  color: black;
+  color: white;
   /* padding-bottom: 10px;
   padding-top: 10px; */
   }
