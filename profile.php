@@ -42,18 +42,13 @@ if (!empty($_POST['showMetrics'])) {
         else{
           $gender = "Gender: Female";
         }
-
       $_SESSION['search_out'] = "Username: " . $row["Username"] . "\n<br />". "Height: " . $row["Height"] . " inches" . "\n<br />" . "Weight: " . $row["Weight"] . " lbs" . "\n<br />" . "Age: " . $row["Age"] . " years" . "\n<br />" . "Weight Change Per Week: " . $row["Weight_per_wk"] . "lbs " . "\n<br />". "Lifestyle Rating: " . $row["Lifestyle"] . "\n<br />". "$gender";
-
-
-
     }
 
   }
   else {
-    $_SESSION['search_out'] = "Shit did not work";
+    $_SESSION['search_out'] = "Oops! Something went wrong.";
   }
-
   mysqli_close($mysqli);
 }
 
@@ -221,8 +216,8 @@ if (!empty($_POST['deleteAccount'])) {
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height (in inches)" name="height" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight (in pounds)" name="weight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age (in years)" name="age" required />
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week" name="weight_per_wk" required />
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle (1-5, increasing level of activity)" name="lifestyle" list="lifestyle" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week (lbs)" name="weight_per_wk" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle (increasing level of activity)" name="lifestyle" list="lifestyle" required />
         <datalist id="lifestyle">
           <option type="text" value="1">
           <option type="text" value="2">
