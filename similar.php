@@ -3,6 +3,31 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
     session_cache_limiter("public");
 }
 session_start();
+$username = $_SESSION['username'];
+$mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
+$sql = "SELECT Username, title, calories, fat, protein, carbs, MealType FROM UserFavorites JOIN RecipeList
+ON RecipeName = title WHERE Username IN (SELECT Username FROM User
+WHERE Cal_per_day >= 0.90 * ( SELECT Cal_per_day FROM User WHERE Username = '$username')
+AND Cal_per_day <= 1.1 *( SELECT Cal_per_day FROM User WHERE Username = '$username') AND Username <> '$username')";
+$results = mysqli_query($mysqli, $sql);
+while ($row = mysqli_fetch_assoc($results)) {
+      echo "<div class='box-one'>";
+      echo "<h1>" . $row["Username"] . "</h1>";
+      echo "<h1>" . $row["title"] . "</h1>";
+      echo '<br>';
+      echo "Calories: " . $row["calories"];
+      echo '<br>';
+      echo "Fat: " . $row["fat"] . " grams";
+      echo '<br>';
+      echo "Protein: " . $row["protein"] . " grams";
+      echo '<br>';
+      echo "Carbohydrates: " . $row["carbs"] . " grams";
+      echo '<br>';
+      echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+      echo "</div>";
+}
+mysqli_close($mysqli);
+
 ?>
 
 <!DOCTYPE html>
