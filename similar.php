@@ -181,7 +181,7 @@ VERSION : 1.1
   <<?php
   $username = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  $sql = "SELECT Username, title, calories, fat, protein, carbs, MealType FROM UserFavorites JOIN RecipeList
+  $sql = "SELECT Username, url, title, calories, fat, protein, carbs, MealType FROM UserFavorites JOIN RecipeList
   ON RecipeName = title WHERE Username IN (SELECT Username FROM User
   WHERE Cal_per_day >= 0.90 * ( SELECT Cal_per_day FROM User WHERE Username = '$username')
   AND Cal_per_day <= 1.1 *( SELECT Cal_per_day FROM User WHERE Username = '$username') AND Username <> '$username')";
