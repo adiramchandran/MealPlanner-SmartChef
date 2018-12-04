@@ -210,9 +210,9 @@ VERSION : 1.1
     <form action="favorites.php" method="post">
       <input type="text" placeholder="Filter by Meal Type" name="mealT" list="meal">
       <datalist id="meal">
-        <option type="text" value="Breakfast">
-        <option type="text" value="Lunch">
-        <option type="text" value="Dinner">
+        <option type="text" value="B">
+        <option type="text" value="L">
+        <option type="text" value="D">
       </datalist>
       <input type="submit" name="filter"></button>
     </form>
@@ -220,6 +220,7 @@ VERSION : 1.1
   <section>
     <?php
     if (!empty($_POST['filter'])) {
+      $mealType = $_POST['mealT'];
       if (strpos($_POST['mealT'],'Breakfast')) {
         $mealType = 'B';
       }
