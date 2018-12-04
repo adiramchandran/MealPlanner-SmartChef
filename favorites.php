@@ -204,7 +204,7 @@ VERSION : 1.1
   </div>
   <div class="search-container" style="float:center; color:black;">
     <form align="center" action="favorites.php" method="post">
-      <input type="text" align="center" style="padding-top:10px; padding-bottom:10px;" placeholder="Filter by Meal" name="search" list="meal">
+      <input type="text" style="padding-top:8px; padding-bottom:8px; text-align:center" placeholder="Filter by Meal" name="search" list="meal">
       <datalist id="meal">
         <option type="text" value="B">
         <option type="text" value="L">
