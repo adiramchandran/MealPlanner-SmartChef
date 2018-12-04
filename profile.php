@@ -216,7 +216,7 @@ if (!empty($_POST['deleteAccount'])) {
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Height (in inches)" name="height" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Weight (in pounds)" name="weight" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Age (in years)" name="age" required />
-      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week" name="weight_per_wk" required />
+      <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Goal Weight Change Per Week (lbs)" name="weight_per_wk" required />
       <input style="color:#000000;" this.style.color='#000000' type="text" placeholder="Lifestyle (increasing level of activity)" name="lifestyle" list="lifestyle" required />
         <datalist id="lifestyle">
           <option type="text" value="1">
