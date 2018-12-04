@@ -337,7 +337,6 @@ VERSION : 1.1
       mysqli_close($mysqli);
     }
     else if (isset($_SESSION['breakfast'])) {
-      $_SESSION['messageb'] = "";
       $breakfast = $_SESSION['breakfast'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList where title='$breakfast'";
@@ -415,7 +414,6 @@ VERSION : 1.1
       mysqli_close($mysqli);
     }
     else if (isset($_SESSION['lunch'])) {
-      $_SESSION['messagel'] = "";
       $lunch = $_SESSION['lunch'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList where title='$lunch'";
@@ -492,7 +490,6 @@ VERSION : 1.1
       mysqli_close($mysqli);
     }
     else if (isset($_SESSION['dinner'])) {
-      $_SESSION['messaged'] = "";
       $dinner = $_SESSION['dinner'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList where title='$dinner'";
