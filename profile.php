@@ -42,18 +42,13 @@ if (!empty($_POST['showMetrics'])) {
         else{
           $gender = "Gender: Female";
         }
-
       $_SESSION['search_out'] = "Username: " . $row["Username"] . "\n<br />". "Height: " . $row["Height"] . " inches" . "\n<br />" . "Weight: " . $row["Weight"] . " lbs" . "\n<br />" . "Age: " . $row["Age"] . " years" . "\n<br />" . "Weight Change Per Week: " . $row["Weight_per_wk"] . "lbs " . "\n<br />". "Lifestyle Rating: " . $row["Lifestyle"] . "\n<br />". "$gender";
-
-
-
     }
 
   }
   else {
-    $_SESSION['search_out'] = "Shit did not work";
+    $_SESSION['search_out'] = "Oops! Something went wrong.";
   }
-
   mysqli_close($mysqli);
 }
 
