@@ -307,7 +307,7 @@ VERSION : 1.1
       $_SESSION['messageb'] = "";
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'B' order by rand()";
+      $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.25 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.15 from User where Username="."'$user'".") and MealType = 'B' order by rand()";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
             $_SESSION["breakfast"] = $row["title"];
