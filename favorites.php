@@ -209,11 +209,6 @@ VERSION : 1.1
   <div class="search-container" style="float:center; color:black">
     <form action="favorites.php" method="post">
       <input type="text" placeholder="Filter by Meal Type" name="mealT" list="meal">
-      <datalist id="meal">
-        <option type="text" value="B">
-        <option type="text" value="L">
-        <option type="text" value="D">
-      </datalist>
       <input type="submit" name="filter"></button>
     </form>
   </div>
@@ -221,15 +216,6 @@ VERSION : 1.1
     <?php
     if (!empty($_POST['filter'])) {
       $mealType = $_POST['mealT'];
-      if (strpos($_POST['mealT'],'Breakfast')) {
-        $mealType = 'B';
-      }
-      if (strpos($_POST['mealT'],'Lunch')) {
-        $mealType = 'L';
-      }
-      else if (strpos($_POST['mealT'],'Dinner')) {
-        $mealType = 'D';
-      }
       $mealType = $_POST['search'];
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
