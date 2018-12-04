@@ -171,6 +171,9 @@ VERSION : 1.1
 <div class="row">
   <div class="block">
     <h1>Similar Users</h1>
+    <form action='dailyplan.php' method="POST">
+      <input type="submit" align="right" class="button" name="Next Similar User" id="similar" value="similar" /><br/>
+    </form>
   </div>
   <section>
   <section>
