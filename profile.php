@@ -3,10 +3,10 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
     session_cache_limiter("public");
 }
 session_start();
-$_SESSION['insert_out'] = "";
+$_SESSION['insert_out'] = "Update your profile!";
 $_SESSION['update_out'] = "";
-$_SESSION['delete_out'] = "";
-$_SESSION['search_out'] = "";
+$_SESSION['delete_out'] = "Delete your profile!";
+$_SESSION['search_out'] = "Find your current metrics!";
 $con = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 // $link = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
 //
@@ -36,6 +36,7 @@ if (!empty($_POST['showMetrics'])) {
   $result = mysqli_query($mysqli, $sql);
   if(mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
+      $_SESSION['search_out'] = "Username: " . $row["Username"];
         echo "Username: " . $row["Username"];
         echo "Height: " . $row["Height"];
         echo "Weight: " . $row["Weight"];
