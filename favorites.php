@@ -273,7 +273,7 @@ VERSION : 1.1
       $upper = $_POST['upper'];
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-      $sql = "SELECT * FROM UserFavorites JOIN RecipeList ON RecipeName = title WHERE calories > '$lower' AND calories <= '$upper'";
+      $sql = "SELECT * FROM UserFavorites JOIN RecipeList ON RecipeName = title WHERE calories > '$lower' AND calories <= '$upper' and Username='$user'";
       $results = mysqli_query($mysqli, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
             echo "<div class='box-one'>";
