@@ -25,7 +25,9 @@ function findBreakfast() {
         echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
         echo '<div clas="divider">';
         echo '</div>';
-        echo '<input type="submit" class="button" name="shuffleb" id="shuffleb" value="Shuffle" /><br/>';
+        echo '<form action="dailyplan.php" method="post">
+          <input type="submit" class="button" name="shuffleb" id="shuffleb" value="Shuffle" /><br/>
+        </form>';
         echo '<div clas="divider">';
         echo '</div>';
         echo "</div>";
