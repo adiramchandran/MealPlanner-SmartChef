@@ -214,12 +214,13 @@ VERSION : 1.1
         <option type="text" value="Lunch">
         <option type="text" value="Dinner">
       </datalist>
-      <input type="submit" name="filter"><i class="fa fa-search"></i></button>
+      <input type="submit" name="filter"></button>
     </form>
   </div>
   <section>
     <?php
     if (!empty($_POST['filter'])) {
+      echo $_POST['search'];
       if ($_POST['search'] == 'Breakfast') {
         $mealType = 'B';
       }
