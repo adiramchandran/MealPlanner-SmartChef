@@ -63,7 +63,7 @@ VERSION : 1.1
   padding-top: 10px;
   }
   .box-three {
-  background:#e7e7e7;
+  background:black;
   }
   .button {
     background-color: #e7e7e7;
@@ -191,7 +191,7 @@ VERSION : 1.1
   while ($row = mysqli_fetch_assoc($results)) {
         if ($row["Username"] != $_SESSION['similar']) {
           echo "<div class='box-three'>";
-          echo "<h1>" . $row["Username"] . "</h1>";
+          echo "<h2>" . $row["Username"] . "</h2>";
           echo "</div>";
         }
         $_SESSION['similar'] = $row["Username"];
