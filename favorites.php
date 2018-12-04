@@ -206,15 +206,29 @@ VERSION : 1.1
   <div class="block">
     <h1>Your Favorites</h1>
   </div>
-  <div class="search-container" style="float:center;">
+  <div class="search-container" style="float:center; color:black">
     <form action="favorites.php" method="post">
-      <input type="text" placeholder="Search.." name="search">
+      <input type="text" placeholder="Filter by Meal Type" name="search" list="meal">
+      <datalist id="meal">
+        <option type="text" value="Breakfast">
+        <option type="text" value="Lunch">
+        <option type="text" value="Dinner">
+      </datalist>
       <input type="submit" name="filter"><i class="fa fa-search"></i></button>
     </form>
   </div>
   <section>
     <?php
     if (!empty($_POST['filter'])) {
+      if ($_POST['search'] == 'Breakfast') {
+        $mealType = 'B';
+      }
+      else if ($_POST['search'] == 'Lunch') {
+        $mealType = 'L';
+      }
+      else if ($_POST['search'] == 'Dinner') {
+        $mealType = 'D';
+      }
       $mealType = $_POST['search'];
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
