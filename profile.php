@@ -118,7 +118,7 @@ if (!empty($_POST['deleteAccount'])) {
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Saucy Chef</title>
+	<title>My Profile</title>
 
 	<!-- [ FONT-AWESOME ICON ]
         =========================================================================================================================-->
