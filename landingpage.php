@@ -153,10 +153,10 @@ VERSION : 1.1
  <section class="sub-footer">
 					<div class="container">
 						<div class="copyright-text col-md-6 col-sm-6 col-xs-12">
-							<p>© 2014 AM-D. All rights reserved.</p>
+							<p>© 2018. All rights reserved.</p>
 						</div>
 						<div class="designed-by col-md-6 col-sm-6 col-xs-12">
-							<p>Designed by: <a href="#">YOUR PLUGIN</a></p>
+							<p>Designed by: <a href="#">TEAM SAAUUWWCE</a></p>
 						</div>
 					</div>
 				</section>
