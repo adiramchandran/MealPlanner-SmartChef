@@ -139,6 +139,12 @@ VERSION : 1.1
     border-bottom-color: #257525;
     border-bottom: 5px;
   }
+  .block {
+    height:100%;
+    background-color: #a9867f;
+    border-bottom-color: #257525;
+    border-bottom: 5px;
+  }
   h1 {
     padding-left: 50px;
     padding-top: 150px;
