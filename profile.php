@@ -33,12 +33,15 @@ if (!empty($_POST['showMetrics'])) {
   $passwordMets = $_POST['passwordMets'];
   $sql = "SELECT * FROM User WHERE Username = "."'$usernameMets'"." AND Password = "."'$passwordMets'";
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
-  if(mysqli_query($mysqli, $sql) === true) {
-    $_SESSION['search_out'] = "Shit worked";
+  $result = mysqli_query($mysqli, $sql);
+  if(mysqli_num_rows($result) > 0) {
+    // $_SESSION['search_out'] = "Shit worked";
+    echo "not fucked"
     
   }
   else {
-    $_SESSION['search_out'] = "Shit did not work";
+    // $_SESSION['search_out'] = "Shit did not work";
+    echo "Fucked"
   }
 
   mysqli_close($mysqli);
