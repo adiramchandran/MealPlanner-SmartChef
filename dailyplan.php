@@ -395,7 +395,7 @@ VERSION : 1.1
     <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="faveb" id="faveb" value="Favorite" /><br/>
     </form>
-    <div style="margin-top:10px;" class="alert alert-error"><?= $_SESSION['messageb'] ?></div>
+    <div style="margin-top:10px;"><?= $_SESSION['messageb'] ?></div>
   </div>
 
   <div class="column2">
@@ -471,7 +471,7 @@ VERSION : 1.1
     <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="favel" id="favel" value="Favorite" /><br/>
     </form>
-    <div style="margin-top:10px;" class="alert alert-error"><?= $_SESSION['messagel'] ?></div>
+    <div style="margin-top:10px;"><?= $_SESSION['messagel'] ?></div>
   </div>
   <div class="column3">
     <?php
@@ -546,7 +546,7 @@ VERSION : 1.1
     <form action='dailyplan.php' method="POST">
       <input type="submit" class="button" name="faved" id="faved" value="Favorite" /><br/>
     </form>
-    <div style="margin-top:10px;" class="alert alert-error"><?= $_SESSION['messaged'] ?></div>
+    <div style="margin-top:10px;" ><?= $_SESSION['messaged'] ?></div>
   </div>
 </div>
 
