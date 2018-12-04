@@ -51,7 +51,7 @@ VERSION : 1.1
   }
   .box-one {
   background:white;
-  border-bottom: 10px;
+  padding-bottom: 20px;
   border-color: #e7e7e7;
   color: black;
   /* padding-bottom: 10px;
@@ -64,6 +64,8 @@ VERSION : 1.1
   }
   .box-three {
   background:black;
+  padding-top: 20px;
+  padding-bottom: 20px;
   }
   .button {
     background-color: #e7e7e7;
