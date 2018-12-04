@@ -233,6 +233,11 @@ VERSION : 1.1
       <input class="button" type="Submit" name="range"></button>
     </form>
   </div>
+  <div>
+    <form align="center" action="#" method="post">
+      <input class="button" type="Remove Filters" name="refresh"></button>
+    </form>
+  </div>
   <section>
     <?php
     if (!empty($_POST['filter'])) {
