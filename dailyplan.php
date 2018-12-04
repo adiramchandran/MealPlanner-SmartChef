@@ -281,6 +281,7 @@ VERSION : 1.1
             <li><a href="profile.php" class="page-scroll">My Profile</a></li>
             <li><a href="dailyplan.php" class="page-scroll">Weekly Plan</a></li>
             <li><a href="favorites.php" class="page-scroll">Favorites</a></li>
+            <li><a href="similar.php" class="page-scroll">Similar Users</a></li>
             <li><a>Welcome, <?php echo $_SESSION['username'];?>!</a>
             <li><a href="logout.php" class="page-scroll">Logout</a></li>
             <li><a href="#contact" class="page-scroll" id="contacts"><i class="fa fa-send"></i></a></li>

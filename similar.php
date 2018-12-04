@@ -3,7 +3,6 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
     session_cache_limiter("public");
 }
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -19,15 +18,15 @@ VERSION : 1.1
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Saucy Chef</title>
+	<title>Similar Users</title>
 
 	<!-- [ FONT-AWESOME ICON ]
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
-
 	<!-- [ PLUGIN STYLESHEET ]
         =========================================================================================================================-->
 	<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
         <link rel ="stylesheet" type="text/css" href="library/vegas/vegas.min.css">
@@ -41,6 +40,79 @@ VERSION : 1.1
 	<link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/responsive.css">
 	<link rel="stylesheet" type="text/css" href="css/color/green.css">
+  <style>
+  .box-one,.box-two,.box-three {
+  width:100%;
+  text-align:center;
+  }
+  .box-one {
+  background:white;
+  border-bottom: 10px;
+  border-color: #e7e7e7;
+  color: black;
+  /* padding-bottom: 10px;
+  padding-top: 10px; */
+  }
+  .box-two {
+  background:black;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  }
+  .box-three {
+  background:hotpink;
+  }
+  .button {
+    background-color: #e7e7e7;
+    border: none;
+    color: black;
+    padding: 10px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  .column1 {
+    height:800px;
+    text-align:center;
+    width: 33.33%;
+    padding-top: 100px;
+    float: left;
+    background-color: #B3B3B3;
+  }
+  .column2 {
+    height:800px;
+    text-align:center;
+    width: 33.33%;
+    padding-top: 100px;
+    float: left;
+    background-color: #262626;
+  }
+  .column3 {
+    height:800px;
+    text-align:center;
+    width: 33.33%;
+    padding-top: 100px;
+    float: left;
+    background-color: #333;
+  }
+  .row {
+    height:100%;
+    border-right: 175px solid #262626;
+    border-left: 175px solid #262626;
+    border-color: #76b852;
+    background-color: #fff;
+  }
+  .block {
+    height:250px;
+    background-color: #B3B3B3;
+    border-bottom-color: #257525;
+    border-bottom: 5px;
+  }
+  h1 {
+    padding-left: 50px;
+    padding-top: 150px;
+  }
+  </style>
 
 </head>
 <body >
@@ -80,11 +152,11 @@ VERSION : 1.1
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#home" class="page-scroll">Home</a></li>
+            <li><a href="landingpage.php" class="page-scroll">Home</a></li>
             <li><a href="profile.php" class="page-scroll">My Profile</a></li>
             <li><a href="dailyplan.php" class="page-scroll">Daily Plan</a></li>
             <li><a href="favorites.php" class="page-scroll">Favorites</a></li>
-						<li><a href="similar.php" class="page-scroll">Similar Users</a></li>
+            <li><a href="similar.php" class="page-scroll">Similar Users</a></li>
             <li><a>Welcome, <?php echo $_SESSION['username'];?>!</a>
             <li><a href="logout.php" class="page-scroll">Logout</a></li>
             <li><a href="#contact" class="page-scroll" id="contacts"><i class="fa fa-send"></i></a></li>
@@ -96,88 +168,14 @@ VERSION : 1.1
 
    <!-- [/NAV]
  ============================================================================================================================-->
-
-
-
-
-
-  <!-- [MAIN GALLERY ]
-=============================================================================================================================-->
-  <section class="main-gallery" id="home">
-    <div class="overlay">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12 text-center">
-                 <h1 class="text-capitalize bigFont" data-scroll-reveal="wait 0.45s, then enter top and move 80px over 1s">Welcome to Saucy Chef</h1>
-
-                <p class="intro" data-scroll-reveal="wait 0.45s, then enter left and move 80px over 1s">Open yourself to all the possibilities for an easy and healthy lifestyle.</p>
-              </div>
-
-              <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                        <div class="text-center top40">
-													<a href="profile.php" class=" btn btns theme_background_color white fadeInLeft">Edit Profile</a>
-													<a href="dailyplan.php" class="btn btns white-background themecolor fadeInDown">View Daily Plan</a>
-													<a href="favorites.php" class=" btn btns theme_background_color white fadeInRight">Browse Favorites</a>
-														<!--
-                            <a href="#" class=" btn btns theme_background_color white fadeInLeft">Google Play</a>
-                            <a href="#" class="btn btns black-background white fadeInRight">Signup Free</a> -->
-
-                        </div>
-                    </div>
-
-          </div>
-      </div>
-    </div>
-
-  </section>
-
-
- <!-- [FOOTER]
-=============================================================================================================================-->
- <footer class="footer">
-
-					<div class="container">
-						<div class="footer-info col-md-12 text-center">
-							<ul>
-							</ul>
-						</div>
-						<div class="footer-social-icons col-md-12 text-center">
-							<ul>
-							</ul>
-						</div>
-					</div>
-
-
-
- </footer>
-
- <section class="sub-footer">
-					<div class="container">
-						<div class="copyright-text col-md-6 col-sm-6 col-xs-12">
-							<p>© 2014 AM-D. All rights reserved.</p>
-						</div>
-						<div class="designed-by col-md-6 col-sm-6 col-xs-12">
-							<p>Designed by: <a href="#">YOUR PLUGIN</a></p>
-						</div>
-					</div>
-				</section>
-
- <!-- [/FOOTER]
-=============================================================================================================================-->
-
-
-
-
-
-
-
-
-
+<div class="row">
+  <div class="block">
+    <h1>Similar Users</h1>
+  </div>
+  <section>
+  <section>
 </div>
-
-
-<!-- [ /WRAPPER ]
-=============================================================================================================================-->
+</div>
 
 	<!-- [ DEFAULT SCRIPT ] -->
 	<script src="library/modernizr.custom.97074.js"></script>
