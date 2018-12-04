@@ -4,7 +4,7 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
 }
 session_start();
 $_SESSION['insert_out'] = "Update your profile!";
-$_SESSION['update_out'] = "";
+$_SESSION['update_out'] = "WHERE IS THIS SHIT";
 $_SESSION['delete_out'] = "Delete your profile!";
 $_SESSION['search_out'] = "Find your current metrics!";
 $con = new mysqli("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
