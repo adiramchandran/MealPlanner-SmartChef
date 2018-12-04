@@ -234,9 +234,7 @@ VERSION : 1.1
     </form>
   </div>
   <div>
-    <form align="center" action="#" method="post">
-      <input class="button" type="Remove Filters" name="refresh"></button>
-    </form>
+      <button class="button" onclick="#" name="refresh"></button>
   </div>
   <section>
     <?php
