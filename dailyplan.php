@@ -4,7 +4,6 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
 }
 session_start();
 function findBreakfast() {
-  $_SESSION['messageb'] = "";
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.25 from User where Username=" . "'$user'" . ") and calories > (select Cal_per_day*0.15 from User where Username=" . "'$user'" .") and MealType = 'B'";
@@ -35,7 +34,6 @@ function findBreakfast() {
   mysqli_close($mysqli);
 }
 function findLunch() {
-  $_SESSION['messagel'] = "";
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'L'";
@@ -68,7 +66,6 @@ function findLunch() {
   mysqli_close($mysqli);
 }
 function findDinner() {
-  $_SESSION['messaged'] = "";
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'D'";
