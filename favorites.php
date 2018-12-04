@@ -220,14 +220,13 @@ VERSION : 1.1
   <section>
     <?php
     if (!empty($_POST['filter'])) {
-      echo $_POST['mealT'];
-      if (strcmp($_POST['mealT'],"Breakfast") == 0) {
+      if (strcmp($_POST['mealT'],'Breakfast') == 0) {
         $mealType = 'B';
       }
-      if (strcmp($_POST['mealT'],"Lunch") == 0) {
+      if (strcmp($_POST['mealT'],'Lunch') == 0) {
         $mealType = 'L';
       }
-      else if (strcmp($_POST['mealT'],"Dinner") == 0) {
+      else if (strcmp($_POST['mealT'],'Dinner') == 0) {
         $mealType = 'D';
       }
       $mealType = $_POST['search'];
