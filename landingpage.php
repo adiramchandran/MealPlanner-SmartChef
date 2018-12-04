@@ -87,7 +87,6 @@ VERSION : 1.1
 						<li><a href="similar.php" class="page-scroll">Similar Users</a></li>
             <li><a>Welcome, <?php echo $_SESSION['username'];?>!</a>
             <li><a href="logout.php" class="page-scroll">Logout</a></li>
-            <li><a href="#contact" class="page-scroll" id="contacts"><i class="fa fa-send"></i></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

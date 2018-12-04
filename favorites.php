@@ -76,6 +76,8 @@ VERSION : 1.1
   }
   .box-one {
   background:white;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-bottom: 10px;
   border-color: #e7e7e7;
   color: black;
