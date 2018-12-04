@@ -50,8 +50,7 @@ if (!empty($_POST['showMetrics'])) {
           echo "Gender: Female";
         }
         */
-        echo "Username: " . $row["Username"]
-        "Height: " . $row["Height"];
+        echo "Username: " . $row["Username"] . "\n" "Height: " . $row["Height"];
 
     }
     
