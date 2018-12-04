@@ -234,6 +234,7 @@ VERSION : 1.1
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 5px;
+    margin-top: 5px;
   }
   .column1 {
     height:800px;
