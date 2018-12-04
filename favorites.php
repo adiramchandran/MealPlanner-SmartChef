@@ -21,6 +21,10 @@ function listFavorites() {
         echo "Carbohydrates: " . $row["carbs"] . " grams";
         echo '<br>';
         echo '<button target="_blank" class=button onclick="window.location.href=\'' . $row["url"] . '\'">View Recipe Now</button>';
+        echo '<form align="center" action="favorites.php" method="post">
+          <input type="hidden" name="title" id="title" value="' . $row["title"] . '">
+          <input class="button" type="Submit" name="unfave" value="Unfavorite Recipe"></button>
+        </form>';
         echo "</div>";
   }
   mysqli_close($mysqli);
