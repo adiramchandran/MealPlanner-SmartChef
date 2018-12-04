@@ -189,9 +189,8 @@ VERSION : 1.1
   $results = mysqli_query($mysqli, $sql);
   $_SESSION['similar'] = "";
   while ($row = mysqli_fetch_assoc($results)) {
-        $object = $row->fetch_object();
         echo "<div class='box-one'>";
-        if ($object->Username != $_SESSION['similar']) {
+        if ($row["Username"] != $_SESSION['similar']) {
           echo "<h1>" . $row["Username"] . "</h1>";
         }
         $_SESSION['similar'] = $row["Username"];
