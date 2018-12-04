@@ -4,6 +4,7 @@ if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
 }
 session_start();
 function findBreakfast() {
+  $_SESSION['messageb'] = "";
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.25 from User where Username=" . "'$user'" . ") and calories > (select Cal_per_day*0.15 from User where Username=" . "'$user'" .") and MealType = 'B'";
@@ -34,6 +35,7 @@ function findBreakfast() {
   mysqli_close($mysqli);
 }
 function findLunch() {
+  $_SESSION['messagel'] = "";
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'L'";
@@ -66,6 +68,7 @@ function findLunch() {
   mysqli_close($mysqli);
 }
 function findDinner() {
+  $_SESSION['messaged'] = "";
   $user = $_SESSION['username'];
   $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
   $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'D'";
@@ -121,28 +124,7 @@ if (!empty($_POST['faved'])) {
   $results = mysqli_query($mysqli, $sql);
   $_SESSION['messaged'] = "Recipe Favorited!";
 }
-// if($_POST){
-//     if(isset($_POST['testb'])){
-//         findBreakfast();
-//     }elseif(isset($_POST['testl'])){
-//         findLunch();
-//     }
-//     elseif(isset($_POST['testd'])){
-//         findDinner();
-//     }
-// }
-// if(array_key_exists('testb',$_POST)){
-//   removeFunction("deleteb");
-//   findBreakfast();
-// }
-// if(array_key_exists('testl',$_POST)){
-//   removeFunction("deletel");
-//   findLunch();
-// }
-// if(array_key_exists('testd',$_POST)){
-//   removeFunction("deleted");
-//   findLunch();
-// }
+
 ?>
 
 <!DOCTYPE html>
@@ -325,6 +307,7 @@ VERSION : 1.1
   <div class="column1">
     <?php
     if (!empty($_POST['shuffleb'])) {
+      $_SESSION['messageb'] = "";
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'B' order by rand()";
@@ -357,6 +340,7 @@ VERSION : 1.1
       mysqli_close($mysqli);
     }
     else if (isset($_SESSION['breakfast'])) {
+      $_SESSION['messageb'] = "";
       $breakfast = $_SESSION['breakfast'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList where title='$breakfast'";
@@ -401,6 +385,7 @@ VERSION : 1.1
   <div class="column2">
     <?php
     if (!empty($_POST['shufflel'])) {
+      $_SESSION['messagel'] = "";
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'L' order by rand()";
@@ -433,6 +418,7 @@ VERSION : 1.1
       mysqli_close($mysqli);
     }
     else if (isset($_SESSION['lunch'])) {
+      $_SESSION['messagel'] = "";
       $lunch = $_SESSION['lunch'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList where title='$lunch'";
@@ -476,6 +462,7 @@ VERSION : 1.1
   <div class="column3">
     <?php
     if (!empty($_POST['shuffled'])) {
+      $_SESSION['messaged'] = "";
       $user = $_SESSION['username'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList where calories < (select Cal_per_day*0.45 from User where Username="."'$user'".") and calories > (select Cal_per_day*0.35 from User where Username="."'$user'".") and MealType = 'D' order by rand()";
@@ -508,6 +495,7 @@ VERSION : 1.1
       mysqli_close($mysqli);
     }
     else if (isset($_SESSION['dinner'])) {
+      $_SESSION['messaged'] = "";
       $dinner = $_SESSION['dinner'];
       $mysqli = mysqli_connect("127.0.0.1", "teamsaauuwwce_teamsauce", "Teamsauce", "teamsaauuwwce_tempdatabase");
       $sql = "SELECT * FROM RecipeList where title='$dinner'";
