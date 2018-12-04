@@ -214,12 +214,14 @@ VERSION : 1.1
     font-size: 16px;
     padding-top: 5px;
     padding-bottom: 5px;
+    border-radius: 5px;
   }
   .column1 {
     height:800px;
     text-align:center;
     width: 33.33%;
     padding-top: 130px;
+    padding-left: 15px;
     float: left;
     background-color: #B3B3B3;
   }
@@ -237,6 +239,7 @@ VERSION : 1.1
     width: 33.33%;
     padding-top: 130px;
     float: left;
+    padding-right: 15px;
     background-color: #a9867f;
   }
   </style>
